@@ -1,0 +1,8 @@
+/* line 2, ../sass/header.scss */
+.header #logo_box {
+  float: left;
+}
+/* line 5, ../sass/header.scss */
+.header #menu_box {
+  float: right;
+}

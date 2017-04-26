@@ -1,0 +1,359 @@
+{% load static %}
+<!doctype html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	
+		<title>Carre Distribution</title>
+
+		<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+
+		<!-- Fonts and icons -->
+		<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Herr+Von+Muellerhoff" rel="stylesheet"> 
+
+		<!-- CSS Files -->
+    	<link href="{% static 'carre_app/css/bootstrap.css' %}" rel="stylesheet" />
+    	<link href="{% static 'carre_app/css/bootstrap.min.css' %}" rel="stylesheet" />
+    	<link href="{% static 'carre_app/css/bootstrap-grid.css' %}" rel="stylesheet" />
+    	<link href="{% static 'carre_app/css/bootstrap-grid.min.css' %}" rel="stylesheet" />
+    	<link href="{% static 'carre_app/css/bootstrap-reboot.css' %}" rel="stylesheet" />
+    	<link href="{% static 'carre_app/css/bootstrap-reboot.min.css' %}" rel="stylesheet" />
+    	<link href="{% static 'carre_app/css/carousel.css' %}" rel="stylesheet" />
+
+    	<!-- SCSS Files -->
+    	<link href="{% static 'carre_app/css/main.css' %}" rel="stylesheet" />
+    </head>
+
+	<body>
+		<div class="container-fluid">
+			<!-- header beginning -->
+			<header class="header">
+				<div class="container">
+					<nav class="navbar navbar-toggleable-md navbar-light">
+						<div class="collapse navbar-collapse">
+						    <ul class="navbar-nav mr-auto menu_elements_top">
+							    <li class="nav-item dropdown">
+									<a type="button" class="btn nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">
+										<span data-toggle="dropdown-toggle">Entreprise</span>
+									</a>
+									<div class="dropdown-menu">
+										<a class="dropdown-item" href="#"><span>Marque Carré</span></a>
+										<a class="dropdown-item" href="#"><span>Vidéo Corporative</span></a>
+									</div>
+								</li>
+								<li class="nav-item dropdown">
+									<a type="button" class="btn nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">
+										<span data-toggle="dropdown-toggle">Téléchargement</span>
+									</a>
+									<div class="dropdown-menu">
+										<a class="dropdown-item" href="#"><span>Catalogue</span></a>
+										<a class="dropdown-item" href="#"><span>Chaîne Youtube</span></a>
+									</div>
+								</li>
+								<li class="nav-item dropdown">
+									<a type="button" class="btn nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">
+										<span data-toggle="dropdown-toggle">Contact</span>
+									</a>
+									<div class="dropdown-menu">
+										<a class="dropdown-item" href="#"><span>Adresses Et Télephones</span></a>
+										<a class="dropdown-item" href="#"><span>Carré GPS</span></a>
+										<a class="dropdown-item" href="#"><span>Contactez-Nous !</span></a>
+									</div>
+								</li>
+						    </ul>
+						    <ul class="navbar-nav social_media">
+								<li class="nav-item">
+									<a href="#" class="nav-link align-middle">
+										FR
+									</a>
+								</li>
+								<li class="nav-item">
+									<a href="#" class="nav-link align-middle">
+										EN
+									</a>
+								</li>
+						    </ul>
+					  	</div>
+					</nav>
+					<hr>
+					<nav class="navbar navbar-toggleable-md navbar-light">
+						<a class="navbar-brand" href="#">
+						    <img src="{% static 'carre_app/media/logo.png' %}" width="50" height="70">
+					  	</a>
+						<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					  		<ul class="navbar-nav ml-auto social_media">
+								<li class="nav-item">
+									<a href="#" class="nav-link align-middle">
+										<i class="fa fa-twitter-square align-middle" aria-hidden="true"></i>
+									</a>
+								</li>
+								<li class="nav-item">
+									<a href="#" class="nav-link align-middle">
+										<i class="fa fa-facebook-official align-middle" aria-hidden="true"></i>
+									</a>
+								</li>
+								<li class="nav-item">
+									<a href="#" class="nav-link align-middle">
+										<i class="fa fa-instagram align-middle" aria-hidden="true"></i>
+									</a>
+								</li>
+						    </ul>
+						</div>
+					</nav>
+					<nav class="navbar navbar-toggleable-md navbar-light">
+						<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						    <span class="navbar-toggler-icon"></span>
+						</button>
+						<div class="collapse navbar-collapse navbarSupportedContent_class" id="navbarSupportedContent">
+						    <ul class="navbar-nav mr-auto menu_elements">
+							    <li class="nav-item">
+									<a type="button" class="btn nav-link active" href="#">
+										<span>Sanitaire</span>
+									</a>
+								</li>
+								<li class="nav-item">
+									<a type="button" class="btn  nav-link" href="#">
+										<span>Baignoires & Receveurs</span>
+									</a>
+								</li>
+								<li class="nav-item">
+									<a type="button" class="btn  nav-link" href="#">
+										<span>Miroirs</span>
+									</a>
+								</li>
+								<li class="nav-item">
+									<a type="button" class="btn  nav-link" href="#">
+										<span>Meubles S.D.B.</span>
+									</a>
+								</li>
+								<li class="nav-item">
+									<a type="button" class="btn  nav-link" href="#">
+										<span>Eviers en Inox</span>
+									</a>
+								</li>
+								<li class="nav-item">
+									<a type="button" class="btn  nav-link" href="#">
+										<span>Eviers en Inox</span>
+									</a>
+								</li>
+								<li class="nav-item">
+									<a type="button" class="btn  nav-link" href="#">
+										<span>Robinetterie</span>
+									</a>
+								</li>
+								<li class="nav-item">
+									<a type="button" class="btn  nav-link" href="#">
+										<span>Accessoires S.D.B.</span>
+									</a>
+								</li>
+						    </ul>
+					  	</div>
+					</nav>
+				</div>
+			</header>
+			<!-- header ending -->
+
+			<!-- first section beginning -->
+			<section class="first_section">
+				<div class="container">
+					<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+					  <div class="carousel-inner" role="listbox">
+					    <div class="carousel-item active">
+					      <img class="d-block img-fluid" src="..." alt="First slide">
+					    </div>
+					    <div class="carousel-item">
+					      <img class="d-block img-fluid" src="..." alt="Second slide">
+					    </div>
+					    <div class="carousel-item">
+					      <img class="d-block img-fluid" src="..." alt="Third slide">
+					    </div>
+					  </div>
+					</div>
+				</div>
+			</section>
+			<!-- first section ending -->
+
+			<!-- second section beginning -->
+			<section class="second_section">
+				<div class="container">
+					<div class="row">
+						<div class="row row-offcanvas row-offcanvas-right">
+
+					        <div class="col-12 col-md-9">
+					          	<h3>A Lire</h3>
+					          	<div class="row">
+					            	<div class="col-6 col-lg-4">
+					              		<h4>Heading</h4>
+					              		<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+					              		<p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
+					            	</div>
+						            <div class="col-6 col-lg-4">
+							            <h4>Heading</h4>
+							            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+							            <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
+						            </div>
+						            <div class="col-6 col-lg-4">
+						              	<h4>Heading</h4>
+						              	<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+						              	<p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
+						            </div>
+						            <div class="col-6 col-lg-4">
+						              	<h4>Heading</h4>
+						              	<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+						              	<p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
+						            </div>
+						            <div class="col-6 col-lg-4">
+						              	<h4>Heading</h4>
+						              	<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+						              	<p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
+						            </div>
+						            <div class="col-6 col-lg-4">
+						              	<h4>Heading</h4>
+						              	<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+						              	<p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
+						            </div>
+					          </div>
+					        </div>
+
+					        <div class="col-6 col-md-3 sidebar-offcanvas" id="sidebar">
+					          	<h3>Nouvelles</h3>
+					          	<div class="list-group">
+						            <a href="#" class="list-group-item active">Link</a>
+						            <a href="#" class="list-group-item">Link</a>
+						            <a href="#" class="list-group-item">Link</a>
+						            <a href="#" class="list-group-item">Link</a>
+						        </div>
+					        </div>
+					      </div>
+					</div>
+				</div>
+			</section>
+			<!-- second section ending -->
+
+			<!-- footer beginning -->
+			<footer class="footer">
+				<div class="container">
+					<img src="">
+					<div id="top_footer" class="row">
+						<div id="contact_info" class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+							<h4>Contact Info</h4>
+							<div class="row">
+								<div class="columns col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+									<p>1, Boulevard Bir Anzarane</p>
+									<p>Meknès - Maroc</p>
+								</div>
+								<div id="second_column" class="columns col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+									<p><strong>Phone</strong> : +212 (0) 535 528 881</p>
+									<p><strong>FAX</strong> : +212 (0) 535 528 882</p>
+									<p><strong>Email</strong> : contact@zenith.net.ma</p>
+								</div>
+							</div>
+						</div>
+						<div id="navigation" class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+							<h4>Navigation</h4>
+							<div class="row">
+								<div id="first_navigation_column" class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+									<ul>
+										<li><a href="#">Accueil</a></li>
+										<li><a href="#">Reservation</a></li>
+										<li><a href="#">Menus</a></li>
+										<li><a href="#">Salle des Fêtes</a></li>
+										<li><a href="#">Réunions & Meetings</a></li>
+									</ul>
+								</div>
+								<div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+									<ul>
+										<li><u><strong>Restaurants</strong></u></li>
+										<li><a href="#">Le Chateau</a></li>
+										<li><a href="#">International</a></li>
+										<li><a href="#">Lounge</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div id="nous_contactez" class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5">
+							<h4>Nous Contactez</h4>
+							<!-- content goes here -->
+				            <form accept-charset="UTF-8"  id="contactSubmit" action="https://formspree.io/zakariaeboutaleb@gmail.com" method="POST">{% csrf_token %}
+				              	<div class="row">
+				              		<div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+					                	<input type="email" class="form-control" name="_replyto" id="exampleInputEmail1" placeholder="Adresse Mail">
+					            	</div>
+				              	</div>
+					            <div class="row">
+					            	<div id="last_name" class="form-group col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+					                	<input type="name" class="form-control" name="first_name" id="exampleInputName1" placeholder="Nom">
+					              	</div>
+					              	<div id="first_name" class="form-group col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+					                	<input type="name" class="form-control" name="last_name" id="exampleInputName2" placeholder="Prénom">
+					              	</div>
+					            </div>
+					            <div class="row">
+					            	<div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+					                	<input type="name" class="form-control" name="subject" id="exampleInputSujet" placeholder="Sujet">
+					              	</div>
+					            </div>
+				              	<div class="row">
+				              		<div id="message_content" class="form-group col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9">
+					                	<textarea class="form-control" name="message" id="exampleInputMessage" placeholder="Message..."></textarea>
+					              	</div>
+					              	<div id="message_submit" class="form-group col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+					              		<button type="submit" class="btn btn-default">Envoyer</button>
+					              	</div>
+				              	</div>
+				            </form>
+
+						</div>
+					</div>
+					<div id="bottom_footer" class="row">
+						<div id="follow_us" class="pull-left col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+							<nav class="navbar navbar-toggleable-md navbar-light">
+								<div class="collapse navbar-collapse" id="navbarSupportedContent">
+									<ul class="navbar-nav social_media">
+										<li class="nav-item" id="follow_us_label">
+											<label class="nav-link align-middle">Follow Us On </label>
+										</li>
+										<li class="nav-item">
+											<a href="#" class="nav-link align-middle">
+												<i class="fa fa-twitter-square align-middle" aria-hidden="true"></i>
+											</a>
+										</li>
+										<li class="nav-item">
+											<a href="#" class="nav-link align-middle">
+												<i class="fa fa-facebook-official align-middle" aria-hidden="true"></i>
+											</a>
+										</li>
+										<li class="nav-item">
+											<a href="#" class="nav-link align-middle">
+												<i class="fa fa-instagram align-middle" aria-hidden="true"></i>
+											</a>
+										</li>
+								    </ul>
+								</div>
+						    </nav>
+						</div>
+						<div id="copyright" class="pull-right col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+							<span class="align-middle">Copyright &copy; 2017, Tous les droits sont réservés  <img src="{% static 'carre_app/media/logo.png' %}"></span>
+						</div>
+					</div>
+
+				</div>
+			</footer>
+			<!-- footer ending -->
+		</div>
+	</body>
+	<!--   Core JS Files   -->
+	<script src="{% static 'carre_app/js/jquery-3.2.1.js' %}" type="text/javascript"></script>
+	<script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+	<script src="{% static 'carre_app/js/bootstrap.min.js' %}" type="text/javascript"></script>
+	<script src="{% static 'carre_app/js/bootstrap.js' %}" type="text/javascript"></script>
+	<script type="text/javascript">
+	$(document).ready(function() {
+	    $('.dropdown-toggle').dropdown()
+	});
+	</script>
+	<script src="https://use.fontawesome.com/f61b4ca99d.js"></script>
+	<script type="text/javascript" src="{% static 'carre_app/js/app.js' %}"></script>
+</html>

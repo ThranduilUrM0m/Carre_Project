@@ -52,6 +52,30 @@ def index_baignoiresetreceveurs(request):
 
 def index_miroirs(request):
 	context = {
-		'name': 'index_'
+		'name': 'index_miroirs'
 	}
-	return render(request, 'carre_app/index_', context)
+	return render(request, 'carre_app/index_miroirs', context)
+
+def index_meubles(request):
+	context = {
+		'name': 'index_meubles'
+	}
+	return render(request, 'carre_app/index_meubles', context)
+
+def index_eviers(request):
+	context = {
+		'name': 'index_eviers'
+	}
+	return render(request, 'carre_app/index_eviers', context)
+
+def index_robinetterie(request):
+	context = {
+		'name': 'index_robinetterie'
+	}
+	return render(request, 'carre_app/index_robinetterie', context)
+
+def index_accessoires(request):
+	context = {
+		'name': 'index_accessoires'
+	}
+	return render(request, 'carre_app/index_accessoires', context)

@@ -1,0 +1,22 @@
+$font-stack: 'Montserrat', sans-serif;
+$bg-color: #c9f5fe;
+$bg-color-rgba: rgba(225, 220, 226, 0.2);
+$bg-color-black: #030101;
+
+body * {
+  	font-family: $font-stack;
+}
+body{
+	background-color: $bg-color;
+	padding : 0;
+	.container-fluid{
+  		padding: 0;
+  	}
+}
+
+@import 'header';
+@import 'firstsection';
+@import 'secondsection';
+@import 'thirdsection';
+@import 'fourthsection';
+@import 'footer';

@@ -1,0 +1,15 @@
+.first_section{
+	.container{
+		height: 100%;
+		#carouselExampleSlidesOnly{
+			padding: 0rem 1rem;
+			margin-bottom: 0;
+			.carousel-item{
+				height: 27rem;
+				img {
+				    height: 27rem;
+				}
+			}
+		}
+	}
+}

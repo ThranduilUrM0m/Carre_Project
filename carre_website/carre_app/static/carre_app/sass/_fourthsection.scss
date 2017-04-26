@@ -1,0 +1,24 @@
+.fourth_section{
+	height: 100vh;
+	.container-fluid{
+		height: 100%;
+		.row{
+			width: 100%;
+		}
+		h1{
+			text-align: center;
+			width: 100%;
+			font-family: 'Herr Von Muellerhoff', cursive;
+			font-size: 2.5em;
+			margin: 0;
+		}
+		video{
+			width: 80%;
+			margin: 0px auto;
+		}
+		i{
+			font-family: 'Herr Von Muellerhoff', cursive;
+			font-size: 2em;
+		}
+	}
+}
