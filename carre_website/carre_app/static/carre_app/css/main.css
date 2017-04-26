@@ -1,14 +1,14 @@
-/* line 6, ../sass/main.scss */
+/* line 7, ../sass/main.scss */
 body * {
   font-family: "Montserrat", sans-serif;
 }
 
-/* line 9, ../sass/main.scss */
+/* line 10, ../sass/main.scss */
 body {
   background-color: #c9f5fe;
   padding: 0;
 }
-/* line 12, ../sass/main.scss */
+/* line 13, ../sass/main.scss */
 body .container-fluid {
   padding: 0;
 }
@@ -124,7 +124,62 @@ body .container-fluid {
 }
 /* line 9, ../sass/_firstsection.scss */
 .first_section .container #carouselExampleSlidesOnly .carousel-item img {
-  height: 27rem;
+  object-fit: cover;
+}
+/* line 14, ../sass/_firstsection.scss */
+.first_section .container .overlay {
+  position: absolute;
+  top: 0;
+  right: 1rem;
+  background-color: #030101;
+  overflow: hidden;
+  width: 20%;
+  height: 100%;
+  padding: 1rem;
+  transition: .5s ease;
+}
+/* line 24, ../sass/_firstsection.scss */
+.first_section .container .overlay .text {
+  font-size: 1.5rem;
+  color: #c9f5fe;
+}
+/* line 28, ../sass/_firstsection.scss */
+.first_section .container .overlay .s_x {
+  color: #c9f5fe;
+  position: absolute;
+  font-size: 2.4rem;
+  bottom: 1rem;
+}
+/* line 35, ../sass/_firstsection.scss */
+.first_section .container .overlay_nav {
+  background-color: rgba(3, 1, 1, 0);
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 70%;
+  padding: 1rem;
+  transition: .5s ease;
+  z-index: 10;
+}
+/* line 46, ../sass/_firstsection.scss */
+.first_section .container .overlay_nav img {
+  height: 100%;
+}
+/* line 49, ../sass/_firstsection.scss */
+.first_section .container .overlay_nav ul {
+  list-style-type: none;
+}
+/* line 51, ../sass/_firstsection.scss */
+.first_section .container .overlay_nav ul li {
+  font-size: 0.8rem;
+  color: #c9f5fe;
+  border-bottom: 1px solid #c9f5fe;
+}
+/* line 57, ../sass/_firstsection.scss */
+.first_section .container .overlay_nav .overlay_nav_element {
+  float: left;
 }
 
 /* line 2, ../sass/_secondsection.scss */
@@ -255,22 +310,23 @@ body .container-fluid {
   padding-top: 0.5em;
   border-top: 0.1em solid rgba(225, 220, 226, 0);
   color: #c9f5fe;
+  background-color: rgba(255, 255, 255, 0.5);
 }
-/* line 58, ../sass/_footer.scss */
+/* line 59, ../sass/_footer.scss */
 .footer .container #bottom_footer i {
   font-size: 1.5em;
   color: #c9f5fe;
 }
-/* line 62, ../sass/_footer.scss */
+/* line 63, ../sass/_footer.scss */
 .footer .container #bottom_footer label {
   font-size: 1em;
   color: #c9f5fe;
 }
-/* line 67, ../sass/_footer.scss */
+/* line 68, ../sass/_footer.scss */
 .footer .container #bottom_footer #copyright img {
   width: 30px;
 }
-/* line 70, ../sass/_footer.scss */
+/* line 71, ../sass/_footer.scss */
 .footer .container #bottom_footer #copyright span {
   float: right;
   margin: 0.5em auto;
