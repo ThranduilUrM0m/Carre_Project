@@ -188,6 +188,51 @@ body .container-fluid {
   padding-bottom: 15px;
   height: 100%;
 }
+/* line 7, ../sass/_secondsection.scss */
+.second_section .container .breadcrumb li {
+  display: inline;
+  font-size: 0.7em;
+}
+/* line 10, ../sass/_secondsection.scss */
+.second_section .container .breadcrumb li a, .second_section .container .breadcrumb li i {
+  color: gray;
+}
+/* line 15, ../sass/_secondsection.scss */
+.second_section .container .second_section_column {
+  background-color: #fff;
+  height: 50vh;
+  margin: .5rem;
+  padding: .5rem;
+  position: relative;
+  text-align: center;
+}
+/* line 22, ../sass/_secondsection.scss */
+.second_section .container .second_section_column *:not(i) {
+  font-size: 12px;
+  line-height: 22px;
+  color: #5d585e;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+}
+/* line 28, ../sass/_secondsection.scss */
+.second_section .container .second_section_column img {
+  width: 100%;
+}
+/* line 31, ../sass/_secondsection.scss */
+.second_section .container .second_section_column i {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+}
+/* line 36, ../sass/_secondsection.scss */
+.second_section .container .second_section_column .description_box {
+  height: 50%;
+  padding: 3vh;
+}
+/* line 40, ../sass/_secondsection.scss */
+.second_section .container .second_section_column iframe {
+  height: 100%;
+  width: 100%;
+}
 
 /* line 1, ../sass/_thirdsection.scss */
 .third_section {
@@ -310,7 +355,7 @@ body .container-fluid {
   padding-top: 0.5em;
   border-top: 0.1em solid rgba(225, 220, 226, 0);
   color: #c9f5fe;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0);
 }
 /* line 59, ../sass/_footer.scss */
 .footer .container #bottom_footer i {

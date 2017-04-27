@@ -16,4 +16,5 @@ urlpatterns = [
 	url('^index_eviers/$', views.index_eviers, name='index_eviers'),
 	url('^index_robinetterie/$', views.index_robinetterie, name='index_robinetterie'),
 	url('^index_accessoires/$', views.index_accessoires, name='index_accessoires'),
+	url('^Catalogue/$', views.Catalogue, name='Catalogue'),
 ]

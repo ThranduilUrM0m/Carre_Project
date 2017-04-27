@@ -39,8 +39,8 @@
 										<span data-toggle="dropdown-toggle">Entreprise</span>
 									</a>
 									<div class="dropdown-menu">
-										<a class="dropdown-item" href="#"><span>Marque Carré</span></a>
-										<a class="dropdown-item" href="#"><span>Vidéo Corporative</span></a>
+										<a class="dropdown-item" href="{% url 'carre_app:index_marque' %}"><span>Marque Carré</span></a>
+										<a class="dropdown-item" href="https://youtu.be/3KMWNufrPM4"><span>Vidéo Corporative</span></a>
 									</div>
 								</li>
 								<li class="nav-item dropdown">
@@ -48,7 +48,7 @@
 										<span data-toggle="dropdown-toggle">Téléchargement</span>
 									</a>
 									<div class="dropdown-menu">
-										<a class="dropdown-item" href="#"><span>Catalogue</span></a>
+										<a class="dropdown-item" href="{% url 'carre_app:Catalogue' %}"><span>Catalogue</span></a>
 										<a class="dropdown-item" href="#"><span>Chaîne Youtube</span></a>
 									</div>
 								</li>
@@ -57,7 +57,7 @@
 										<span data-toggle="dropdown-toggle">Contact</span>
 									</a>
 									<div class="dropdown-menu">
-										<a class="dropdown-item" href="#"><span>Adresses Et Télephones</span></a>
+										<a class="dropdown-item" href="{% url 'carre_app:index_adressendtel' %}"><span>Adresses Et Télephones</span></a>
 										<a class="dropdown-item" href="#"><span>Carré GPS</span></a>
 									</div>
 								</li>
@@ -106,39 +106,39 @@
 						    <span class="navbar-toggler-icon"></span>
 						</button>
 						<div class="collapse navbar-collapse navbarSupportedContent_class" id="navbarSupportedContent">
-						    <ul class="navbar-nav mr-auto menu_elements">
+						    <ul id="products_menu" class="navbar-nav mr-auto menu_elements">
 							    <li class="nav-item">
-									<a type="button" class="btn nav-link active" href="#">
+									<a type="button" class="btn nav-link active" href="{% url 'carre_app:index_sanitaire' %}">
 										<span>Sanitaire</span>
 									</a>
 								</li>
 								<li class="nav-item">
-									<a type="button" class="btn  nav-link" href="#">
+									<a type="button" class="btn nav-link" href="{% url 'carre_app:index_baignoiresetreceveurs' %}">
 										<span>Baignoires & Receveurs</span>
 									</a>
 								</li>
 								<li class="nav-item">
-									<a type="button" class="btn  nav-link" href="#">
+									<a type="button" class="btn nav-link" href="{% url 'carre_app:index_miroirs' %}">
 										<span>Miroirs</span>
 									</a>
 								</li>
 								<li class="nav-item">
-									<a type="button" class="btn  nav-link" href="#">
+									<a type="button" class="btn nav-link" href="{% url 'carre_app:index_meubles' %}">
 										<span>Meubles S.D.B.</span>
 									</a>
 								</li>
 								<li class="nav-item">
-									<a type="button" class="btn  nav-link" href="#">
+									<a type="button" class="btn nav-link" href="{% url 'carre_app:index_eviers' %}">
 										<span>Eviers en Inox</span>
 									</a>
 								</li>
 								<li class="nav-item">
-									<a type="button" class="btn  nav-link" href="#">
+									<a type="button" class="btn nav-link" href="{% url 'carre_app:index_robinetterie' %}">
 										<span>Robinetterie</span>
 									</a>
 								</li>
 								<li class="nav-item">
-									<a type="button" class="btn  nav-link" href="#">
+									<a type="button" class="btn nav-link" href="{% url 'carre_app:index_accessoires' %}">
 										<span>Accessoires S.D.B.</span>
 									</a>
 								</li>
@@ -197,35 +197,35 @@
 					<div class="row">
 						<div class="row row-offcanvas row-offcanvas-right">
 
-					        <div class="col-12 col-md-9">
+					        <div class="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-9 ">
 					          	<h3>A Lire</h3>
 					          	<div class="row">
-					            	<div class="col-6 col-lg-4">
+					            	<div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-4">
 					              		<h4>Heading</h4>
 					              		<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
 					              		<p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
 					            	</div>
-						            <div class="col-6 col-lg-4">
+						            <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-4">
 							            <h4>Heading</h4>
 							            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
 							            <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
 						            </div>
-						            <div class="col-6 col-lg-4">
+						            <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-4">
 						              	<h4>Heading</h4>
 						              	<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
 						              	<p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
 						            </div>
-						            <div class="col-6 col-lg-4">
+						            <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-4">
 						              	<h4>Heading</h4>
 						              	<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
 						              	<p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
 						            </div>
-						            <div class="col-6 col-lg-4">
+						            <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-4">
 						              	<h4>Heading</h4>
 						              	<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
 						              	<p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
 						            </div>
-						            <div class="col-6 col-lg-4">
+						            <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-4">
 						              	<h4>Heading</h4>
 						              	<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
 						              	<p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
@@ -233,7 +233,7 @@
 					          </div>
 					        </div>
 
-					        <div class="col-6 col-md-3 sidebar-offcanvas" id="sidebar">
+					        <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 sidebar-offcanvas" id="sidebar">
 					          	<h3>Nouvelles</h3>
 					          	<div class="list-group">
 						            <a href="#" class="list-group-item active">Link</a>
@@ -273,30 +273,30 @@
 								<div id="first_navigation_column" class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
 									<ul>
 										<li><u><strong>Entreprise</strong></u></li>
-										<li><a href="#">Marque Carré</a></li>
-										<li><a href="#">Vidéo Corporative</a></li>
+										<li><a href="{% url 'carre_app:index_marque' %}">Marque Carré</a></li>
+										<li><a href="https://youtu.be/3KMWNufrPM4">Vidéo Corporative</a></li>
 									</ul>
 									<ul>
 										<li><u><strong>Contact</strong></u></li>
-										<li><a href="#">Marque Carré</a></li>
-										<li><a href="#">Vidéo Corporative</a></li>
+										<li><a href="{% url 'carre_app:index_adressendtel' %}">Addresse & Télephones</a></li>
+										<li><a href="#">Carré GPS</a></li>
 									</ul>
 								</div>
 								<div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
 									<ul>
 										<li><u><strong>Télechargement</strong></u></li>
-										<li><a href="#">Addresse & Télephones</a></li>
-										<li><a href="#">Carré GPS</a></li>
+										<li><a href="{% url 'carre_app:Catalogue' %}">Catalogue</a></li>
+										<li><a href="#">Chaine Youtube</a></li>
 									</ul>
 									<ul>
 										<li><u><strong>Produits</strong></u></li>
-										<li><a href="#">Sanitaire</a></li>
-										<li><a href="#">Baignoires & Receveurs</a></li>
-										<li><a href="#">Miroirs</a></li>
-										<li><a href="#">Meubles S.D.B.</a></li>
-										<li><a href="#">Eviers en Inox</a></li>
-										<li><a href="#">Robinetterie</a></li>
-										<li><a href="#">Accessoires S.D.B.</a></li>
+										<li><a href="{% url 'carre_app:index_sanitaire' %}">Sanitaire</a></li>
+										<li><a href="{% url 'carre_app:index_baignoiresetreceveurs' %}">Baignoires & Receveurs</a></li>
+										<li><a href="{% url 'carre_app:index_miroirs' %}">Miroirs</a></li>
+										<li><a href="{% url 'carre_app:index_meubles' %}">Meubles S.D.B.</a></li>
+										<li><a href="{% url 'carre_app:index_eviers' %}">Eviers en Inox</a></li>
+										<li><a href="{% url 'carre_app:index_robinetterie' %}">Robinetterie</a></li>
+										<li><a href="{% url 'carre_app:index_accessoires' %}">Accessoires S.D.B.</a></li>
 									</ul>
 								</div>
 							</div>

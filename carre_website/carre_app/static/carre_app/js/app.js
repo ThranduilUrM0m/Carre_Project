@@ -11,7 +11,7 @@ String.prototype.replaceAt=function(index, replacement) {
     return this.substr(0, index) + replacement+ this.substr(index + replacement.length);
 }
 $('.overlay_nav').hide();
-$('.header .nav-item').hover(
+$('.header #products_menu .nav-item').hover(
   function() {
 	var categorie_name = $(this).find("span").html();
 	if(categorie_name === 'Sanitaire'){
