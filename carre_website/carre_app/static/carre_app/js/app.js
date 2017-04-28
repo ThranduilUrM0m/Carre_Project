@@ -97,3 +97,11 @@ $('.overlay_nav').hover(
 	$(this).hide();
   }
 );
+
+$('.second_section_column_article').hover(
+  function() {
+	$(this).find('.overlay').css('height', '100%');
+  }, function() {
+	$(this).find('.overlay').css('height', '0');
+  }
+);
