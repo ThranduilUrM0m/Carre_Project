@@ -78,7 +78,7 @@
 					</nav>
 					<hr>
 					<nav class="navbar navbar-toggleable-md navbar-light">
-						<a class="navbar-brand" href="#">
+						<a class="navbar-brand" href="{% url 'carre_app:index_home' %}">
 						    <img src="{% static 'carre_app/media/logo.png' %}" width="50" height="70">
 					  	</a>
 						<div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -208,7 +208,7 @@
 														<p>Lorem ipsum dolor sit amet.</p>
 													</div>
 													<div class="overlay">
-														<div class="text"></div>
+														<div class="text">{{ article.name }}</div>
 													</div>
 												</div>
 											</a>

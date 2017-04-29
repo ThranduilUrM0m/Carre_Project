@@ -39,7 +39,7 @@
 										<span data-toggle="dropdown-toggle">Entreprise</span>
 									</a>
 									<div class="dropdown-menu">
-										<a class="dropdown-item" href="{% url 'carre_app:index_marque' %}"><span>Marque Carré</span></a>
+										<a class="dropdown-item" href="#"><span>Marque Carré</span></a>
 										<a class="dropdown-item" href="https://youtu.be/3KMWNufrPM4"><span>Vidéo Corporative</span></a>
 									</div>
 								</li>
@@ -78,7 +78,7 @@
 					</nav>
 					<hr>
 					<nav class="navbar navbar-toggleable-md navbar-light">
-						<a class="navbar-brand" href="#">
+						<a class="navbar-brand" href="{% url 'carre_app:index_home' %}">
 						    <img src="{% static 'carre_app/media/logo.png' %}" width="50" height="70">
 					  	</a>
 						<div class="collapse navbar-collapse" id="navbarSupportedContent">

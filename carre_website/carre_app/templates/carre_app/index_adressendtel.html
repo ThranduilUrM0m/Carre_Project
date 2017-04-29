@@ -57,7 +57,7 @@
 										<span data-toggle="dropdown-toggle">Contact</span>
 									</a>
 									<div class="dropdown-menu">
-										<a class="dropdown-item" href="{% url 'carre_app:index_adressendtel' %}"><span>Adresses Et Télephones</span></a>
+										<a class="dropdown-item" href="#"><span>Adresses Et Télephones</span></a>
 										<a class="dropdown-item" href="#"><span>Carré GPS</span></a>
 									</div>
 								</li>
@@ -78,7 +78,7 @@
 					</nav>
 					<hr>
 					<nav class="navbar navbar-toggleable-md navbar-light">
-						<a class="navbar-brand" href="#">
+						<a class="navbar-brand" href="{% url 'carre_app:index_home' %}">
 						    <img src="{% static 'carre_app/media/logo.png' %}" width="50" height="70">
 					  	</a>
 						<div class="collapse navbar-collapse" id="navbarSupportedContent">
