@@ -1,14 +1,14 @@
-/* line 7, ../sass/main.scss */
+/* line 10, ../sass/main.scss */
 body * {
   font-family: "Montserrat", sans-serif;
 }
 
-/* line 10, ../sass/main.scss */
+/* line 13, ../sass/main.scss */
 body {
   background-color: #c9f5fe;
   padding: 0;
 }
-/* line 13, ../sass/main.scss */
+/* line 16, ../sass/main.scss */
 body .container-fluid {
   padding: 0;
 }
@@ -80,8 +80,8 @@ body .container-fluid {
 }
 /* line 59, ../sass/_header.scss */
 .header .menu_elements a:focus {
-  -webkit-box-shadow: 0 0 0 2px rgba(2, 117, 216, 0);
-  box-shadow: 0 0 0 2px rgba(2, 117, 216, 0);
+  -webkit-box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.005);
+  box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.005);
 }
 /* line 65, ../sass/_header.scss */
 .header .social_media li i, .header .social_media li span:not(.lang) {
@@ -152,7 +152,7 @@ body .container-fluid {
 }
 /* line 35, ../sass/_firstsection.scss */
 .first_section .container .overlay_nav {
-  background-color: rgba(3, 1, 1, 0);
+  background-color: rgba(3, 1, 1, 0.8);
   position: absolute;
   top: 0;
   left: 0;
@@ -351,7 +351,7 @@ body .container-fluid {
 /* line 6, ../sass/_footer.scss */
 .footer .container #top_footer {
   padding-bottom: 0.5em;
-  border-bottom: 0.1em solid rgba(225, 220, 226, 0);
+  border-bottom: 0.1em solid rgba(225, 220, 226, 0.2);
 }
 /* line 9, ../sass/_footer.scss */
 .footer .container #top_footer #contact_info {
@@ -411,9 +411,9 @@ body .container-fluid {
 /* line 54, ../sass/_footer.scss */
 .footer .container #bottom_footer {
   padding-top: 0.5em;
-  border-top: 0.1em solid rgba(225, 220, 226, 0);
+  border-top: 0.1em solid rgba(225, 220, 226, 0.2);
   color: #c9f5fe;
-  background-color: rgba(255, 255, 255, 0);
+  background-color: rgba(255, 255, 255, 0.5);
 }
 /* line 59, ../sass/_footer.scss */
 .footer .container #bottom_footer i {
