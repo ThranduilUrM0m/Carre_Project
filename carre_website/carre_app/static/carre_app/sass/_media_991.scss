@@ -1,0 +1,16 @@
+@media screen and (max-width: 991px){
+	.header{
+		.container{
+			nav{
+				ul{
+					float: left;
+					width: 50%;
+					li{
+						width: inherit;
+						float: left;
+					}
+				}
+			}
+		}
+	}
+}

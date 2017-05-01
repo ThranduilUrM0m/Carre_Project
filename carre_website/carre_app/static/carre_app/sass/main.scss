@@ -4,7 +4,7 @@ $bg-color-black: #030101;
 $bg-color-rgba: rgba(225, 220, 226, 0.2);
 $bg-color-black-rgba: rgba(3, 1, 1, 0.8);
 $white-color-fade: rgba(255, 255, 255, 0.5);
-$blue-color-fade: rgba(2,117,216,.005);
+$blue-color-fade: rgba(2,117,216, 0.005);
 $gray-color-fade: rgba(128, 128, 128, 0.8);
 
 body * {
@@ -24,3 +24,7 @@ body{
 @import 'thirdsection';
 @import 'fourthsection';
 @import 'footer';
+
+[type=reset], [type=submit], button, html [type=button]{
+	-webkit-appearance: none;
+}

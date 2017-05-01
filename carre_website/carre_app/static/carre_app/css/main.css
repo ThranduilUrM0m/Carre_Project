@@ -147,7 +147,7 @@ body .container-fluid {
 .first_section .container .overlay .s_x {
   color: #c9f5fe;
   position: absolute;
-  font-size: 2.4rem;
+  font-size: 2rem;
   bottom: 1rem;
 }
 /* line 35, ../sass/_firstsection.scss */
@@ -433,4 +433,9 @@ body .container-fluid {
 .footer .container #bottom_footer #copyright span {
   float: right;
   margin: 0.5em auto;
+}
+
+/* line 28, ../sass/main.scss */
+[type=reset], [type=submit], button, html [type=button] {
+  -webkit-appearance: none;
 }
