@@ -37,11 +37,11 @@ def index_location(request):
 	}
 	return render(request, 'carre_app/index_location.html', context)
 
-def index_contacteznous(request):
+def index_collectionsalledebains(request):
 	context = {
-		'name': 'index_contacteznous'
+		'name': 'index_collectionsalledebains'
 	}
-	return render(request, 'carre_app/index_contacteznous.html', context)
+	return render(request, 'carre_app/index_collectionsalledebains.html', context)
 
 def index_sanitaire(request):
 	articles = [
@@ -349,9 +349,9 @@ def Catalogue(request):
 	fs = FileSystemStorage()
 	filename = 'carre_app/templates/carre_app/catalogue.pdf'
 	if fs.exists(filename):
-		with fs.open(filename) as pdf:
-			response = HttpResponse(pdf, content_type='application/pdf')
-			response['Content-Disposition'] = 'attachment; filename="catalogue.pdf"'
+		with fs.open(filename, 'rb') as pdf:
+			response = HttpResponse(pdf.read(), content_type='application/pdf')
+			response['Content-Disposition'] = 'filename="catalogue.pdf"'
 			return response
 	else:
 		return HttpResponseNotFound('The requested pdf was not found in our server.')

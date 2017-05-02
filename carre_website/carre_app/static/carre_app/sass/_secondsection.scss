@@ -3,6 +3,9 @@
 		padding-top: 15px;
 		padding-bottom: 15px;
 		height: 100%;
+		.decouvrir_row{
+			font-size: 0.9rem;
+		}
 		.breadcrumb{
 			li{
 				display: inline;
@@ -93,5 +96,16 @@
 .pagination{
 	li{
 		padding: 0.5rem;
+	}
+}
+
+.list-group-item{
+	p{
+		font-size: 0.6rem;
+	}
+	hr{
+		width: 100%;
+		color: black;
+		height: 2px;
 	}
 }

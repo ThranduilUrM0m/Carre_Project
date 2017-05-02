@@ -1,6 +1,30 @@
 .footer{
 	background-color: $bg-color-black;
 	.container{
+		input, textarea{
+			background-color: transparent;
+			border-color: white;
+		}
+		input:hover, textarea:hover{
+			background-color: $white-color-fade;
+			::-webkit-input-placeholder { 
+			    color: white;
+			}
+			:-moz-placeholder { 
+			   color: white;
+			   opacity:  1;
+			}
+			::-moz-placeholder { 
+			   color: white;
+			   opacity:  1;
+			}
+			:-ms-input-placeholder {
+			   color: white;
+			}
+		}
+		hr{
+			background-color: white;
+		}
 		height: 100%;
 		padding: 15px;
 		#top_footer{
@@ -14,6 +38,9 @@
 				}
 				.columns{
 					padding-left: 0;
+					p{
+						padding-left: 1rem;
+					}
 				}
 				#second_column{
 					padding-right: 0;
@@ -76,3 +103,4 @@
 		}
 	}
 }
+
