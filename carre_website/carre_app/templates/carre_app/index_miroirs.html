@@ -9,6 +9,9 @@
 
 		<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
 
+        <!-- theme color in phones -->
+        <meta name="theme-color" content="#c9f5fe"/>
+
 		<!-- Fonts and icons -->
 		<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Herr+Von+Muellerhoff" rel="stylesheet"> 
@@ -26,15 +29,15 @@
     	<link href="{% static 'carre_app/css/main.css' %}" rel="stylesheet" />
     </head>
 
-	<body>
+	<body style="background-image: url('{% static "carre_app/media/bg.jpg"%}')";>
 		<div class="container-fluid">
 			<!-- header beginning -->
 			<header class="header">
 				<div class="container">
 					<nav class="navbar navbar-toggleable-md navbar-light">
-						<div class="collapse navbar-collapse">
+						<div class="navbar-collapse">
 						    <ul class="navbar-nav mr-auto menu_elements_top">
-							    <li class="nav-item dropdown">
+							    <li class="nav-item link link--kumya dropdown">
 									<a type="button" class="btn nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">
 										<span data-toggle="dropdown-toggle">Entreprise</span>
 									</a>
@@ -43,7 +46,16 @@
 										<a class="dropdown-item" href="https://youtu.be/3KMWNufrPM4"><span>Vidéo Corporative</span></a>
 									</div>
 								</li>
-								<li class="nav-item dropdown">
+								<li class="nav-item link link--kumya dropdown">
+									<a type="button" class="btn nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">
+										<span data-toggle="dropdown-toggle">Groupe</span>
+									</a>
+									<!-- <div class="dropdown-menu">
+										<a class="dropdown-item" href="{% url 'carre_app:index_marque' %}"><span>Marque Carré</span></a>
+										<a class="dropdown-item" href="https://youtu.be/3KMWNufrPM4"><span>Vidéo Corporative</span></a>
+									</div> -->
+								</li>
+								<li class="nav-item link link--kumya dropdown">
 									<a type="button" class="btn nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">
 										<span data-toggle="dropdown-toggle">Téléchargement</span>
 									</a>
@@ -52,7 +64,7 @@
 										<a class="dropdown-item" href="#"><span>Chaîne Youtube</span></a>
 									</div>
 								</li>
-								<li class="nav-item dropdown">
+								<li class="nav-item link link--kumya dropdown">
 									<a type="button" class="btn nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">
 										<span data-toggle="dropdown-toggle">Contact</span>
 									</a>
@@ -78,8 +90,11 @@
 					</nav>
 					<hr>
 					<nav class="navbar navbar-toggleable-md navbar-light">
-						<a class="navbar-brand" href="{% url 'carre_app:index_home' %}">
-						    <img src="{% static 'carre_app/media/logo.png' %}" width="50" height="70">
+						<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						    <span class="navbar-toggler-icon"></span>
+						</button>
+						<a class="navbar-brand" href="#">
+						    <img src="{% static 'carre_app/media/logo.png' %}" width="80" height="100">
 					  	</a>
 						<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					  		<ul class="navbar-nav ml-auto social_media">
@@ -107,37 +122,42 @@
 						</button>
 						<div class="collapse navbar-collapse navbarSupportedContent_class" id="navbarSupportedContent">
 						    <ul id="products_menu" class="navbar-nav mr-auto menu_elements">
-							    <li class="nav-item">
+					    		<li class="nav-item link link--kumya">
+									<a type="button" class="btn nav-link active" href="{% url 'carre_app:index_collectionsalledebains' %}">
+										<span>Collection S. Bains</span>
+									</a>
+								</li>
+							    <li class="nav-item link link--kumya">
 									<a type="button" class="btn nav-link active" href="{% url 'carre_app:index_sanitaire' %}">
 										<span>Sanitaire</span>
 									</a>
 								</li>
-								<li class="nav-item">
+								<li class="nav-item link link--kumya">
 									<a type="button" class="btn nav-link" href="{% url 'carre_app:index_baignoiresetreceveurs' %}">
 										<span>Baignoires & Receveurs</span>
 									</a>
 								</li>
-								<li class="nav-item">
+								<li class="nav-item link link--kumya">
 									<a type="button" class="btn nav-link" href="{% url 'carre_app:index_miroirs' %}">
 										<span>Miroirs</span>
 									</a>
 								</li>
-								<li class="nav-item">
+								<li class="nav-item link link--kumya">
 									<a type="button" class="btn nav-link" href="{% url 'carre_app:index_meubles' %}">
 										<span>Meubles S.D.B.</span>
 									</a>
 								</li>
-								<li class="nav-item">
+								<li class="nav-item link link--kumya">
 									<a type="button" class="btn nav-link" href="{% url 'carre_app:index_eviers' %}">
 										<span>Eviers en Inox</span>
 									</a>
 								</li>
-								<li class="nav-item">
+								<li class="nav-item link link--kumya">
 									<a type="button" class="btn nav-link" href="{% url 'carre_app:index_robinetterie' %}">
 										<span>Robinetterie</span>
 									</a>
 								</li>
-								<li class="nav-item">
+								<li class="nav-item link link--kumya">
 									<a type="button" class="btn nav-link" href="{% url 'carre_app:index_accessoires' %}">
 										<span>Accessoires S.D.B.</span>
 									</a>
@@ -152,7 +172,7 @@
 			<!-- first section beginning -->
 			<section class="first_section">
 				<div class="container">
-					<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+					<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 						<div class="carousel-inner" role="listbox">
 						    <div class="carousel-item active">
 						      <img class="d-block" src="{% static 'carre_app/media/s_3.png' %}" alt="Miroirs">
@@ -285,6 +305,7 @@
 					<div id="top_footer" class="row">
 						<div id="contact_info" class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
 							<h4>Contact Info</h4>
+							<hr>
 							<div class="row">
 								<div class="columns col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
 									<p>1, Boulevard Bir Anzarane</p>
@@ -299,6 +320,7 @@
 						</div>
 						<div id="navigation" class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
 							<h4>Navigation</h4>
+							<hr>
 							<div class="row">
 								<div id="first_navigation_column" class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
 									<ul>
@@ -333,32 +355,48 @@
 						</div>
 						<div id="nous_contactez" class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5">
 							<h4>Nous Contactez</h4>
+							<hr>
 							<!-- content goes here -->
 				            <form accept-charset="UTF-8"  id="contactSubmit" action="https://formspree.io/zakariaeboutaleb@gmail.com" method="POST">{% csrf_token %}
 				              	<div class="row">
-				              		<div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-					                	<input type="email" class="form-control" name="_replyto" id="exampleInputEmail1" placeholder="Adresse Mail">
+				              		<div class="input input--manami form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+					                	<input type="email" class="input__field input__field--manami form-control" name="_replyto" id="exampleInputEmail1">
+					                	<label class="input__label input__label--manami" for="exampleInputEmail1">
+											<span class="input__label-content input__label-content--manami">Adresse Email</span>
+										</label>
 					            	</div>
 				              	</div>
 					            <div class="row">
-					            	<div id="last_name" class="form-group col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-					                	<input type="name" class="form-control" name="first_name" id="exampleInputName1" placeholder="Nom">
+					            	<div id="last_name" class="input input--manami form-group col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+					                	<input type="name" class="input__field input__field--manami form-control" name="first_name" id="exampleInputName1">
+					                	<label class="input__label input__label--manami" for="exampleInputName1">
+											<span class="input__label-content input__label-content--manami">Nom</span>
+										</label>
 					              	</div>
-					              	<div id="first_name" class="form-group col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-					                	<input type="name" class="form-control" name="last_name" id="exampleInputName2" placeholder="Prénom">
+					              	<div id="first_name" class="input input--manami form-group col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+					                	<input type="name" class="input__field input__field--manami form-control" name="last_name" id="exampleInputName2">
+					                	<label class="input__label input__label--manami" for="exampleInputName2">
+											<span class="input__label-content input__label-content--manami">Prénom</span>
+										</label>
 					              	</div>
 					            </div>
 					            <div class="row">
-					            	<div class="form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-					                	<input type="name" class="form-control" name="subject" id="exampleInputSujet" placeholder="Sujet">
+					            	<div class="input input--manami form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+					                	<input type="name" class="input__field input__field--manami form-control" name="subject" id="exampleInputSujet">
+					                	<label class="input__label input__label--manami" for="exampleInputSujet">
+											<span class="input__label-content input__label-content--manami">Sujet</span>
+										</label>
 					              	</div>
 					            </div>
 				              	<div class="row">
-				              		<div id="message_content" class="form-group col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9">
-					                	<textarea class="form-control" name="message" id="exampleInputMessage" placeholder="Message..."></textarea>
+				              		<div id="message_content" class="input input--manami form-group col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9">
+					                	<textarea class="input__field input__field--manami form-control" name="message" id="exampleInputMessage"></textarea>
+					                	<label class="textaria_label input__label input__label--manami" for="exampleInputMessage">
+											<span class="input__label-content input__label-content--manami">Message ...</span>
+										</label>
 					              	</div>
 					              	<div id="message_submit" class="form-group col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
-					              		<button type="submit" class="btn btn-default">Envoyer</button>
+					              		<button type="submit" class="btn btn-danger">Envoyer</button>
 					              	</div>
 				              	</div>
 				            </form>
@@ -366,35 +404,44 @@
 						</div>
 					</div>
 					<div id="bottom_footer" class="row">
-						<div id="follow_us" class="pull-left col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-							<nav class="navbar navbar-toggleable-md navbar-light">
-								<div class="collapse navbar-collapse" id="navbarSupportedContent">
-									<ul class="navbar-nav social_media">
-										<li class="nav-item" id="follow_us_label">
-											<label class="nav-link align-middle">Follow Us On </label>
-										</li>
-										<li class="nav-item">
-											<a href="#" class="nav-link align-middle">
-												<i class="fa fa-twitter-square align-middle" aria-hidden="true"></i>
-											</a>
-										</li>
-										<li class="nav-item">
-											<a href="#" class="nav-link align-middle">
-												<i class="fa fa-facebook-official align-middle" aria-hidden="true"></i>
-											</a>
-										</li>
-										<li class="nav-item">
-											<a href="#" class="nav-link align-middle">
-												<i class="fa fa-instagram align-middle" aria-hidden="true"></i>
-											</a>
-										</li>
-								    </ul>
-								</div>
-						    </nav>
-						</div>
-						<div id="copyright" class="pull-right col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-							<span class="align-middle">Copyright &copy; 2017, Tous les droits sont réservés  <img src="{% static 'carre_app/media/logo.png' %}"></span>
-						</div>
+						<nav class="navbar navbar-toggleable-md navbar-light">
+							<div class="collapse navbar-collapse" id="navbarSupportedContent">
+							    <ul class="navbar-nav menu_elements">
+								    <li class="nav-item" id="follow_us_label">
+										<a class="nav-link">
+											<span class="align-middle">Follow Us On </span>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a href="#" class="nav-link">
+											<i class="fa fa-twitter-square align-middle" aria-hidden="true"></i>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a href="#" class="nav-link">
+											<i class="fa fa-facebook-official align-middle" aria-hidden="true"></i>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a href="#" class="nav-link">
+											<i class="fa fa-instagram align-middle" aria-hidden="true"></i>
+										</a>
+									</li>
+							    </ul>
+							    <ul class="navbar-nav ml-auto social_media">
+									<li class="nav-item">
+										<a class="nav-link">
+											<span class="align-middle">Copyright &copy; 2017, Tous les droits sont réservés</span>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a href="#" class="nav-link">
+											<img class="align-middle" src="{% static 'carre_app/media/logo.png' %}">
+										</a>
+									</li>
+							    </ul>
+						  	</div>
+						</nav>
 					</div>
 
 				</div>
@@ -410,6 +457,12 @@
 	<script type="text/javascript">
 	$(document).ready(function() {
 	    $('.dropdown-toggle').dropdown()
+	});
+
+	</script>
+	<script>
+	$(document).ready(function(){
+	   $('meta[name="viewport"]').prop('content', 'width=1366');
 	});
 	</script>
 	<script src="https://use.fontawesome.com/f61b4ca99d.js"></script>

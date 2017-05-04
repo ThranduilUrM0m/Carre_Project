@@ -31,155 +31,433 @@ def index_adressendtel(request):
 	}
 	return render(request, 'carre_app/index_adressendtel.html', context)
 
-def index_location(request):
+def index_groupe(request):
 	context = {
-		'name': 'index_location'
+		'name': 'index_groupe'
 	}
-	return render(request, 'carre_app/index_location.html', context)
+	return render(request, 'carre_app/index_groupe.html', context)
 
 def index_collectionsalledebains(request):
+	articles = [
+		{'prefix': 'Arq', 'url': 'a_1-1', 'name': 'name_a_1-1', 'ref': 'ref_a_1-1'},
+		{'prefix': 'Noble', 'url': 'a_1-2', 'name': 'name_a_1-2', 'ref': 'ref_a_1-2'},
+		{'prefix': 'Eos', 'url': 'a_1-3', 'name': 'name_a_1-3', 'ref': 'ref_a_1-3'},
+		{'prefix': 'Universal', 'url': 'a_1-4', 'name': 'name_a_1-4', 'ref': 'ref_a_1-4'},
+		{'prefix': 'Klea', 'url': 'a_1-5', 'name': 'name_a_1-5', 'ref': 'ref_a_1-5'},
+		{'prefix': 'Emma Square', 'url': 'a_1-6', 'name': 'name_a_1-6', 'ref': 'ref_a_1-6'},
+		{'prefix': 'Emma', 'url': 'a_1-7', 'name': 'name_a_1-7', 'ref': 'ref_a_1-7'},
+		{'prefix': 'Mid', 'url': 'a_1-8', 'name': 'name_a_1-8', 'ref': 'ref_a_1-8'},
+		{'prefix': 'Smart', 'url': 'a_1-9', 'name': 'name_a_1-9', 'ref': 'ref_a_1-9'},
+		{'prefix': 'Jazz', 'url': 'a_1-10', 'name': 'name_a_1-10', 'ref': 'ref_a_1-10'},
+		{'prefix': 'Street Square', 'url': 'a_1-11', 'name': 'name_a_1-11', 'ref': 'ref_a_1-11'},
+		{'prefix': 'Street', 'url': 'a_1-12', 'name': 'name_a_1-12', 'ref': 'ref_a_1-12'},
+		{'prefix': 'Elia', 'url': 'a_1-13', 'name': 'name_a_1-13', 'ref': 'ref_a_1-13'},
+		{'prefix': 'Arq', 'url': 'a_1-14', 'name': 'name_a_1-14', 'ref': 'ref_a_1-14'},
+		{'prefix': 'Noble', 'url': 'a_1-15', 'name': 'name_a_1-15', 'ref': 'ref_a_1-15'},
+		{'prefix': 'Eos', 'url': 'a_1-16', 'name': 'name_a_1-16', 'ref': 'ref_a_1-16'},
+		{'prefix': 'Universal', 'url': 'a_1-17', 'name': 'name_a_1-17', 'ref': 'ref_a_1-17'},
+		{'prefix': 'Klea', 'url': 'a_1-18', 'name': 'name_a_1-18', 'ref': 'ref_a_1-18'},
+		{'prefix': 'Emma Square', 'url': 'a_1-19', 'name': 'name_a_1-19', 'ref': 'ref_a_1-19'},
+		{'prefix': 'Emma', 'url': 'a_1-20', 'name': 'name_a_1-20', 'ref': 'ref_a_1-20'},
+		{'prefix': 'Mid', 'url': 'a_1-21', 'name': 'name_a_1-21', 'ref': 'ref_a_1-21'},
+		{'prefix': 'Smart', 'url': 'a_1-22', 'name': 'name_a_1-22', 'ref': 'ref_a_1-22'},
+		{'prefix': 'Jazz', 'url': 'a_1-23', 'name': 'name_a_1-23', 'ref': 'ref_a_1-23'},
+		{'prefix': 'Street Square', 'url': 'a_1-24', 'name': 'name_a_1-24', 'ref': 'ref_a_1-24'},
+		{'prefix': 'Street', 'url': 'a_1-25', 'name': 'name_a_1-25', 'ref': 'ref_a_1-25'},
+		{'prefix': 'Elia', 'url': 'a_1-26', 'name': 'name_a_1-26', 'ref': 'ref_a_1-26'},
+	]
+
+	Arq = []
+	Noble = []
+	Eos = []
+	Universal = []
+	Klea = []
+	Emma_Square = []
+	Emma = []
+	Mid = []
+	Smart = []
+	Jazz = []
+	Street_Square = []
+	Street = []
+	Elia = []
+
+	for x in articles:
+		if(x['prefix'] == 'Arq'):
+			Arq.append(x)
+		elif(x['prefix'] == 'Noble'):
+			Noble.append(x)
+		elif(x['prefix'] == 'Eos'):
+			Eos.append(x)
+		elif(x['prefix'] == 'Universal'):
+			Universal.append(x)
+		elif(x['prefix'] == 'Klea'):
+			Klea.append(x)
+		elif(x['prefix'] == 'Emma Square'):
+			Emma_Square.append(x)
+		elif(x['prefix'] == 'Emma'):
+			Emma.append(x)
+		elif(x['prefix'] == 'Mid'):
+			Mid.append(x)
+		elif(x['prefix'] == 'Smart'):
+			Smart.append(x)
+		elif(x['prefix'] == 'Jazz'):
+			Jazz.append(x)
+		elif(x['prefix'] == 'Street Square'):
+			Street_Square.append(x)
+		elif(x['prefix'] == 'Street'):
+			Street.append(x)
+		elif(x['prefix'] == 'Elia'):
+			Elia.append(x)
+
+	paginator_Arq = Paginator(Arq, 100)
+	paginator_Noble = Paginator(Noble, 100)
+	paginator_Eos = Paginator(Eos, 100)
+	paginator_Universal = Paginator(Universal, 100)
+	paginator_Klea = Paginator(Klea, 100)
+	paginator_Emma_Square = Paginator(Emma_Square, 100)
+	paginator_Emma = Paginator(Emma, 100)
+	paginator_Mid = Paginator(Mid, 100)
+	paginator_Smart = Paginator(Smart, 100)
+	paginator_Jazz = Paginator(Jazz, 100)
+	paginator_Street_Square = Paginator(Street_Square, 100)
+	paginator_Street = Paginator(Street, 100)
+	paginator_Elia = Paginator(Elia, 100)
+
+	page = request.GET.get('page')
+	try:
+		Arq_list = paginator_Arq.page(page)
+		Noble_list = paginator_Noble.page(page)
+		Eos_list = paginator_Eos.page(page)
+		Universal_list = paginator_Universal.page(page)
+		Klea_list = paginator_Klea.page(page)
+		Emma_Square_list = paginator_Emma_Square.page(page)
+		Emma_list = paginator_Emma.page(page)
+		Mid_list = paginator_Mid.page(page)
+		Smart_list = paginator_Smart.page(page)
+		Jazz_list = paginator_Jazz.page(page)
+		Street_Square_list = paginator_Street_Square.page(page)
+		Street_list = paginator_Street.page(page)
+		Elia_list = paginator_Elia.page(page)
+	except PageNotAnInteger:
+		Arq_list = paginator_Arq.page(1)
+		Noble_list = paginator_Noble.page(1)
+		Eos_list = paginator_Eos.page(1)
+		Universal_list = paginator_Universal.page(1)
+		Klea_list = paginator_Klea.page(1)
+		Emma_Square_list = paginator_Emma_Square.page(1)
+		Emma_list = paginator_Emma.page(1)
+		Mid_list = paginator_Mid.page(1)
+		Smart_list = paginator_Smart.page(1)
+		Jazz_list = paginator_Jazz.page(1)
+		Street_Square_list = paginator_Street_Square.page(1)
+		Street_list = paginator_Street.page(1)
+		Elia_list = paginator_Elia.page(1)
+	except EmptyPage:
+		Arq_list = paginator_Arq.page(paginator_Arq.num_pages)
+		Noble_list = paginator_Noble.page(paginator_Noble.num_pages)
+		Eos_list = paginator_Eos.page(paginator_Eos.num_pages)
+		Universal_list = paginator_Universal.page(paginator_Universal.num_pages)
+		Klea_list = paginator_Klea.page(paginator_Klea.num_pages)
+		Emma_Square_list = paginator_Emma_Square.page(paginator_Emma_Square.num_pages)
+		Emma_list = paginator_Emma.page(paginator_Emma.num_pages)
+		Mid_list = paginator_Mid.page(paginator_Mid.num_pages)
+		Smart_list = paginator_Smart.page(paginator_Smart.num_pages)
+		Jazz_list = paginator_Jazz.page(paginator_Jazz.num_pages)
+		Street_Square_list = paginator_Street_Square.page(paginator_Street_Square.num_pages)
+		Street_list = paginator_Street.page(paginator_Street.num_pages)
+		Elia_list = paginator_Elia.page(paginator_Elia.num_pages)
 	context = {
-		'name': 'index_collectionsalledebains'
+		'name': 'index_collectionsalledebains',
+		'Arq_list': Arq_list,
+		'Noble_list': Noble_list,
+		'Eos_list': Eos_list,
+		'Universal_list': Universal_list,
+		'Klea_list': Klea_list,
+		'Emma_Square_list': Emma_Square_list,
+		'Emma_list': Emma_list,
+		'Mid_list': Mid_list,
+		'Smart_list': Smart_list,
+		'Jazz_list': Jazz_list,
+		'Street_Square_list': Street_Square_list,
+		'Street_list': Street_list,
+		'Elia_list': Elia_list,
 	}
 	return render(request, 'carre_app/index_collectionsalledebains.html', context)
 
 def index_sanitaire(request):
 	articles = [
-		{'url': 'a_1-1', 'name': 'name_a_1-1', 'ref': 'ref_a_1-1'},
-		{'url': 'a_1-2', 'name': 'name_a_1-2', 'ref': 'ref_a_1-2'},
-		{'url': 'a_1-3', 'name': 'name_a_1-3', 'ref': 'ref_a_1-3'},
-		{'url': 'a_1-4', 'name': 'name_a_1-4', 'ref': 'ref_a_1-4'},
-		{'url': 'a_1-5', 'name': 'name_a_1-5', 'ref': 'ref_a_1-5'},
-		{'url': 'a_1-6', 'name': 'name_a_1-6', 'ref': 'ref_a_1-6'},
-		{'url': 'a_1-7', 'name': 'name_a_1-7', 'ref': 'ref_a_1-7'},
-		{'url': 'a_1-8', 'name': 'name_a_1-8', 'ref': 'ref_a_1-8'},
-		{'url': 'a_1-9', 'name': 'name_a_1-9', 'ref': 'ref_a_1-9'},
-		{'url': 'a_1-10', 'name': 'name_a_1-10', 'ref': 'ref_a_1-10'},
-		{'url': 'a_1-11', 'name': 'name_a_1-11', 'ref': 'ref_a_1-11'},
-		{'url': 'a_1-12', 'name': 'name_a_1-12', 'ref': 'ref_a_1-12'},
-		{'url': 'a_1-13', 'name': 'name_a_1-13', 'ref': 'ref_a_1-13'},
-		{'url': 'a_1-14', 'name': 'name_a_1-14', 'ref': 'ref_a_1-14'},
-		{'url': 'a_1-15', 'name': 'name_a_1-15', 'ref': 'ref_a_1-15'},
-		{'url': 'a_1-16', 'name': 'name_a_1-16', 'ref': 'ref_a_1-16'},
-		{'url': 'a_1-17', 'name': 'name_a_1-17', 'ref': 'ref_a_1-17'},
-		{'url': 'a_1-18', 'name': 'name_a_1-18', 'ref': 'ref_a_1-18'},
-		{'url': 'a_1-19', 'name': 'name_a_1-19', 'ref': 'ref_a_1-19'},
-		{'url': 'a_1-20', 'name': 'name_a_1-20', 'ref': 'ref_a_1-20'},
-		{'url': 'a_1-21', 'name': 'name_a_1-21', 'ref': 'ref_a_1-21'},
-		{'url': 'a_1-22', 'name': 'name_a_1-22', 'ref': 'ref_a_1-22'},
-		{'url': 'a_1-23', 'name': 'name_a_1-23', 'ref': 'ref_a_1-23'},
-		{'url': 'a_1-24', 'name': 'name_a_1-24', 'ref': 'ref_a_1-24'},
-		{'url': 'a_1-25', 'name': 'name_a_1-25', 'ref': 'ref_a_1-25'},
-		{'url': 'a_1-26', 'name': 'name_a_1-26', 'ref': 'ref_a_1-26'},
-		{'url': 'a_1-27', 'name': 'name_a_1-27', 'ref': 'ref_a_1-27'},
-		{'url': 'a_1-28', 'name': 'name_a_1-28', 'ref': 'ref_a_1-28'},
-		{'url': 'a_1-29', 'name': 'name_a_1-29', 'ref': 'ref_a_1-29'},
-		{'url': 'a_1-30', 'name': 'name_a_1-30', 'ref': 'ref_a_1-30'},
-		{'url': 'a_1-31', 'name': 'name_a_1-31', 'ref': 'ref_a_1-31'},
-		{'url': 'a_1-32', 'name': 'name_a_1-32', 'ref': 'ref_a_1-32'},
-		{'url': 'a_1-33', 'name': 'name_a_1-33', 'ref': 'ref_a_1-33'},
-		{'url': 'a_1-34', 'name': 'name_a_1-34', 'ref': 'ref_a_1-34'},
-		{'url': 'a_1-35', 'name': 'name_a_1-35', 'ref': 'ref_a_1-35'},
+		{'prefix': 'Vasque', 'url': 'a_1-1', 'name': 'name_a_1-1', 'ref': 'ref_a_1-1'},
+		{'prefix': 'Vasque', 'url': 'a_1-2', 'name': 'name_a_1-2', 'ref': 'ref_a_1-2'},
+		{'prefix': 'Vasque', 'url': 'a_1-3', 'name': 'name_a_1-3', 'ref': 'ref_a_1-3'},
+		{'prefix': 'Vasque', 'url': 'a_1-4', 'name': 'name_a_1-4', 'ref': 'ref_a_1-4'},
+		{'prefix': 'Vasque', 'url': 'a_1-5', 'name': 'name_a_1-5', 'ref': 'ref_a_1-5'},
+		{'prefix': 'Vasque', 'url': 'a_1-6', 'name': 'name_a_1-6', 'ref': 'ref_a_1-6'},
+		{'prefix': 'Vasque', 'url': 'a_1-7', 'name': 'name_a_1-7', 'ref': 'ref_a_1-7'},
+		{'prefix': 'Vasque', 'url': 'a_1-8', 'name': 'name_a_1-8', 'ref': 'ref_a_1-8'},
+		{'prefix': 'Vasque', 'url': 'a_1-9', 'name': 'name_a_1-9', 'ref': 'ref_a_1-9'},
+		{'prefix': 'Bidet', 'url': 'a_1-10', 'name': 'name_a_1-10', 'ref': 'ref_a_1-10'},
+		{'prefix': 'Bidet', 'url': 'a_1-11', 'name': 'name_a_1-11', 'ref': 'ref_a_1-11'},
+		{'prefix': 'Bidet', 'url': 'a_1-12', 'name': 'name_a_1-12', 'ref': 'ref_a_1-12'},
+		{'prefix': 'Bidet', 'url': 'a_1-13', 'name': 'name_a_1-13', 'ref': 'ref_a_1-13'},
+		{'prefix': 'Bidet', 'url': 'a_1-14', 'name': 'name_a_1-14', 'ref': 'ref_a_1-14'},
+		{'prefix': 'Bidet', 'url': 'a_1-15', 'name': 'name_a_1-15', 'ref': 'ref_a_1-15'},
+		{'prefix': 'Bidet', 'url': 'a_1-16', 'name': 'name_a_1-16', 'ref': 'ref_a_1-16'},
+		{'prefix': 'Bidet', 'url': 'a_1-17', 'name': 'name_a_1-17', 'ref': 'ref_a_1-17'},
+		{'prefix': 'Bidet', 'url': 'a_1-18', 'name': 'name_a_1-18', 'ref': 'ref_a_1-18'},
+		{'prefix': 'Bidet', 'url': 'a_1-19', 'name': 'name_a_1-19', 'ref': 'ref_a_1-19'},
+		{'prefix': 'Bidet', 'url': 'a_1-20', 'name': 'name_a_1-20', 'ref': 'ref_a_1-20'},
+		{'prefix': 'Bloc WC', 'url': 'a_1-21', 'name': 'name_a_1-21', 'ref': 'ref_a_1-21'},
+		{'prefix': 'Bloc WC', 'url': 'a_1-22', 'name': 'name_a_1-22', 'ref': 'ref_a_1-22'},
+		{'prefix': 'Bloc WC', 'url': 'a_1-23', 'name': 'name_a_1-23', 'ref': 'ref_a_1-23'},
+		{'prefix': 'Bloc WC', 'url': 'a_1-24', 'name': 'name_a_1-24', 'ref': 'ref_a_1-24'},
+		{'prefix': 'Bloc WC', 'url': 'a_1-25', 'name': 'name_a_1-25', 'ref': 'ref_a_1-25'},
+		{'prefix': 'Bloc WC', 'url': 'a_1-26', 'name': 'name_a_1-26', 'ref': 'ref_a_1-26'},
+		{'prefix': 'Bloc WC', 'url': 'a_1-27', 'name': 'name_a_1-27', 'ref': 'ref_a_1-27'},
+		{'prefix': 'Bloc WC', 'url': 'a_1-28', 'name': 'name_a_1-28', 'ref': 'ref_a_1-28'},
+		{'prefix': 'Bloc WC', 'url': 'a_1-29', 'name': 'name_a_1-29', 'ref': 'ref_a_1-29'},
+		{'prefix': 'Bloc WC', 'url': 'a_1-30', 'name': 'name_a_1-30', 'ref': 'ref_a_1-30'},
+		{'prefix': 'Vasque', 'url': 'a_1-31', 'name': 'name_a_1-31', 'ref': 'ref_a_1-31'},
+		{'prefix': 'Vasque', 'url': 'a_1-32', 'name': 'name_a_1-32', 'ref': 'ref_a_1-32'},
+		{'prefix': 'Vasque', 'url': 'a_1-33', 'name': 'name_a_1-33', 'ref': 'ref_a_1-33'},
+		{'prefix': 'Vasque', 'url': 'a_1-34', 'name': 'name_a_1-34', 'ref': 'ref_a_1-34'},
+		{'prefix': 'Vasque', 'url': 'a_1-35', 'name': 'name_a_1-35', 'ref': 'ref_a_1-35'},
 	]
-	paginator = Paginator(articles, 16)
+
+	Vasque = []
+	Bloc_WC = []
+	Bidet = []
+
+	for x in articles:
+		if(x['prefix'] == 'Vasque'):
+			Vasque.append(x)
+		elif(x['prefix'] == 'Bloc_WC'):
+			Bloc_WC.append(x)
+		elif(x['prefix'] == 'Bidet'):
+			Bidet.append(x)
+
+	paginator_Vasque = Paginator(Vasque, 100)
+	paginator_Bloc_WC = Paginator(Bloc_WC, 100)
+	paginator_Bidet = Paginator(Bidet, 100)
+
 	page = request.GET.get('page')
 	try:
-		articles_list = paginator.page(page)
+		Vasque_list = paginator_Arq.page(page)
+		Bloc_WC_list = paginator_Noble.page(page)
+		Bidet_list = paginator_Eos.page(page)
 	except PageNotAnInteger:
-		articles_list = paginator.page(1)
+		Vasque_list = paginator_Arq.page(1)
+		Bloc_WC_list = paginator_Noble.page(1)
+		Bidet_list = paginator_Eos.page(1)
 	except EmptyPage:
-		articles_list = paginator.page(paginator.num_pages)
+		Vasque_list = paginator_Arq.page(paginator_Arq.num_pages)
+		Bloc_WC_list = paginator_Noble.page(paginator_Noble.num_pages)
+		Bidet_list = paginator_Eos.page(paginator_Eos.num_pages)
 	context = {
 		'name': 'index_sanitaire',
-		'articles_list': articles_list,
+		'Vasque_list': Vasque_list,
+		'Bloc_WC_list': Bloc_WC_list,
+		'Bidet_list': Bidet_list,
 	}
 	return render(request, 'carre_app/index_sanitaire.html', context)
 
 def index_baignoiresetreceveurs(request):
 	articles = [
-		{'url': 'a_2-1', 'name': 'name_a_2-1', 'ref': 'ref_a_2-1'},
-		{'url': 'a_2-2', 'name': 'name_a_2-2', 'ref': 'ref_a_2-2'},
-		{'url': 'a_2-3', 'name': 'name_a_2-3', 'ref': 'ref_a_2-3'},
-		{'url': 'a_2-4', 'name': 'name_a_2-4', 'ref': 'ref_a_2-4'},
-		{'url': 'a_2-5', 'name': 'name_a_2-5', 'ref': 'ref_a_2-5'},
-		{'url': 'a_2-6', 'name': 'name_a_2-6', 'ref': 'ref_a_2-6'},
-		{'url': 'a_2-7', 'name': 'name_a_2-7', 'ref': 'ref_a_2-7'},
-		{'url': 'a_2-8', 'name': 'name_a_2-8', 'ref': 'ref_a_2-8'},
-		{'url': 'a_2-9', 'name': 'name_a_2-9', 'ref': 'ref_a_2-9'},
-		{'url': 'a_2-10', 'name': 'name_a_2-10', 'ref': 'ref_a_2-10'},
-		{'url': 'a_2-11', 'name': 'name_a_2-11', 'ref': 'ref_a_2-11'},
-		{'url': 'a_2-12', 'name': 'name_a_2-12', 'ref': 'ref_a_2-12'},
-		{'url': 'a_2-13', 'name': 'name_a_2-13', 'ref': 'ref_a_2-13'},
-		{'url': 'a_2-14', 'name': 'name_a_2-14', 'ref': 'ref_a_2-14'},
+		{'prefix': 'Baignoires', 'url': 'a_2-1', 'name': 'name_a_2-1', 'ref': 'ref_a_2-1'},
+		{'prefix': 'Baignoires', 'url': 'a_2-2', 'name': 'name_a_2-2', 'ref': 'ref_a_2-2'},
+		{'prefix': 'Baignoires', 'url': 'a_2-3', 'name': 'name_a_2-3', 'ref': 'ref_a_2-3'},
+		{'prefix': 'Baignoires', 'url': 'a_2-4', 'name': 'name_a_2-4', 'ref': 'ref_a_2-4'},
+		{'prefix': 'Baignoires', 'url': 'a_2-5', 'name': 'name_a_2-5', 'ref': 'ref_a_2-5'},
+		{'prefix': 'Baignoires', 'url': 'a_2-6', 'name': 'name_a_2-6', 'ref': 'ref_a_2-6'},
+		{'prefix': 'Baignoires', 'url': 'a_2-7', 'name': 'name_a_2-7', 'ref': 'ref_a_2-7'},
+		{'prefix': 'Baignoires', 'url': 'a_2-8', 'name': 'name_a_2-8', 'ref': 'ref_a_2-8'},
+		{'prefix': 'Receveurs', 'url': 'a_2-9', 'name': 'name_a_2-9', 'ref': 'ref_a_2-9'},
+		{'prefix': 'Receveurs', 'url': 'a_2-10', 'name': 'name_a_2-10', 'ref': 'ref_a_2-10'},
+		{'prefix': 'Receveurs', 'url': 'a_2-11', 'name': 'name_a_2-11', 'ref': 'ref_a_2-11'},
+		{'prefix': 'Receveurs', 'url': 'a_2-12', 'name': 'name_a_2-12', 'ref': 'ref_a_2-12'},
+		{'prefix': 'Receveurs', 'url': 'a_2-13', 'name': 'name_a_2-13', 'ref': 'ref_a_2-13'},
+		{'prefix': 'Receveurs', 'url': 'a_2-14', 'name': 'name_a_2-14', 'ref': 'ref_a_2-14'},
 	]
-	paginator = Paginator(articles, 16)
+
+	Baignoires = []
+	Receveurs = []
+
+	for x in articles:
+		if(x['prefix'] == 'Baignoires'):
+			Vasque.append(x)
+		elif(x['prefix'] == 'Receveurs'):
+			Bloc_WC.append(x)
+
+	paginator_Baignoires = Paginator(Baignoires, 100)
+	paginator_Receveurs = Paginator(Receveurs, 100)
+
 	page = request.GET.get('page')
 	try:
-		articles_list = paginator.page(page)
+		Baignoires_list = paginator_Baignoires.page(page)
+		Receveurs_list = paginator_Receveurs.page(page)
 	except PageNotAnInteger:
-		articles_list = paginator.page(1)
+		Baignoires_list = paginator_Baignoires.page(1)
+		Receveurs_list = paginator_Receveurs.page(1)
 	except EmptyPage:
-		articles_list = paginator.page(paginator.num_pages)
+		Baignoires_list = paginator_Baignoires.page(paginator_Baignoires.num_pages)
+		Receveurs_list = paginator_Receveurs.page(paginator_Receveurs.num_pages)
 	context = {
 		'name': 'index_baignoiresetreceveurs',
-		'articles_list': articles_list,
+		'Baignoires_list': Baignoires_list,
+		'Receveurs_list': Receveurs_list,
 	}
 	return render(request, 'carre_app/index_baignoiresetreceveurs.html', context)
 
 def index_miroirs(request):
 	articles = [
-		{'url': 'a_3-1', 'name': 'name_a_3-1', 'ref': 'ref_a_3-1'},
-		{'url': 'a_3-2', 'name': 'name_a_3-2', 'ref': 'ref_a_3-2'},
-		{'url': 'a_3-3', 'name': 'name_a_3-3', 'ref': 'ref_a_3-3'},
-		{'url': 'a_3-4', 'name': 'name_a_3-4', 'ref': 'ref_a_3-4'},
-		{'url': 'a_3-5', 'name': 'name_a_3-5', 'ref': 'ref_a_3-5'},
-		{'url': 'a_3-6', 'name': 'name_a_3-6', 'ref': 'ref_a_3-6'},
-		{'url': 'a_3-7', 'name': 'name_a_3-7', 'ref': 'ref_a_3-7'},
-		{'url': 'a_3-8', 'name': 'name_a_3-8', 'ref': 'ref_a_3-8'},
-		{'url': 'a_3-9', 'name': 'name_a_3-9', 'ref': 'ref_a_3-9'},
-		{'url': 'a_3-10', 'name': 'name_a_3-10', 'ref': 'ref_a_3-10'},
-		{'url': 'a_3-11', 'name': 'name_a_3-11', 'ref': 'ref_a_3-11'},
-		{'url': 'a_3-12', 'name': 'name_a_3-12', 'ref': 'ref_a_3-12'},
-		{'url': 'a_3-13', 'name': 'name_a_3-13', 'ref': 'ref_a_3-13'},
-		{'url': 'a_3-14', 'name': 'name_a_3-14', 'ref': 'ref_a_3-14'},
-		{'url': 'a_3-15', 'name': 'name_a_3-15', 'ref': 'ref_a_3-15'},
-		{'url': 'a_3-16', 'name': 'name_a_3-16', 'ref': 'ref_a_3-16'},
-		{'url': 'a_3-17', 'name': 'name_a_3-17', 'ref': 'ref_a_3-17'},
-		{'url': 'a_3-18', 'name': 'name_a_3-18', 'ref': 'ref_a_3-18'},
+		{'prefix': 'Standard', 'url': 'a_3-1', 'name': 'name_a_3-1', 'ref': 'ref_a_3-1'},
+		{'prefix': 'Avec Lampe', 'url': 'a_3-2', 'name': 'name_a_3-2', 'ref': 'ref_a_3-2'},
+		{'prefix': 'Avec LED', 'url': 'a_3-3', 'name': 'name_a_3-3', 'ref': 'ref_a_3-3'},
+		{'prefix': 'Ovale', 'url': 'a_3-4', 'name': 'name_a_3-4', 'ref': 'ref_a_3-4'},
+		{'prefix': 'Carré', 'url': 'a_3-5', 'name': 'name_a_3-5', 'ref': 'ref_a_3-5'},
+		{'prefix': 'Standard', 'url': 'a_3-6', 'name': 'name_a_3-6', 'ref': 'ref_a_3-6'},
+		{'prefix': 'Avec Lampe', 'url': 'a_3-7', 'name': 'name_a_3-7', 'ref': 'ref_a_3-7'},
+		{'prefix': 'Avec LED', 'url': 'a_3-8', 'name': 'name_a_3-8', 'ref': 'ref_a_3-8'},
+		{'prefix': 'Ovale', 'url': 'a_3-9', 'name': 'name_a_3-9', 'ref': 'ref_a_3-9'},
+		{'prefix': 'Carré', 'url': 'a_3-10', 'name': 'name_a_3-10', 'ref': 'ref_a_3-10'},
+		{'prefix': 'Standard', 'url': 'a_3-11', 'name': 'name_a_3-11', 'ref': 'ref_a_3-11'},
+		{'prefix': 'Avec Lampe', 'url': 'a_3-12', 'name': 'name_a_3-12', 'ref': 'ref_a_3-12'},
+		{'prefix': 'Avec LED', 'url': 'a_3-13', 'name': 'name_a_3-13', 'ref': 'ref_a_3-13'},
+		{'prefix': 'Ovale', 'url': 'a_3-14', 'name': 'name_a_3-14', 'ref': 'ref_a_3-14'},
+		{'prefix': 'Carré', 'url': 'a_3-15', 'name': 'name_a_3-15', 'ref': 'ref_a_3-15'},
+		{'prefix': 'Standard', 'url': 'a_3-16', 'name': 'name_a_3-16', 'ref': 'ref_a_3-16'},
+		{'prefix': 'Avec Lampe', 'url': 'a_3-17', 'name': 'name_a_3-17', 'ref': 'ref_a_3-17'},
+		{'prefix': 'Avec LED', 'url': 'a_3-18', 'name': 'name_a_3-18', 'ref': 'ref_a_3-18'},
 	]
-	paginator = Paginator(articles, 16)
+
+	Standard = []
+	Avec_Lampe = []
+	Avec_LED = []
+	Ovale = []
+	Carre = []
+
+	for x in articles:
+		if(x['prefix'] == 'Standard'):
+			Standard.append(x)
+		elif(x['prefix'] == 'Avec Lampe'):
+			Avec_Lampe.append(x)
+		elif(x['prefix'] == 'Avec LED'):
+			Avec_LED.append(x)
+		elif(x['prefix'] == 'Ovale'):
+			Ovale.append(x)
+		elif(x['prefix'] == 'Carre'):
+			Carre.append(x)
+
+	paginator_Standard = Paginator(Standard, 100)
+	paginator_Avec_Lampe = Paginator(Avec_Lampe, 100)
+	paginator_Avec_LED = Paginator(Avec_LED, 100)
+	paginator_Ovale = Paginator(Ovale, 100)
+	paginator_Carre = Paginator(Carre, 100)
+
 	page = request.GET.get('page')
 	try:
-		articles_list = paginator.page(page)
+		Standard_list = paginator_Standard.page(page)
+		Avec_Lampe_list = paginator_Avec_Lampe.page(page)
+		Avec_LED_list = paginator_Avec_LED.page(page)
+		Ovale_list = paginator_Ovale.page(page)
+		Carre_list = paginator_Carre.page(page)
 	except PageNotAnInteger:
-		articles_list = paginator.page(1)
+		Standard_list = paginator_Standard.page(1)
+		Avec_Lampe_list = paginator_Avec_Lampe.page(1)
+		Avec_LED_list = paginator_Avec_LED.page(1)
+		Ovale_list = paginator_Ovale.page(1)
+		Carre_list = paginator_Carre.page(1)
 	except EmptyPage:
-		articles_list = paginator.page(paginator.num_pages)
+		Standard_list = paginator_Standard.page(paginator_Standard.num_pages)
+		Avec_Lampe_list = paginator_Avec_Lampe.page(paginator_Avec_Lampe.num_pages)
+		Avec_LED_list = paginator_Avec_LED.page(paginator_Avec_LED.num_pages)
+		Ovale_list = paginator_Ovale.page(paginator_Ovale.num_pages)
+		Carre_list = paginator_Carre.page(paginator_Carre.num_pages)
 	context = {
 		'name': 'index_miroirs',
-		'articles_list': articles_list,
+		'Standard_list': Standard_list,
+		'Avec_Lampe_list': Avec_Lampe_list,
+		'Avec_LED_list': Avec_LED_list,
+		'Ovale_list': Ovale_list,
+		'Carre_list': Carre_list,
 	}
 	return render(request, 'carre_app/index_miroirs.html', context)
 
 def index_meubles(request):
 	articles = [
-		{'url': 'a_4-1', 'name': 'name_a_4-1', 'ref': 'ref_a_4-1'},
-		{'url': 'a_4-2', 'name': 'name_a_4-2', 'ref': 'ref_a_4-2'},
-		{'url': 'a_4-3', 'name': 'name_a_4-3', 'ref': 'ref_a_4-3'},
-		{'url': 'a_4-4', 'name': 'name_a_4-4', 'ref': 'ref_a_4-4'},
-		{'url': 'a_4-5', 'name': 'name_a_4-5', 'ref': 'ref_a_4-5'},
-		{'url': 'a_4-6', 'name': 'name_a_4-6', 'ref': 'ref_a_4-6'},
-		{'url': 'a_4-7', 'name': 'name_a_4-7', 'ref': 'ref_a_4-7'},
-		{'url': 'a_4-8', 'name': 'name_a_4-8', 'ref': 'ref_a_4-8'},
+		{'prefix': 'DINAR', 'url': 'a_4-1', 'name': 'name_a_4-1', 'ref': 'ref_a_4-1'},
+		{'prefix': 'LUNA', 'url': 'a_4-2', 'name': 'name_a_4-2', 'ref': 'ref_a_4-2'},
+		{'prefix': 'MARMARA', 'url': 'a_4-3', 'name': 'name_a_4-3', 'ref': 'ref_a_4-3'},
+		{'prefix': 'MARS', 'url': 'a_4-4', 'name': 'name_a_4-4', 'ref': 'ref_a_4-4'},
+		{'prefix': 'MILAS', 'url': 'a_4-5', 'name': 'name_a_4-5', 'ref': 'ref_a_4-5'},
+		{'prefix': 'SAMBA', 'url': 'a_4-6', 'name': 'name_a_4-6', 'ref': 'ref_a_4-6'},
+		{'prefix': 'SOMA', 'url': 'a_4-7', 'name': 'name_a_4-7', 'ref': 'ref_a_4-7'},
+		{'prefix': 'VALS', 'url': 'a_4-8', 'name': 'name_a_4-8', 'ref': 'ref_a_4-8'},
 	]
-	paginator = Paginator(articles, 16)
+
+	DINAR = []
+	LUNA = []
+	MARMARA = []
+	MARS = []
+	MILAS = []
+	SAMBA = []
+	SOMA = []
+	VALS = []
+
+	for x in articles:
+		if(x['prefix'] == 'DINAR'):
+			DINAR.append(x)
+		elif(x['prefix'] == 'LUNA'):
+			LUNA.append(x)
+		elif(x['prefix'] == 'MARMARA'):
+			MARMARA.append(x)
+		elif(x['prefix'] == 'MARS'):
+			MARS.append(x)
+		elif(x['prefix'] == 'MILAS'):
+			MILAS.append(x)
+		elif(x['prefix'] == 'SAMBA'):
+			SAMBA.append(x)
+		elif(x['prefix'] == 'SOMA'):
+			SOMA.append(x)
+		elif(x['prefix'] == 'VALS'):
+			VALS.append(x)
+
+	paginator_DINAR = Paginator(DINAR, 100)
+	paginator_LUNA = Paginator(LUNA, 100)
+	paginator_MARMARA = Paginator(MARMARA, 100)
+	paginator_MARS = Paginator(MARS, 100)
+	paginator_MILAS = Paginator(MILAS, 100)
+	paginator_SAMBA = Paginator(SAMBA, 100)
+	paginator_SOMA = Paginator(SOMA, 100)
+	paginator_VALS = Paginator(VALS, 100)
+
 	page = request.GET.get('page')
 	try:
-		articles_list = paginator.page(page)
+		DINAR_list = paginator_DINAR.page(page)
+		LUNA_list = paginator_LUNA.page(page)
+		MARMARA_list = paginator_MARMARA.page(page)
+		MARS_list = paginator_MARS.page(page)
+		MILAS_list = paginator_MILAS.page(page)
+		SAMBA_list = paginator_SAMBA.page(page)
+		SOMA_list = paginator_SOMA.page(page)
+		VALS_list = paginator_VALS.page(page)
 	except PageNotAnInteger:
-		articles_list = paginator.page(1)
+		DINAR_list = paginator_DINAR.page(1)
+		LUNA_list = paginator_LUNA.page(1)
+		MARMARA_list = paginator_MARMARA.page(1)
+		MARS_list = paginator_MARS.page(1)
+		MILAS_list = paginator_MILAS.page(1)
+		SAMBA_list = paginator_SAMBA.page(1)
+		SOMA_list = paginator_SOMA.page(1)
+		VALS_list = paginator_VALS.page(1)
 	except EmptyPage:
-		articles_list = paginator.page(paginator.num_pages)
+		DINAR_list = paginator_DINAR.page(paginator_DINAR.num_pages)
+		LUNA_list = paginator_LUNA.page(paginator_LUNA.num_pages)
+		MARMARA_list = paginator_MARMARA.page(paginator_MARMARA.num_pages)
+		MARS_list = paginator_MARS.page(paginator_MARS.num_pages)
+		MILAS_list = paginator_MILAS.page(paginator_MILAS.num_pages)
+		SAMBA_list = paginator_SAMBA.page(paginator_SAMBA.num_pages)
+		SOMA_list = paginator_SOMA.page(paginator_SOMA.num_pages)
+		VALS_list = paginator_VALS.page(paginator_VALS.num_pages)
 	context = {
 		'name': 'index_meubles',
 		'articles_list': articles_list,
@@ -188,60 +466,127 @@ def index_meubles(request):
 
 def index_eviers(request):
 	articles = [
-		{'url': 'a_5-1', 'name': 'name_a_5-1', 'ref': 'ref_a_5-1'},
-		{'url': 'a_5-2', 'name': 'name_a_5-2', 'ref': 'ref_a_5-2'},
-		{'url': 'a_5-3', 'name': 'name_a_5-3', 'ref': 'ref_a_5-3'},
-		{'url': 'a_5-4', 'name': 'name_a_5-4', 'ref': 'ref_a_5-4'},
-		{'url': 'a_5-5', 'name': 'name_a_5-5', 'ref': 'ref_a_5-5'},
-		{'url': 'a_5-6', 'name': 'name_a_5-6', 'ref': 'ref_a_5-6'},
-		{'url': 'a_5-7', 'name': 'name_a_5-7', 'ref': 'ref_a_5-7'},
-		{'url': 'a_5-8', 'name': 'name_a_5-8', 'ref': 'ref_a_5-8'},
-		{'url': 'a_5-9', 'name': 'name_a_5-9', 'ref': 'ref_a_5-9'},
-		{'url': 'a_5-10', 'name': 'name_a_5-10', 'ref': 'ref_a_5-10'},
-		{'url': 'a_5-11', 'name': 'name_a_5-11', 'ref': 'ref_a_5-11'},
+		{'prefix': 'Simple', 'url': 'a_5-1', 'name': 'name_a_5-1', 'ref': 'ref_a_5-1'},
+		{'prefix': 'Simple', 'url': 'a_5-2', 'name': 'name_a_5-2', 'ref': 'ref_a_5-2'},
+		{'prefix': 'Simple', 'url': 'a_5-3', 'name': 'name_a_5-3', 'ref': 'ref_a_5-3'},
+		{'prefix': 'Circulaire', 'url': 'a_5-4', 'name': 'name_a_5-4', 'ref': 'ref_a_5-4'},
+		{'prefix': 'Circulaire', 'url': 'a_5-5', 'name': 'name_a_5-5', 'ref': 'ref_a_5-5'},
+		{'prefix': 'Circulaire', 'url': 'a_5-6', 'name': 'name_a_5-6', 'ref': 'ref_a_5-6'},
+		{'prefix': 'Double', 'url': 'a_5-7', 'name': 'name_a_5-7', 'ref': 'ref_a_5-7'},
+		{'prefix': 'Double', 'url': 'a_5-8', 'name': 'name_a_5-8', 'ref': 'ref_a_5-8'},
+		{'prefix': 'Double', 'url': 'a_5-9', 'name': 'name_a_5-9', 'ref': 'ref_a_5-9'},
+		{'prefix': 'Double', 'url': 'a_5-10', 'name': 'name_a_5-10', 'ref': 'ref_a_5-10'},
+		{'prefix': 'Double', 'url': 'a_5-11', 'name': 'name_a_5-11', 'ref': 'ref_a_5-11'},
 	]
-	paginator = Paginator(articles, 16)
+
+	Simple = []
+	Circulaire = []
+	Double = []
+
+	for x in articles:
+		if(x['prefix'] == 'Simple'):
+			Simple.append(x)
+		elif(x['prefix'] == 'Circulaire'):
+			Circulaire.append(x)
+		elif(x['prefix'] == 'Double'):
+			Double.append(x)
+
+	paginator_Simple = Paginator(Simple, 100)
+	paginator_Circulaire = Paginator(Circulaire, 100)
+	paginator_Double = Paginator(Double, 100)
+
 	page = request.GET.get('page')
 	try:
-		articles_list = paginator.page(page)
+		Simple_list = paginator_Simple.page(page)
+		Circulaire_list = paginator_Circulaire.page(page)
+		Double_list = paginator_Double.page(page)
 	except PageNotAnInteger:
-		articles_list = paginator.page(1)
+		Simple_list = paginator_Simple.page(1)
+		Circulaire_list = paginator_Circulaire.page(1)
+		Double_list = paginator_Double.page(1)
 	except EmptyPage:
-		articles_list = paginator.page(paginator.num_pages)
+		Simple_list = paginator_Simple.page(paginator_Simple.num_pages)
+		Circulaire_list = paginator_Circulaire.page(paginator_Circulaire.num_pages)
+		Double_list = paginator_Double.page(paginator_Double.num_pages)
 	context = {
 		'name': 'index_eviers',
-		'articles_list': articles_list,
+		'Simple_list': Simple_list,
+		'Circulaire_list': Circulaire_list,
+		'Double_list': Double_list,
 	}
 	return render(request, 'carre_app/index_eviers.html', context)
 
 def index_robinetterie(request):
 	articles = [
-		{'url': 'a_6-1', 'name': 'name_a_6-1', 'ref': 'ref_a_6-1'},
-		{'url': 'a_6-2', 'name': 'name_a_6-2', 'ref': 'ref_a_6-2'},
-		{'url': 'a_6-3', 'name': 'name_a_6-3', 'ref': 'ref_a_6-3'},
-		{'url': 'a_6-4', 'name': 'name_a_6-4', 'ref': 'ref_a_6-4'},
-		{'url': 'a_6-5', 'name': 'name_a_6-5', 'ref': 'ref_a_6-5'},
-		{'url': 'a_6-6', 'name': 'name_a_6-6', 'ref': 'ref_a_6-6'},
-		{'url': 'a_6-7', 'name': 'name_a_6-7', 'ref': 'ref_a_6-7'},
-		{'url': 'a_6-8', 'name': 'name_a_6-8', 'ref': 'ref_a_6-8'},
-		{'url': 'a_6-9', 'name': 'name_a_6-9', 'ref': 'ref_a_6-9'},
-		{'url': 'a_6-10', 'name': 'name_a_6-10', 'ref': 'ref_a_6-10'},
-		{'url': 'a_6-11', 'name': 'name_a_6-11', 'ref': 'ref_a_6-11'},
-		{'url': 'a_6-12', 'name': 'name_a_6-12', 'ref': 'ref_a_6-12'},
-		{'url': 'a_6-13', 'name': 'name_a_6-13', 'ref': 'ref_a_6-13'},
-		{'url': 'a_6-14', 'name': 'name_a_6-14', 'ref': 'ref_a_6-14'},
-		{'url': 'a_6-15', 'name': 'name_a_6-15', 'ref': 'ref_a_6-15'},
-		{'url': 'a_6-16', 'name': 'name_a_6-16', 'ref': 'ref_a_6-16'},
-		{'url': 'a_6-17', 'name': 'name_a_6-17', 'ref': 'ref_a_6-17'},
+		{'prefix': 'Mitigeur', 'url': 'a_6-1', 'name': 'name_a_6-1', 'ref': 'ref_a_6-1'},
+		{'prefix': 'Robinet', 'url': 'a_6-2', 'name': 'name_a_6-2', 'ref': 'ref_a_6-2'},
+		{'prefix': 'Poussoir', 'url': 'a_6-3', 'name': 'name_a_6-3', 'ref': 'ref_a_6-3'},
+		{'prefix': 'Siphon', 'url': 'a_6-4', 'name': 'name_a_6-4', 'ref': 'ref_a_6-4'},
+		{'prefix': 'Colonne', 'url': 'a_6-5', 'name': 'name_a_6-5', 'ref': 'ref_a_6-5'},
+		{'prefix': 'Pomme', 'url': 'a_6-6', 'name': 'name_a_6-6', 'ref': 'ref_a_6-6'},
+		{'prefix': 'Mitigeur', 'url': 'a_6-7', 'name': 'name_a_6-7', 'ref': 'ref_a_6-7'},
+		{'prefix': 'Robinet', 'url': 'a_6-8', 'name': 'name_a_6-8', 'ref': 'ref_a_6-8'},
+		{'prefix': 'Poussoir', 'url': 'a_6-9', 'name': 'name_a_6-9', 'ref': 'ref_a_6-9'},
+		{'prefix': 'Siphon', 'url': 'a_6-10', 'name': 'name_a_6-10', 'ref': 'ref_a_6-10'},
+		{'prefix': 'Colonne', 'url': 'a_6-11', 'name': 'name_a_6-11', 'ref': 'ref_a_6-11'},
+		{'prefix': 'Pomme', 'url': 'a_6-12', 'name': 'name_a_6-12', 'ref': 'ref_a_6-12'},
+		{'prefix': 'Mitigeur', 'url': 'a_6-13', 'name': 'name_a_6-13', 'ref': 'ref_a_6-13'},
+		{'prefix': 'Robinet', 'url': 'a_6-14', 'name': 'name_a_6-14', 'ref': 'ref_a_6-14'},
+		{'prefix': 'Poussoir', 'url': 'a_6-15', 'name': 'name_a_6-15', 'ref': 'ref_a_6-15'},
+		{'prefix': 'Siphon', 'url': 'a_6-16', 'name': 'name_a_6-16', 'ref': 'ref_a_6-16'},
+		{'prefix': 'Colonne', 'url': 'a_6-17', 'name': 'name_a_6-17', 'ref': 'ref_a_6-17'},
 	]
-	paginator = Paginator(articles, 16)
+
+	Mitigeur = []
+	Robinet = []
+	Poussoir = []
+	Siphon = []
+	Colonne = []
+	Pomme = []
+
+	for x in articles:
+		if(x['prefix'] == 'Mitigeur'):
+			Mitigeur.append(x)
+		elif(x['prefix'] == 'Robinet'):
+			Robinet.append(x)
+		elif(x['prefix'] == 'Poussoir'):
+			Poussoir.append(x)
+		elif(x['prefix'] == 'Siphon'):
+			Siphon.append(x)
+		elif(x['prefix'] == 'Colonne'):
+			Colonne.append(x)
+		elif(x['prefix'] == 'Pomme'):
+			Pomme.append(x)
+
+	paginator_Mitigeur = Paginator(Mitigeur, 100)
+	paginator_Robinet = Paginator(Robinet, 100)
+	paginator_Poussoir = Paginator(Poussoir, 100)
+	paginator_Siphon = Paginator(Siphon, 100)
+	paginator_Colonne = Paginator(Colonne, 100)
+	paginator_Pomme = Paginator(Pomme, 100)
+
 	page = request.GET.get('page')
 	try:
-		articles_list = paginator.page(page)
+		Mitigeur_list = paginator_Mitigeur.page(page)
+		Robinet_list = paginator_Robinet.page(page)
+		Poussoir_list = paginator_Poussoir.page(page)
+		Siphon_list = paginator_Siphon.page(page)
+		Colonne_list = paginator_Colonne.page(page)
+		Pomme_list = paginator_Pomme.page(page)
 	except PageNotAnInteger:
-		articles_list = paginator.page(1)
+		Mitigeur_list = paginator_Mitigeur.page(1)
+		Robinet_list = paginator_Robinet.page(1)
+		Poussoir_list = paginator_Poussoir.page(1)
+		Siphon_list = paginator_Siphon.page(1)
+		Colonne_list = paginator_Colonne.page(1)
+		Pomme_list = paginator_Pomme.page(1)
 	except EmptyPage:
-		articles_list = paginator.page(paginator.num_pages)
+		Mitigeur_list = paginator_Mitigeur.page(paginator_Mitigeur.num_pages)
+		Robinet_list = paginator_Robinet.page(paginator_Robinet.num_pages)
+		Poussoir_list = paginator_Poussoir.page(paginator_Poussoir.num_pages)
+		Siphon_list = paginator_Siphon.page(paginator_Siphon.num_pages)
+		Colonne_list = paginator_Colonne.page(paginator_Colonne.num_pages)
+		Pomme_list = paginator_Pomme.page(paginator_Pomme.num_pages)
 	context = {
 		'name': 'index_robinetterie',
 		'articles_list': articles_list,
@@ -250,95 +595,145 @@ def index_robinetterie(request):
 
 def index_accessoires(request):
 	articles = [
-		{'url': 'a_7-1', 'name': 'name_a_7-1', 'ref': 'ref_a_7-1'},
-		{'url': 'a_7-2', 'name': 'name_a_7-2', 'ref': 'ref_a_7-2'},
-		{'url': 'a_7-3', 'name': 'name_a_7-3', 'ref': 'ref_a_7-3'},
-		{'url': 'a_7-4', 'name': 'name_a_7-4', 'ref': 'ref_a_7-4'},
-		{'url': 'a_7-5', 'name': 'name_a_7-5', 'ref': 'ref_a_7-5'},
-		{'url': 'a_7-6', 'name': 'name_a_7-6', 'ref': 'ref_a_7-6'},
-		{'url': 'a_7-7', 'name': 'name_a_7-7', 'ref': 'ref_a_7-7'},
-		{'url': 'a_7-8', 'name': 'name_a_7-8', 'ref': 'ref_a_7-8'},
-		{'url': 'a_7-9', 'name': 'name_a_7-9', 'ref': 'ref_a_7-9'},
-		{'url': 'a_7-10', 'name': 'name_a_7-10', 'ref': 'ref_a_7-10'},
-		{'url': 'a_7-11', 'name': 'name_a_7-11', 'ref': 'ref_a_7-11'},
-		{'url': 'a_7-12', 'name': 'name_a_7-12', 'ref': 'ref_a_7-12'},
-		{'url': 'a_7-13', 'name': 'name_a_7-13', 'ref': 'ref_a_7-13'},
-		{'url': 'a_7-14', 'name': 'name_a_7-14', 'ref': 'ref_a_7-14'},
-		{'url': 'a_7-15', 'name': 'name_a_7-15', 'ref': 'ref_a_7-15'},
-		{'url': 'a_7-16', 'name': 'name_a_7-16', 'ref': 'ref_a_7-16'},
-		{'url': 'a_7-17', 'name': 'name_a_7-17', 'ref': 'ref_a_7-17'},
-		{'url': 'a_7-18', 'name': 'name_a_7-18', 'ref': 'ref_a_7-18'},
-		{'url': 'a_7-19', 'name': 'name_a_7-19', 'ref': 'ref_a_7-19'},
-		{'url': 'a_7-20', 'name': 'name_a_7-20', 'ref': 'ref_a_7-20'},
-		{'url': 'a_7-21', 'name': 'name_a_7-21', 'ref': 'ref_a_7-21'},
-		{'url': 'a_7-22', 'name': 'name_a_7-22', 'ref': 'ref_a_7-22'},
-		{'url': 'a_7-23', 'name': 'name_a_7-23', 'ref': 'ref_a_7-23'},
-		{'url': 'a_7-24', 'name': 'name_a_7-24', 'ref': 'ref_a_7-24'},
-		{'url': 'a_7-25', 'name': 'name_a_7-25', 'ref': 'ref_a_7-25'},
-		{'url': 'a_7-26', 'name': 'name_a_7-26', 'ref': 'ref_a_7-26'},
-		{'url': 'a_7-27', 'name': 'name_a_7-27', 'ref': 'ref_a_7-27'},
-		{'url': 'a_7-28', 'name': 'name_a_7-28', 'ref': 'ref_a_7-28'},
-		{'url': 'a_7-29', 'name': 'name_a_7-29', 'ref': 'ref_a_7-29'},
-		{'url': 'a_7-30', 'name': 'name_a_7-30', 'ref': 'ref_a_7-30'},
-		{'url': 'a_7-31', 'name': 'name_a_7-31', 'ref': 'ref_a_7-31'},
-		{'url': 'a_7-32', 'name': 'name_a_7-32', 'ref': 'ref_a_7-32'},
-		{'url': 'a_7-33', 'name': 'name_a_7-33', 'ref': 'ref_a_7-33'},
-		{'url': 'a_7-34', 'name': 'name_a_7-34', 'ref': 'ref_a_7-34'},
-		{'url': 'a_7-35', 'name': 'name_a_7-35', 'ref': 'ref_a_7-35'},
-		{'url': 'a_7-36', 'name': 'name_a_7-36', 'ref': 'ref_a_7-36'},
-		{'url': 'a_7-37', 'name': 'name_a_7-37', 'ref': 'ref_a_7-37'},
-		{'url': 'a_7-38', 'name': 'name_a_7-38', 'ref': 'ref_a_7-38'},
-		{'url': 'a_7-39', 'name': 'name_a_7-39', 'ref': 'ref_a_7-39'},
-		{'url': 'a_7-40', 'name': 'name_a_7-40', 'ref': 'ref_a_7-40'},
-		{'url': 'a_7-41', 'name': 'name_a_7-41', 'ref': 'ref_a_7-41'},
-		{'url': 'a_7-42', 'name': 'name_a_7-42', 'ref': 'ref_a_7-42'},
-		{'url': 'a_7-43', 'name': 'name_a_7-43', 'ref': 'ref_a_7-43'},
-		{'url': 'a_7-44', 'name': 'name_a_7-44', 'ref': 'ref_a_7-44'},
-		{'url': 'a_7-45', 'name': 'name_a_7-45', 'ref': 'ref_a_7-45'},
-		{'url': 'a_7-46', 'name': 'name_a_7-46', 'ref': 'ref_a_7-46'},
-		{'url': 'a_7-47', 'name': 'name_a_7-47', 'ref': 'ref_a_7-47'},
-		{'url': 'a_7-48', 'name': 'name_a_7-48', 'ref': 'ref_a_7-48'},
-		{'url': 'a_7-49', 'name': 'name_a_7-49', 'ref': 'ref_a_7-49'},
-		{'url': 'a_7-50', 'name': 'name_a_7-50', 'ref': 'ref_a_7-50'},
-		{'url': 'a_7-51', 'name': 'name_a_7-51', 'ref': 'ref_a_7-51'},
-		{'url': 'a_7-52', 'name': 'name_a_7-52', 'ref': 'ref_a_7-52'},
-		{'url': 'a_7-53', 'name': 'name_a_7-53', 'ref': 'ref_a_7-53'},
-		{'url': 'a_7-54', 'name': 'name_a_7-54', 'ref': 'ref_a_7-54'},
-		{'url': 'a_7-55', 'name': 'name_a_7-55', 'ref': 'ref_a_7-55'},
-		{'url': 'a_7-56', 'name': 'name_a_7-56', 'ref': 'ref_a_7-56'},
-		{'url': 'a_7-57', 'name': 'name_a_7-57', 'ref': 'ref_a_7-57'},
-		{'url': 'a_7-58', 'name': 'name_a_7-58', 'ref': 'ref_a_7-58'},
-		{'url': 'a_7-59', 'name': 'name_a_7-59', 'ref': 'ref_a_7-59'},
-		{'url': 'a_7-60', 'name': 'name_a_7-60', 'ref': 'ref_a_7-60'},
-		{'url': 'a_7-61', 'name': 'name_a_7-61', 'ref': 'ref_a_7-61'},
-		{'url': 'a_7-62', 'name': 'name_a_7-62', 'ref': 'ref_a_7-62'},
-		{'url': 'a_7-63', 'name': 'name_a_7-63', 'ref': 'ref_a_7-63'},
-		{'url': 'a_7-64', 'name': 'name_a_7-64', 'ref': 'ref_a_7-64'},
-		{'url': 'a_7-65', 'name': 'name_a_7-65', 'ref': 'ref_a_7-65'},
-		{'url': 'a_7-66', 'name': 'name_a_7-66', 'ref': 'ref_a_7-66'},
-		{'url': 'a_7-67', 'name': 'name_a_7-67', 'ref': 'ref_a_7-67'},
-		{'url': 'a_7-68', 'name': 'name_a_7-68', 'ref': 'ref_a_7-68'},
-		{'url': 'a_7-69', 'name': 'name_a_7-69', 'ref': 'ref_a_7-69'},
-		{'url': 'a_7-70', 'name': 'name_a_7-70', 'ref': 'ref_a_7-70'},
-		{'url': 'a_7-71', 'name': 'name_a_7-71', 'ref': 'ref_a_7-71'},
-		{'url': 'a_7-72', 'name': 'name_a_7-72', 'ref': 'ref_a_7-72'},
-		{'url': 'a_7-73', 'name': 'name_a_7-73', 'ref': 'ref_a_7-73'},
-		{'url': 'a_7-74', 'name': 'name_a_7-74', 'ref': 'ref_a_7-74'},
-		{'url': 'a_7-75', 'name': 'name_a_7-75', 'ref': 'ref_a_7-75'},
-		{'url': 'a_7-76', 'name': 'name_a_7-76', 'ref': 'ref_a_7-76'},
-		{'url': 'a_7-77', 'name': 'name_a_7-77', 'ref': 'ref_a_7-77'},
-		{'url': 'a_7-78', 'name': 'name_a_7-78', 'ref': 'ref_a_7-78'},
-		{'url': 'a_7-79', 'name': 'name_a_7-79', 'ref': 'ref_a_7-79'},
-		{'url': 'a_7-80', 'name': 'name_a_7-80', 'ref': 'ref_a_7-80'},
+		{'prefix': 'Titanic', 'url': 'a_7-1', 'name': 'name_a_7-1', 'ref': 'ref_a_7-1'},
+		{'prefix': 'Titanic', 'url': 'a_7-2', 'name': 'name_a_7-2', 'ref': 'ref_a_7-2'},
+		{'prefix': 'Titanic', 'url': 'a_7-3', 'name': 'name_a_7-3', 'ref': 'ref_a_7-3'},
+		{'prefix': 'Titanic', 'url': 'a_7-4', 'name': 'name_a_7-4', 'ref': 'ref_a_7-4'},
+		{'prefix': 'Titanic', 'url': 'a_7-5', 'name': 'name_a_7-5', 'ref': 'ref_a_7-5'},
+		{'prefix': 'Titanic', 'url': 'a_7-6', 'name': 'name_a_7-6', 'ref': 'ref_a_7-6'},
+		{'prefix': 'Titanic', 'url': 'a_7-7', 'name': 'name_a_7-7', 'ref': 'ref_a_7-7'},
+		{'prefix': 'Titanic', 'url': 'a_7-8', 'name': 'name_a_7-8', 'ref': 'ref_a_7-8'},
+		{'prefix': 'Titanic', 'url': 'a_7-9', 'name': 'name_a_7-9', 'ref': 'ref_a_7-9'},
+		{'prefix': 'Titanic', 'url': 'a_7-10', 'name': 'name_a_7-10', 'ref': 'ref_a_7-10'},
+		{'prefix': 'Flora', 'url': 'a_7-11', 'name': 'name_a_7-11', 'ref': 'ref_a_7-11'},
+		{'prefix': 'Flora', 'url': 'a_7-12', 'name': 'name_a_7-12', 'ref': 'ref_a_7-12'},
+		{'prefix': 'Flora', 'url': 'a_7-13', 'name': 'name_a_7-13', 'ref': 'ref_a_7-13'},
+		{'prefix': 'Flora', 'url': 'a_7-14', 'name': 'name_a_7-14', 'ref': 'ref_a_7-14'},
+		{'prefix': 'Flora', 'url': 'a_7-15', 'name': 'name_a_7-15', 'ref': 'ref_a_7-15'},
+		{'prefix': 'Flora', 'url': 'a_7-16', 'name': 'name_a_7-16', 'ref': 'ref_a_7-16'},
+		{'prefix': 'Flora', 'url': 'a_7-17', 'name': 'name_a_7-17', 'ref': 'ref_a_7-17'},
+		{'prefix': 'Flora', 'url': 'a_7-18', 'name': 'name_a_7-18', 'ref': 'ref_a_7-18'},
+		{'prefix': 'Flora', 'url': 'a_7-19', 'name': 'name_a_7-19', 'ref': 'ref_a_7-19'},
+		{'prefix': 'Flora', 'url': 'a_7-20', 'name': 'name_a_7-20', 'ref': 'ref_a_7-20'},
+		{'prefix': 'DE LUXE', 'url': 'a_7-21', 'name': 'name_a_7-21', 'ref': 'ref_a_7-21'},
+		{'prefix': 'DE LUXE', 'url': 'a_7-22', 'name': 'name_a_7-22', 'ref': 'ref_a_7-22'},
+		{'prefix': 'DE LUXE', 'url': 'a_7-23', 'name': 'name_a_7-23', 'ref': 'ref_a_7-23'},
+		{'prefix': 'DE LUXE', 'url': 'a_7-24', 'name': 'name_a_7-24', 'ref': 'ref_a_7-24'},
+		{'prefix': 'DE LUXE', 'url': 'a_7-25', 'name': 'name_a_7-25', 'ref': 'ref_a_7-25'},
+		{'prefix': 'DE LUXE', 'url': 'a_7-26', 'name': 'name_a_7-26', 'ref': 'ref_a_7-26'},
+		{'prefix': 'DE LUXE', 'url': 'a_7-27', 'name': 'name_a_7-27', 'ref': 'ref_a_7-27'},
+		{'prefix': 'DE LUXE', 'url': 'a_7-28', 'name': 'name_a_7-28', 'ref': 'ref_a_7-28'},
+		{'prefix': 'DE LUXE', 'url': 'a_7-29', 'name': 'name_a_7-29', 'ref': 'ref_a_7-29'},
+		{'prefix': 'DE LUXE', 'url': 'a_7-30', 'name': 'name_a_7-30', 'ref': 'ref_a_7-30'},
+		{'prefix': 'ELEGANCE', 'url': 'a_7-31', 'name': 'name_a_7-31', 'ref': 'ref_a_7-31'},
+		{'prefix': 'ELEGANCE', 'url': 'a_7-32', 'name': 'name_a_7-32', 'ref': 'ref_a_7-32'},
+		{'prefix': 'ELEGANCE', 'url': 'a_7-33', 'name': 'name_a_7-33', 'ref': 'ref_a_7-33'},
+		{'prefix': 'ELEGANCE', 'url': 'a_7-34', 'name': 'name_a_7-34', 'ref': 'ref_a_7-34'},
+		{'prefix': 'ELEGANCE', 'url': 'a_7-35', 'name': 'name_a_7-35', 'ref': 'ref_a_7-35'},
+		{'prefix': 'ELEGANCE', 'url': 'a_7-36', 'name': 'name_a_7-36', 'ref': 'ref_a_7-36'},
+		{'prefix': 'ELEGANCE', 'url': 'a_7-37', 'name': 'name_a_7-37', 'ref': 'ref_a_7-37'},
+		{'prefix': 'ELEGANCE', 'url': 'a_7-38', 'name': 'name_a_7-38', 'ref': 'ref_a_7-38'},
+		{'prefix': 'ELEGANCE', 'url': 'a_7-39', 'name': 'name_a_7-39', 'ref': 'ref_a_7-39'},
+		{'prefix': 'ELEGANCE', 'url': 'a_7-40', 'name': 'name_a_7-40', 'ref': 'ref_a_7-40'},
+		{'prefix': 'KUMRU', 'url': 'a_7-41', 'name': 'name_a_7-41', 'ref': 'ref_a_7-41'},
+		{'prefix': 'KUMRU', 'url': 'a_7-42', 'name': 'name_a_7-42', 'ref': 'ref_a_7-42'},
+		{'prefix': 'KUMRU', 'url': 'a_7-43', 'name': 'name_a_7-43', 'ref': 'ref_a_7-43'},
+		{'prefix': 'KUMRU', 'url': 'a_7-44', 'name': 'name_a_7-44', 'ref': 'ref_a_7-44'},
+		{'prefix': 'KUMRU', 'url': 'a_7-45', 'name': 'name_a_7-45', 'ref': 'ref_a_7-45'},
+		{'prefix': 'KUMRU', 'url': 'a_7-46', 'name': 'name_a_7-46', 'ref': 'ref_a_7-46'},
+		{'prefix': 'KUMRU', 'url': 'a_7-47', 'name': 'name_a_7-47', 'ref': 'ref_a_7-47'},
+		{'prefix': 'KUMRU', 'url': 'a_7-48', 'name': 'name_a_7-48', 'ref': 'ref_a_7-48'},
+		{'prefix': 'KUMRU', 'url': 'a_7-49', 'name': 'name_a_7-49', 'ref': 'ref_a_7-49'},
+		{'prefix': 'KUMRU', 'url': 'a_7-50', 'name': 'name_a_7-50', 'ref': 'ref_a_7-50'},
+		{'prefix': 'TEGRA', 'url': 'a_7-51', 'name': 'name_a_7-51', 'ref': 'ref_a_7-51'},
+		{'prefix': 'TEGRA', 'url': 'a_7-52', 'name': 'name_a_7-52', 'ref': 'ref_a_7-52'},
+		{'prefix': 'TEGRA', 'url': 'a_7-53', 'name': 'name_a_7-53', 'ref': 'ref_a_7-53'},
+		{'prefix': 'TEGRA', 'url': 'a_7-54', 'name': 'name_a_7-54', 'ref': 'ref_a_7-54'},
+		{'prefix': 'TEGRA', 'url': 'a_7-55', 'name': 'name_a_7-55', 'ref': 'ref_a_7-55'},
+		{'prefix': 'TEGRA', 'url': 'a_7-56', 'name': 'name_a_7-56', 'ref': 'ref_a_7-56'},
+		{'prefix': 'TEGRA', 'url': 'a_7-57', 'name': 'name_a_7-57', 'ref': 'ref_a_7-57'},
+		{'prefix': 'TEGRA', 'url': 'a_7-58', 'name': 'name_a_7-58', 'ref': 'ref_a_7-58'},
+		{'prefix': 'TEGRA', 'url': 'a_7-59', 'name': 'name_a_7-59', 'ref': 'ref_a_7-59'},
+		{'prefix': 'TEGRA', 'url': 'a_7-60', 'name': 'name_a_7-60', 'ref': 'ref_a_7-60'},
+		{'prefix': 'Autre', 'url': 'a_7-61', 'name': 'name_a_7-61', 'ref': 'ref_a_7-61'},
+		{'prefix': 'Autre', 'url': 'a_7-62', 'name': 'name_a_7-62', 'ref': 'ref_a_7-62'},
+		{'prefix': 'Autre', 'url': 'a_7-63', 'name': 'name_a_7-63', 'ref': 'ref_a_7-63'},
+		{'prefix': 'Autre', 'url': 'a_7-64', 'name': 'name_a_7-64', 'ref': 'ref_a_7-64'},
+		{'prefix': 'Autre', 'url': 'a_7-65', 'name': 'name_a_7-65', 'ref': 'ref_a_7-65'},
+		{'prefix': 'Autre', 'url': 'a_7-66', 'name': 'name_a_7-66', 'ref': 'ref_a_7-66'},
+		{'prefix': 'Autre', 'url': 'a_7-67', 'name': 'name_a_7-67', 'ref': 'ref_a_7-67'},
+		{'prefix': 'Autre', 'url': 'a_7-68', 'name': 'name_a_7-68', 'ref': 'ref_a_7-68'},
+		{'prefix': 'Autre', 'url': 'a_7-69', 'name': 'name_a_7-69', 'ref': 'ref_a_7-69'},
+		{'prefix': 'Autre', 'url': 'a_7-70', 'name': 'name_a_7-70', 'ref': 'ref_a_7-70'},
+		{'prefix': 'Autre', 'url': 'a_7-71', 'name': 'name_a_7-71', 'ref': 'ref_a_7-71'},
+		{'prefix': 'Autre', 'url': 'a_7-72', 'name': 'name_a_7-72', 'ref': 'ref_a_7-72'},
+		{'prefix': 'Autre', 'url': 'a_7-73', 'name': 'name_a_7-73', 'ref': 'ref_a_7-73'},
+		{'prefix': 'Autre', 'url': 'a_7-74', 'name': 'name_a_7-74', 'ref': 'ref_a_7-74'},
+		{'prefix': 'Autre', 'url': 'a_7-75', 'name': 'name_a_7-75', 'ref': 'ref_a_7-75'},
+		{'prefix': 'Autre', 'url': 'a_7-76', 'name': 'name_a_7-76', 'ref': 'ref_a_7-76'},
+		{'prefix': 'Autre', 'url': 'a_7-77', 'name': 'name_a_7-77', 'ref': 'ref_a_7-77'},
+		{'prefix': 'Autre', 'url': 'a_7-78', 'name': 'name_a_7-78', 'ref': 'ref_a_7-78'},
+		{'prefix': 'Autre', 'url': 'a_7-79', 'name': 'name_a_7-79', 'ref': 'ref_a_7-79'},
+		{'prefix': 'Autre', 'url': 'a_7-80', 'name': 'name_a_7-80', 'ref': 'ref_a_7-80'},
 	]
-	paginator = Paginator(articles, 16)
+
+	Titanic = []
+	Flora = []
+	DE_LUXE = []
+	ELEGANCE = []
+	KUMRU = []
+	TEGRA = []
+	Autre = []
+
+	for x in articles:
+		if(x['prefix'] == 'Titanic'):
+			Titanic.append(x)
+		elif(x['prefix'] == 'Flora'):
+			Flora.append(x)
+		elif(x['prefix'] == 'DE LUXE'):
+			DE_LUXE.append(x)
+		elif(x['prefix'] == 'ELEGANCE'):
+			ELEGANCE.append(x)
+		elif(x['prefix'] == 'KUMRU'):
+			KUMRU.append(x)
+		elif(x['prefix'] == 'TEGRA'):
+			TEGRA.append(x)
+		elif(x['prefix'] == 'Autre'):
+			Autre.append(x)
+
+	paginator_Titanic = Paginator(Titanic, 100)
+	paginator_Flora = Paginator(Flora, 100)
+	paginator_DE_LUXE = Paginator(DE_LUXE, 100)
+	paginator_ELEGANCE = Paginator(ELEGANCE, 100)
+	paginator_KUMRU = Paginator(KUMRU, 100)
+	paginator_TEGRA = Paginator(TEGRA, 100)
+	paginator_Autre = Paginator(Autre, 100)
+
 	page = request.GET.get('page')
 	try:
-		articles_list = paginator.page(page)
+		Titanic_list = paginator_Titanic.page(page)
+		Flora_list = paginator_Flora.page(page)
+		DE_LUXE_list = paginator_DE_LUXE.page(page)
+		ELEGANCE_list = paginator_ELEGANCE.page(page)
+		KUMRU_list = paginator_KUMRU.page(page)
+		TEGRA_list = paginator_TEGRA.page(page)
+		Autre_list = paginator_Autre.page(page)
 	except PageNotAnInteger:
-		articles_list = paginator.page(1)
+		Titanic_list = paginator_Titanic.page(1)
+		Flora_list = paginator_Flora.page(1)
+		DE_LUXE_list = paginator_DE_LUXE.page(1)
+		ELEGANCE_list = paginator_ELEGANCE.page(1)
+		KUMRU_list = paginator_KUMRU.page(1)
+		TEGRA_list = paginator_TEGRA.page(1)
+		Autre_list = paginator_Autre.page(1)
 	except EmptyPage:
-		articles_list = paginator.page(paginator.num_pages)
+		Titanic_list = paginator_Titanic.page(paginator_Titanic.num_pages)
+		Flora_list = paginator_Flora.page(paginator_Flora.num_pages)
+		DE_LUXE_list = paginator_DE_LUXE.page(paginator_DE_LUXE.num_pages)
+		ELEGANCE_list = paginator_ELEGANCE.page(paginator_ELEGANCE.num_pages)
+		KUMRU_list = paginator_KUMRU.page(paginator_KUMRU.num_pages)
+		TEGRA_list = paginator_TEGRA.page(paginator_TEGRA.num_pages)
+		Autre_list = paginator_Autre.page(paginator_Autre.num_pages)
 	context = {
 		'name': 'index_accessoires',
 		'articles_list': articles_list,

@@ -42,7 +42,7 @@ $('.header #products_menu .nav-item').hover(
 		$('.overlay_nav img').attr('src', $('.overlay_nav img').attr('src').replaceAt(30,"g"));
 		$('.overlay_nav ul').empty();
 		$('.overlay_nav ul').append('<li class="link link--kumya"><a class="sanitaire_item" href="#"><span data-letters="Vasque">Vasque</span></a></li>');
-		$('.overlay_nav ul').append('<li class="link link--kumya"><a class="sanitaire_item" href="#"><span data-letters="Bloc">Bloc</span></a></li>');
+		$('.overlay_nav ul').append('<li class="link link--kumya"><a class="sanitaire_item" href="#"><span data-letters="Bloc WC">Bloc WC</span></a></li>');
 		$('.overlay_nav ul').append('<li class="link link--kumya"><a class="sanitaire_item" href="#"><span data-letters="Bidet">Bidet</span></a></li>');
 	}
 	else if(categorie_name === 'Baignoires &amp; Receveurs'){
@@ -134,7 +134,7 @@ $('.header #products_menu .nav-item').hover(
 $('.list_subcategories').hide();
 
 $(document).on("mouseenter", ".sanitaire_item", function() {
-    var sub_categorie_name = $(this).html();
+    var sub_categorie_name = $(this).find('span').html();
 	if(sub_categorie_name == "Vasque"){
 		$('.list_subcategories').empty();
 		$('.list_subcategories').append('<li class="link link--kumya"><a href="#"><span data-letters="Kumya">Metal-Line</span></a></li>');
@@ -146,7 +146,7 @@ $(document).on("mouseenter", ".sanitaire_item", function() {
 		$('.list_subcategories').append('<li class="link link--kumya"><a href="#"><span data-letters="Kumya">Lave-Mains</span></a></li>');
 		$('.list_subcategories').append('<li class="link link--kumya"><a href="#"><span data-letters="Kumya">Muraux</span></a></li>');
 	}
-	else if(sub_categorie_name == "Bloc"){
+	else if(sub_categorie_name == "Bloc WC"){
 		$('.list_subcategories').empty();
 		$('.list_subcategories').append('<li class="link link--kumya"><a href="#"><span data-letters="Kumya">Arq</span></a></li>');
 		$('.list_subcategories').append('<li class="link link--kumya"><a href="#"><span data-letters="Kumya">Noble</span></a></li>');

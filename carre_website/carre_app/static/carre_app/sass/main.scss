@@ -3,7 +3,7 @@ $bg-color: #ffffff;
 $bg-color-black: #030101;
 $bg-color-rgba: rgba(225, 220, 226, 0.2);
 $bg-color-black-rgba: rgba(3, 1, 1, 0.8);
-$white-color-fade: rgba(255, 255, 255, .5);
+$white-color-fade: rgba(255, 255, 255, 00.5);
 $blue-color-fade: rgba(2,117,216, 0.005);
 $gray-color-fade: rgba(128, 128, 128, 0.8);
 
@@ -11,7 +11,6 @@ body * {
   	font-family: $font-stack;
 }
 body{
-	background-color: $bg-color;
 	padding : 0;
 	.container-fluid{
   		padding: 0;
