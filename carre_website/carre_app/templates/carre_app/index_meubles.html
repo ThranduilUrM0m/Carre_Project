@@ -1,6 +1,6 @@
 {% load static %}
 <!doctype html>
-<html lang="fr">
+<html lang="en">
 	<head>
 		<meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -46,14 +46,10 @@
 										<a class="dropdown-item" href="https://youtu.be/3KMWNufrPM4"><span>Vidéo Corporative</span></a>
 									</div>
 								</li>
-								<li class="nav-item link link--kumya dropdown">
-									<a type="button" class="btn nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">
-										<span data-toggle="dropdown-toggle">Groupe</span>
+								<li class="nav-item link link--kumya">
+									<a type="button" class="btn nav-link" role="button" aria-haspopup="true" aria-expanded="false" href="#">
+										<span>Groupe</span>
 									</a>
-									<!-- <div class="dropdown-menu">
-										<a class="dropdown-item" href="{% url 'carre_app:index_marque' %}"><span>Marque Carré</span></a>
-										<a class="dropdown-item" href="https://youtu.be/3KMWNufrPM4"><span>Vidéo Corporative</span></a>
-									</div> -->
 								</li>
 								<li class="nav-item link link--kumya dropdown">
 									<a type="button" class="btn nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">
@@ -93,7 +89,7 @@
 						<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 						    <span class="navbar-toggler-icon"></span>
 						</button>
-						<a class="navbar-brand" href="#">
+						<a class="navbar-brand" href="{% url 'carre_app:index_home' %}">
 						    <img src="{% static 'carre_app/media/logo.png' %}" width="80" height="100">
 					  	</a>
 						<div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -143,7 +139,7 @@
 									</a>
 								</li>
 								<li class="nav-item link link--kumya">
-									<a type="button" class="btn nav-link" href="{% url 'carre_app:index_meubles' %}">
+									<a type="button" class="btn nav-link" href="#">
 										<span>Meubles S.D.B.</span>
 									</a>
 								</li>
@@ -179,19 +175,20 @@
 						    </div>
 							<div class="overlay_nav">
 								<img class="overlay_nav_element" src="{% static 'carre_app/media/s_1.png' %}">
-								<ul class="overlay_nav_element">
-									<li><h2>Collection</h2></li>
+								<ul class="overlay_nav_element list_categories">
+
+								</ul>
+								<ul class="overlay_nav_element list_subcategories">
+									
 								</ul>
 							</div>
 						</div>
 						<div class="overlay">
 						    <div class="text">Meubles S.D.B.</div>
+						    <button type="button" class="btn btn-outline-danger" onclick="window.open('{% url 'carre_app:Catalogue' %}')">Catalogue</button>
 						    <div class="s_x_marque">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 						    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-						    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-						    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-						    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-						    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+						    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</div>
 						</div>
 					</div>
 				</div>
@@ -214,15 +211,16 @@
 				        <div class="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-9">
 							<h3>Articles Shit</h3>
 							<div class="row">
-                                <div class="col-md-12">
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                	<h4 id="DINAR">DINAR</h4>
+                                	<hr>
                                     <div class="row">
-                                        {% for article in articles_list %}
-                                        <div class="col-xs-12 col-md-3">
-
-                                            <a href="#" data-toggle="modal" data-target="#myModal{{ forloop.counter }}">
+                                        {% for article in DINAR_list %}
+                                        <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+                                            <a href="#" data-toggle="modal" data-target="#myModal{{ article.ref }}">
 												<div class="second_section_column_article">
 													<div id="image_one">
-														<img src="{% static 'palais_terrab_app/media/' %}{{article.url}}.jpeg">
+														<img src="{% static 'carre_app/media/' %}{{article.url}}.jpeg">
 													</div>
 													<div id="description_one" class="description_box">
 														<p>Lorem ipsum dolor sit amet.</p>
@@ -232,10 +230,9 @@
 													</div>
 												</div>
 											</a>
-
                                         </div>
                                         <!-- Modal -->
-										<div class="modal fade" id="myModal{{ forloop.counter }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+										<div class="modal fade" id="myModal{{ article.ref }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 										  <div class="modal-dialog" role="document">
 										    <div class="modal-content">
 										      <div class="modal-header">
@@ -245,11 +242,11 @@
 										        </button>
 										      </div>
 										      <div class="modal-body">
+										      	<img src="{% static 'carre_app/media/def' %}.jpg">
 										        {{ article.ref }}
 										      </div>
 										      <div class="modal-footer">
 										        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-										        <button type="button" class="btn btn-primary">Save changes</button>
 										      </div>
 										    </div>
 										  </div>
@@ -257,35 +254,315 @@
                                         {% endfor %}
                                     </div>
                                 </div>
-                                {% if articles_list.has_other_pages %}
-                                  <ul class="pagination pagination-centered ml-auto">
-                                    {% if articles_list.has_previous %}
-                                      <li class="prev"><a href="?page={{ articles_list.previous_page_number }}">&laquo;</a></li>
-                                    {% else %}
-                                      <li class="prev disabled"><span>&laquo;</span></li>
-                                    {% endif %}
-                                    {% for i in articles_list.paginator.page_range %}
-                                      {% if articles_list.number == i %}
-                                        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
-                                      {% else %}
-                                        <li><a href="?page={{ i }}">{{ i }}</a></li>
-                                      {% endif %}
-                                    {% endfor %}
-                                    {% if articles_list.has_next %}
-                                      <li class="next"><a href="?page={{ articles_list.next_page_number }}">&raquo;</a></li>
-                                    {% else %}
-                                      <li class="next disabled"><span>&raquo;</span></li>
-                                    {% endif %}
-                                  </ul>
-                                {% endif %}
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                	<h4 id="LUNA">LUNA</h4>
+                                	<hr>
+                                    <div class="row">
+                                        {% for article in LUNA_list %}
+                                        <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+                                            <a href="#" data-toggle="modal" data-target="#myModal{{ article.ref }}">
+												<div class="second_section_column_article">
+													<div id="image_one">
+														<img src="{% static 'carre_app/media/' %}{{article.url}}.jpeg">
+													</div>
+													<div id="description_one" class="description_box">
+														<p>Lorem ipsum dolor sit amet.</p>
+													</div>
+													<div class="overlay">
+														<div class="text">{{ article.name }}</div>
+													</div>
+												</div>
+											</a>
+                                        </div>
+                                        <!-- Modal -->
+										<div class="modal fade" id="myModal{{ article.ref }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+										  <div class="modal-dialog" role="document">
+										    <div class="modal-content">
+										      <div class="modal-header">
+										        <h5 class="modal-title" id="exampleModalLabel">{{ article.name }}</h5>
+										        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										          <span aria-hidden="true">&times;</span>
+										        </button>
+										      </div>
+										      <div class="modal-body">
+										      	<img src="{% static 'carre_app/media/def' %}.jpg">
+										        {{ article.ref }}
+										      </div>
+										      <div class="modal-footer">
+										        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+										      </div>
+										    </div>
+										  </div>
+										</div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                	<h4 id="MARMARA">MARMARA</h4>
+                                	<hr>
+                                    <div class="row">
+                                        {% for article in MARMARA_list %}
+                                        <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+                                            <a href="#" data-toggle="modal" data-target="#myModal{{ article.ref }}">
+												<div class="second_section_column_article">
+													<div id="image_one">
+														<img src="{% static 'carre_app/media/' %}{{article.url}}.jpeg">
+													</div>
+													<div id="description_one" class="description_box">
+														<p>Lorem ipsum dolor sit amet.</p>
+													</div>
+													<div class="overlay">
+														<div class="text">{{ article.name }}</div>
+													</div>
+												</div>
+											</a>
+                                        </div>
+                                        <!-- Modal -->
+										<div class="modal fade" id="myModal{{ article.ref }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+										  <div class="modal-dialog" role="document">
+										    <div class="modal-content">
+										      <div class="modal-header">
+										        <h5 class="modal-title" id="exampleModalLabel">{{ article.name }}</h5>
+										        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										          <span aria-hidden="true">&times;</span>
+										        </button>
+										      </div>
+										      <div class="modal-body">
+										      	<img src="{% static 'carre_app/media/def' %}.jpg">
+										        {{ article.ref }}
+										      </div>
+										      <div class="modal-footer">
+										        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+										      </div>
+										    </div>
+										  </div>
+										</div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                	<h4 id="MARS">MARS</h4>
+                                	<hr>
+                                    <div class="row">
+                                        {% for article in MARS_list %}
+                                        <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+                                            <a href="#" data-toggle="modal" data-target="#myModal{{ article.ref }}">
+												<div class="second_section_column_article">
+													<div id="image_one">
+														<img src="{% static 'carre_app/media/' %}{{article.url}}.jpeg">
+													</div>
+													<div id="description_one" class="description_box">
+														<p>Lorem ipsum dolor sit amet.</p>
+													</div>
+													<div class="overlay">
+														<div class="text">{{ article.name }}</div>
+													</div>
+												</div>
+											</a>
+                                        </div>
+                                        <!-- Modal -->
+										<div class="modal fade" id="myModal{{ article.ref }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+										  <div class="modal-dialog" role="document">
+										    <div class="modal-content">
+										      <div class="modal-header">
+										        <h5 class="modal-title" id="exampleModalLabel">{{ article.name }}</h5>
+										        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										          <span aria-hidden="true">&times;</span>
+										        </button>
+										      </div>
+										      <div class="modal-body">
+										      	<img src="{% static 'carre_app/media/def' %}.jpg">
+										        {{ article.ref }}
+										      </div>
+										      <div class="modal-footer">
+										        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+										      </div>
+										    </div>
+										  </div>
+										</div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                	<h4 id="MILAS">MILAS</h4>
+                                	<hr>
+                                    <div class="row">
+                                        {% for article in MILAS_list %}
+                                        <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+                                            <a href="#" data-toggle="modal" data-target="#myModal{{ article.ref }}">
+												<div class="second_section_column_article">
+													<div id="image_one">
+														<img src="{% static 'carre_app/media/' %}{{article.url}}.jpeg">
+													</div>
+													<div id="description_one" class="description_box">
+														<p>Lorem ipsum dolor sit amet.</p>
+													</div>
+													<div class="overlay">
+														<div class="text">{{ article.name }}</div>
+													</div>
+												</div>
+											</a>
+                                        </div>
+                                        <!-- Modal -->
+										<div class="modal fade" id="myModal{{ article.ref }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+										  <div class="modal-dialog" role="document">
+										    <div class="modal-content">
+										      <div class="modal-header">
+										        <h5 class="modal-title" id="exampleModalLabel">{{ article.name }}</h5>
+										        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										          <span aria-hidden="true">&times;</span>
+										        </button>
+										      </div>
+										      <div class="modal-body">
+										      	<img src="{% static 'carre_app/media/def' %}.jpg">
+										        {{ article.ref }}
+										      </div>
+										      <div class="modal-footer">
+										        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+										      </div>
+										    </div>
+										  </div>
+										</div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                	<h4 id="SAMBA">SAMBA</h4>
+                                	<hr>
+                                    <div class="row">
+                                        {% for article in SAMBA_list %}
+                                        <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+                                            <a href="#" data-toggle="modal" data-target="#myModal{{ article.ref }}">
+												<div class="second_section_column_article">
+													<div id="image_one">
+														<img src="{% static 'carre_app/media/' %}{{article.url}}.jpeg">
+													</div>
+													<div id="description_one" class="description_box">
+														<p>Lorem ipsum dolor sit amet.</p>
+													</div>
+													<div class="overlay">
+														<div class="text">{{ article.name }}</div>
+													</div>
+												</div>
+											</a>
+                                        </div>
+                                        <!-- Modal -->
+										<div class="modal fade" id="myModal{{ article.ref }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+										  <div class="modal-dialog" role="document">
+										    <div class="modal-content">
+										      <div class="modal-header">
+										        <h5 class="modal-title" id="exampleModalLabel">{{ article.name }}</h5>
+										        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										          <span aria-hidden="true">&times;</span>
+										        </button>
+										      </div>
+										      <div class="modal-body">
+										      	<img src="{% static 'carre_app/media/def' %}.jpg">
+										        {{ article.ref }}
+										      </div>
+										      <div class="modal-footer">
+										        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+										      </div>
+										    </div>
+										  </div>
+										</div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                	<h4 id="SOMA">SOMA</h4>
+                                	<hr>
+                                    <div class="row">
+                                        {% for article in SOMA_list %}
+                                        <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+                                            <a href="#" data-toggle="modal" data-target="#myModal{{ article.ref }}">
+												<div class="second_section_column_article">
+													<div id="image_one">
+														<img src="{% static 'carre_app/media/' %}{{article.url}}.jpeg">
+													</div>
+													<div id="description_one" class="description_box">
+														<p>Lorem ipsum dolor sit amet.</p>
+													</div>
+													<div class="overlay">
+														<div class="text">{{ article.name }}</div>
+													</div>
+												</div>
+											</a>
+                                        </div>
+                                        <!-- Modal -->
+										<div class="modal fade" id="myModal{{ article.ref }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+										  <div class="modal-dialog" role="document">
+										    <div class="modal-content">
+										      <div class="modal-header">
+										        <h5 class="modal-title" id="exampleModalLabel">{{ article.name }}</h5>
+										        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										          <span aria-hidden="true">&times;</span>
+										        </button>
+										      </div>
+										      <div class="modal-body">
+										      	<img src="{% static 'carre_app/media/def' %}.jpg">
+										        {{ article.ref }}
+										      </div>
+										      <div class="modal-footer">
+										        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+										      </div>
+										    </div>
+										  </div>
+										</div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                	<h4 id="VALS">VALS</h4>
+                                	<hr>
+                                    <div class="row">
+                                        {% for article in VALS_list %}
+                                        <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+                                            <a href="#" data-toggle="modal" data-target="#myModal{{ article.ref }}">
+												<div class="second_section_column_article">
+													<div id="image_one">
+														<img src="{% static 'carre_app/media/' %}{{article.url}}.jpeg">
+													</div>
+													<div id="description_one" class="description_box">
+														<p>Lorem ipsum dolor sit amet.</p>
+													</div>
+													<div class="overlay">
+														<div class="text">{{ article.name }}</div>
+													</div>
+												</div>
+											</a>
+                                        </div>
+                                        <!-- Modal -->
+										<div class="modal fade" id="myModal{{ article.ref }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+										  <div class="modal-dialog" role="document">
+										    <div class="modal-content">
+										      <div class="modal-header">
+										        <h5 class="modal-title" id="exampleModalLabel">{{ article.name }}</h5>
+										        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										          <span aria-hidden="true">&times;</span>
+										        </button>
+										      </div>
+										      <div class="modal-body">
+										      	<img src="{% static 'carre_app/media/def' %}.jpg">
+										        {{ article.ref }}
+										      </div>
+										      <div class="modal-footer">
+										        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+										      </div>
+										    </div>
+										  </div>
+										</div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
                             </div>
 				        </div>
 				        <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 sidebar-offcanvas" id="sidebar">
 							<h3>Contactez-Nous</h3>
-							<a href="javascript:document.getElementById('exampleInputMessage').focus()">
+							<a href="#exampleInputMessage">
 								<div class="second_section_column">
 									<div id="image_one">
-										<img src="{% static 'palais_terrab_app/media/chocolate.jpeg' %}">
+										<img src="{% static 'carre_app/media/def.jpg' %}">
 									</div>
 									<div id="description_one" class="description_box">
 										<p>Lorem ipsum dolor sit amet.</p>
@@ -342,6 +619,7 @@
 									</ul>
 									<ul>
 										<li><u><strong>Produits</strong></u></li>
+										<li><a href="{% url 'carre_app:index_collectionsalledebains' %}">Collection S.D.B.</a></li>
 										<li><a href="{% url 'carre_app:index_sanitaire' %}">Sanitaire</a></li>
 										<li><a href="{% url 'carre_app:index_baignoiresetreceveurs' %}">Baignoires & Receveurs</a></li>
 										<li><a href="{% url 'carre_app:index_miroirs' %}">Miroirs</a></li>
@@ -454,17 +732,51 @@
 	<script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
 	<script src="{% static 'carre_app/js/bootstrap.min.js' %}" type="text/javascript"></script>
 	<script src="{% static 'carre_app/js/bootstrap.js' %}" type="text/javascript"></script>
+	<script src="https://use.fontawesome.com/f61b4ca99d.js"></script>
+	<script type="text/javascript" src="{% static 'carre_app/js/app.js' %}"></script>
 	<script type="text/javascript">
 	$(document).ready(function() {
-	    $('.dropdown-toggle').dropdown()
+	    $('.dropdown-toggle').dropdown();
 	});
-
 	</script>
 	<script>
 	$(document).ready(function(){
-	   $('meta[name="viewport"]').prop('content', 'width=1366');
+	   	$('meta[name="viewport"]').prop('content', 'width=1366');
+	   	
+	   	$(document).on("mouseenter", ".overlay_nav ul li", function() {
+	   		if($(this).attr('class').match("^collectionsdb")){
+	   			var url = ("{% url 'carre_app:index_collectionsalledebains' %}");
+	   			$(this).find('a').attr('href', url.replace('bains/', 'bains#'+$(this).find('span').html()));
+	   		}
+	   		else if($(this).attr('class').match("^sanitaire")){
+	   			var url = ("{% url 'carre_app:index_sanitaire' %}");
+	   			$(this).find('a').attr('href', url.replace('taire/', 'taire#'+$(this).find('span').html()));
+	   		}
+	   		else if($(this).attr('class').match("^accessoires")){
+	   			var url = ("{% url 'carre_app:index_accessoires' %}");
+	   			$(this).find('a').attr('href', url.replace('oires/', 'oires#'+$(this).find('span').html()));
+	   		}
+	   		else if($(this).attr('class').match("^baignoiresetreceveurs")){
+	   			var url = ("{% url 'carre_app:index_baignoiresetreceveurs' %}");
+	   			$(this).find('a').attr('href', url.replace('eveurs/', 'eveurs#'+$(this).find('span').html()));
+	   		}
+	   		else if($(this).attr('class').match("^eviers")){
+	   			var url = ("{% url 'carre_app:index_eviers' %}");
+	   			$(this).find('a').attr('href', url.replace('eviers/', 'eviers#'+$(this).find('span').html()));
+	   		}
+	   		else if($(this).attr('class').match("^meubles")){
+	   			var url = ("{% url 'carre_app:index_meubles' %}");
+	   			$(this).find('a').attr('href', url.replace('meubles/', 'meubles#'+$(this).find('span').html()));
+	   		}
+	   		else if($(this).attr('class').match("^miroirs")){
+	   			var url = ("{% url 'carre_app:index_miroirs' %}");
+	   			$(this).find('a').attr('href', url.replace('miroirs/', 'miroirs#'+$(this).find('span').html()));
+	   		}
+	   		else if($(this).attr('class').match("^robinetterie")){
+	   			var url = ("{% url 'carre_app:index_robinetterie' %}");
+	   			$(this).find('a').attr('href', url.replace('miroirs/', 'miroirs#'+$(this).find('span').html()));
+	   		}
+	   	});
 	});
 	</script>
-	<script src="https://use.fontawesome.com/f61b4ca99d.js"></script>
-	<script type="text/javascript" src="{% static 'carre_app/js/app.js' %}"></script>
 </html>

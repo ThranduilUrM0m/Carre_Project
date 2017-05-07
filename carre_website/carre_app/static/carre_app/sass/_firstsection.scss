@@ -19,11 +19,16 @@
 				background: linear-gradient(to right, rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%);
 				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#000000',GradientType=1);
 			}
+			.carousel-control-next{
+				background: -moz-linear-gradient(right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+				background: -webkit-linear-gradient(right, rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%);
+				background: linear-gradient(to left, rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%);
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#000000',GradientType=-1);
+			}
 		}
 		.overlay{
 			position: absolute;
 			top: 0;
-			right: 1rem;
 			background-color: $bg-color-black;
 			overflow: hidden;
 			width: 20%;
@@ -33,6 +38,10 @@
 			.text{
 				font-size: 1.5rem;
 				color: $bg-color;
+			}
+			button{
+				width: 100%;
+				cursor: pointer;
 			}
 			.s_x{
 				color: $bg-color;

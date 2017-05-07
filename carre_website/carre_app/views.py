@@ -230,7 +230,7 @@ def index_sanitaire(request):
 	for x in articles:
 		if(x['prefix'] == 'Vasque'):
 			Vasque.append(x)
-		elif(x['prefix'] == 'Bloc_WC'):
+		elif(x['prefix'] == 'Bloc WC'):
 			Bloc_WC.append(x)
 		elif(x['prefix'] == 'Bidet'):
 			Bidet.append(x)
@@ -241,17 +241,17 @@ def index_sanitaire(request):
 
 	page = request.GET.get('page')
 	try:
-		Vasque_list = paginator_Arq.page(page)
-		Bloc_WC_list = paginator_Noble.page(page)
-		Bidet_list = paginator_Eos.page(page)
+		Vasque_list = paginator_Vasque.page(page)
+		Bloc_WC_list = paginator_Bloc_WC.page(page)
+		Bidet_list = paginator_Bidet.page(page)
 	except PageNotAnInteger:
-		Vasque_list = paginator_Arq.page(1)
-		Bloc_WC_list = paginator_Noble.page(1)
-		Bidet_list = paginator_Eos.page(1)
+		Vasque_list = paginator_Vasque.page(1)
+		Bloc_WC_list = paginator_Bloc_WC.page(1)
+		Bidet_list = paginator_Bidet.page(1)
 	except EmptyPage:
-		Vasque_list = paginator_Arq.page(paginator_Arq.num_pages)
-		Bloc_WC_list = paginator_Noble.page(paginator_Noble.num_pages)
-		Bidet_list = paginator_Eos.page(paginator_Eos.num_pages)
+		Vasque_list = paginator_Vasque.page(paginator_Vasque.num_pages)
+		Bloc_WC_list = paginator_Bloc_WC.page(paginator_Bloc_WC.num_pages)
+		Bidet_list = paginator_Bidet.page(paginator_Bidet.num_pages)
 	context = {
 		'name': 'index_sanitaire',
 		'Vasque_list': Vasque_list,
@@ -589,7 +589,12 @@ def index_robinetterie(request):
 		Pomme_list = paginator_Pomme.page(paginator_Pomme.num_pages)
 	context = {
 		'name': 'index_robinetterie',
-		'articles_list': articles_list,
+		'Mitigeur_list': Mitigeur_list,
+		'Robinet_list': Robinet_list,
+		'Poussoir_list': Poussoir_list,
+		'Siphon_list': Siphon_list,
+		'Colonne_list': Colonne_list,
+		'Pomme_list': Pomme_list,
 	}
 	return render(request, 'carre_app/index_robinetterie.html', context)
 
@@ -736,7 +741,12 @@ def index_accessoires(request):
 		Autre_list = paginator_Autre.page(paginator_Autre.num_pages)
 	context = {
 		'name': 'index_accessoires',
-		'articles_list': articles_list,
+		'Titanic_list': Titanic_list,
+		'Flora_list': Flora_list,
+		'Poussoir_list': Poussoir_list,
+		'Siphon_list': Siphon_list,
+		'Colonne_list': Colonne_list,
+		'Pomme_list': Pomme_list,
 	}
 	return render(request, 'carre_app/index_accessoires.html', context)
 

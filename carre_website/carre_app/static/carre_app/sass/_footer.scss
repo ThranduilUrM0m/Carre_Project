@@ -17,9 +17,6 @@
 		:-moz-placeholder { /* Firefox 18- */
 		  color: pink;
 		}
-		input:hover, textarea:hover{
-			background-color: $white-color-fade;
-		}
 		hr{
 			background-color: white;
 		}
@@ -86,8 +83,9 @@
 				padding: 0;
 			}
 			i{
-				font-size: 1em;
+				font-size: 1.2em;
 				color: $bg-color;
+				margin: 0.5em auto;
 			}
 			#follow_us_label span{
 				font-size: 0.8em;
@@ -99,7 +97,7 @@
 			span{
 				font-size: 0.8em;
 				float: right;
-				margin: 0.5em auto;
+				margin: 0.8em auto;
 			}
 		}
 		.input {

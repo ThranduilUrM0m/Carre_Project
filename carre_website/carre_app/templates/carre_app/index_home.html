@@ -46,14 +46,10 @@
 										<a class="dropdown-item" href="https://youtu.be/3KMWNufrPM4"><span>Vidéo Corporative</span></a>
 									</div>
 								</li>
-								<li class="nav-item link link--kumya dropdown">
-									<a type="button" class="btn nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">
-										<span data-toggle="dropdown-toggle">Groupe</span>
+								<li class="nav-item link link--kumya">
+									<a type="button" class="btn nav-link" role="button" aria-haspopup="true" aria-expanded="false" href="#">
+										<span>Groupe</span>
 									</a>
-									<!-- <div class="dropdown-menu">
-										<a class="dropdown-item" href="{% url 'carre_app:index_marque' %}"><span>Marque Carré</span></a>
-										<a class="dropdown-item" href="https://youtu.be/3KMWNufrPM4"><span>Vidéo Corporative</span></a>
-									</div> -->
 								</li>
 								<li class="nav-item link link--kumya dropdown">
 									<a type="button" class="btn nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">
@@ -207,12 +203,10 @@
 									
 								</ul>
 							</div>
-							<div class="overlay_catalogue">
-								<button type="button" class="btn btn-outline-danger" onclick="window.open('{% url 'carre_app:Catalogue' %}')">Catalogue</button>
-							</div>
 						</div>
 						<div class="overlay">
 						    <div class="text">Nouveautés</div>
+						    <button type="button" class="btn btn-outline-danger" onclick="window.open('{% url 'carre_app:Catalogue' %}')">Catalogue</button>
 						    <div class="s_x"></div>
 						</div>
 						<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -362,6 +356,7 @@
 									</ul>
 									<ul>
 										<li><u><strong>Produits</strong></u></li>
+										<li><a href="{% url 'carre_app:index_collectionsalledebains' %}">Collection S.D.B.</a></li>
 										<li><a href="{% url 'carre_app:index_sanitaire' %}">Sanitaire</a></li>
 										<li><a href="{% url 'carre_app:index_baignoiresetreceveurs' %}">Baignoires & Receveurs</a></li>
 										<li><a href="{% url 'carre_app:index_miroirs' %}">Miroirs</a></li>
@@ -474,17 +469,51 @@
 	<script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
 	<script src="{% static 'carre_app/js/bootstrap.min.js' %}" type="text/javascript"></script>
 	<script src="{% static 'carre_app/js/bootstrap.js' %}" type="text/javascript"></script>
+	<script src="https://use.fontawesome.com/f61b4ca99d.js"></script>
+	<script type="text/javascript" src="{% static 'carre_app/js/app.js' %}"></script>
 	<script type="text/javascript">
 	$(document).ready(function() {
-	    $('.dropdown-toggle').dropdown()
+	    $('.dropdown-toggle').dropdown();
 	});
-
 	</script>
 	<script>
 	$(document).ready(function(){
-	   $('meta[name="viewport"]').prop('content', 'width=1366');
+	   	$('meta[name="viewport"]').prop('content', 'width=1366');
+	   	
+	   	$(document).on("mouseenter", ".overlay_nav ul li", function() {
+	   		if($(this).attr('class').match("^collectionsdb")){
+	   			var url = ("{% url 'carre_app:index_collectionsalledebains' %}");
+	   			$(this).find('a').attr('href', url.replace('bains/', 'bains#'+$(this).find('span').html()));
+	   		}
+	   		else if($(this).attr('class').match("^sanitaire")){
+	   			var url = ("{% url 'carre_app:index_sanitaire' %}");
+	   			$(this).find('a').attr('href', url.replace('taire/', 'taire#'+$(this).find('span').html()));
+	   		}
+	   		else if($(this).attr('class').match("^accessoires")){
+	   			var url = ("{% url 'carre_app:index_accessoires' %}");
+	   			$(this).find('a').attr('href', url.replace('oires/', 'oires#'+$(this).find('span').html()));
+	   		}
+	   		else if($(this).attr('class').match("^baignoiresetreceveurs")){
+	   			var url = ("{% url 'carre_app:index_baignoiresetreceveurs' %}");
+	   			$(this).find('a').attr('href', url.replace('eveurs/', 'eveurs#'+$(this).find('span').html()));
+	   		}
+	   		else if($(this).attr('class').match("^eviers")){
+	   			var url = ("{% url 'carre_app:index_eviers' %}");
+	   			$(this).find('a').attr('href', url.replace('eviers/', 'eviers#'+$(this).find('span').html()));
+	   		}
+	   		else if($(this).attr('class').match("^meubles")){
+	   			var url = ("{% url 'carre_app:index_meubles' %}");
+	   			$(this).find('a').attr('href', url.replace('meubles/', 'meubles#'+$(this).find('span').html()));
+	   		}
+	   		else if($(this).attr('class').match("^miroirs")){
+	   			var url = ("{% url 'carre_app:index_miroirs' %}");
+	   			$(this).find('a').attr('href', url.replace('miroirs/', 'miroirs#'+$(this).find('span').html()));
+	   		}
+	   		else if($(this).attr('class').match("^robinetterie")){
+	   			var url = ("{% url 'carre_app:index_robinetterie' %}");
+	   			$(this).find('a').attr('href', url.replace('miroirs/', 'miroirs#'+$(this).find('span').html()));
+	   		}
+	   	});
 	});
 	</script>
-	<script src="https://use.fontawesome.com/f61b4ca99d.js"></script>
-	<script type="text/javascript" src="{% static 'carre_app/js/app.js' %}"></script>
 </html>
