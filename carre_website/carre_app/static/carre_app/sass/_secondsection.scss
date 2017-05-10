@@ -1,5 +1,15 @@
 .second_section{
 	.container{
+		.badge{
+			background-color: $bg-color-black;
+		}
+		.subcats{
+			font-size: .8rem;
+		}
+		.sublinks{
+			transition-property: all;
+    		transition-duration: 1s
+		}
 		.modal-body{
 			img{
 				width: 100%;

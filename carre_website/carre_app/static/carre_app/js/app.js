@@ -142,7 +142,7 @@ $(document).on("mouseenter", ".sanitaire_item", function() {
 		$('.list_subcategories').append('<li class="sanitaire link link--kumya"><a href="#"><span data-letters="Sous-Plan">Sous-Plan</span></a></li>');
 		$('.list_subcategories').append('<li class="sanitaire link link--kumya"><a href="#"><span data-letters="Semi-Encastrées">Semi-Encastrées</span></a></li>');
 		$('.list_subcategories').append('<li class="sanitaire link link--kumya"><a href="#"><span data-letters="A Poser">A Poser</span></a></li>');
-		$('.list_subcategories').append('<li class="sanitaire link link--kumya"><a href="#"><span data-letters="A poser sur Meuble">A Poser sur Meuble</span></a></li>');
+		$('.list_subcategories').append('<li class="sanitaire link link--kumya"><a href="#"><span data-letters="A Poser sur Meuble">A Poser sur Meuble</span></a></li>');
 		$('.list_subcategories').append('<li class="sanitaire link link--kumya"><a href="#"><span data-letters="Lave-Mains">Lave-Mains</span></a></li>');
 		$('.list_subcategories').append('<li class="sanitaire link link--kumya"><a href="#"><span data-letters="Muraux">Muraux</span></a></li>');
 	}
@@ -181,13 +181,6 @@ $(document).on("mouseenter", ".sanitaire_item", function() {
 	$('.list_subcategories').show();
 });
 
-/*$(document).on("mouseenter", ".overlay_nav li", function() {
-    $(this).css('background-color', 'red');
-});
-$(document).on("mouseenter", ".overlay_nav li", function() {
-    $(this).css('background-color', 'red');
-});*/
-
 
 $('.overlay_nav').hover(
   function() {
@@ -209,3 +202,9 @@ var one = $('.carousel-control-next').css('width');
 var two = $('#carouselExampleControls').css('width');
 var three = two - one;
 $('.overlay').css('right', one);
+
+//<![CDATA[
+    $(window).on('load', function() { // makes sure the whole site is loaded
+        $('.demo-1').delay(5000).fadeOut('slow'); // will fade out the white DIV that covers the website.
+      })
+//]]>

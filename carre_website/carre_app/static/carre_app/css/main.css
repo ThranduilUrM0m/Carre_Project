@@ -13,6 +13,26 @@ body .container-fluid {
   padding: 0;
 }
 
+/* Preloader */
+/* line 21, ../sass/main.scss */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  /* change if the mask should have another color then white */
+  z-index: 99;
+  /* makes sure it stays on top */
+}
+/* line 29, ../sass/main.scss */
+#preloader img {
+  height: 100%;
+  position: absolute;
+  left: -20%;
+}
+
 /* line 3, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_header.scss */
 .header {
   top: 0;
@@ -81,8 +101,8 @@ body .container-fluid {
 }
 /* line 59, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_header.scss */
 .header .menu_elements a:focus {
-  -webkit-box-shadow: 0 0 0 2px rgba(2, 117, 216, 0);
-  box-shadow: 0 0 0 2px rgba(2, 117, 216, 0);
+  -webkit-box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.005);
+  box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.005);
 }
 /* line 65, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_header.scss */
 .header .social_media li i, .header .social_media li span:not(.lang) {
@@ -242,7 +262,7 @@ body .container-fluid {
 }
 /* line 53, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_firstsection.scss */
 .first_section .container .overlay_nav {
-  background-color: rgba(3, 1, 1, 0);
+  background-color: rgba(3, 1, 1, 0.8);
   position: absolute;
   top: 0;
   left: 0;
@@ -260,7 +280,7 @@ body .container-fluid {
 /* line 67, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_firstsection.scss */
 .first_section .container .overlay_nav ul {
   list-style-type: none;
-  width: 15%;
+  width: 16%;
 }
 /* line 70, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_firstsection.scss */
 .first_section .container .overlay_nav ul li {
@@ -274,7 +294,7 @@ body .container-fluid {
 }
 /* line 78, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_firstsection.scss */
 .first_section .container .overlay_nav .overlay_nav_element a {
-  color: rgba(255, 255, 255, 0);
+  color: rgba(255, 255, 255, 0.5);
   text-decoration: none;
 }
 /* line 84, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_firstsection.scss */
@@ -357,24 +377,37 @@ body .container-fluid {
   padding-bottom: 15px;
   height: 100%;
 }
-/* line 4, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_secondsection.scss */
+/* line 3, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_secondsection.scss */
+.second_section .container .badge {
+  background-color: #030101;
+}
+/* line 6, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_secondsection.scss */
+.second_section .container .subcats {
+  font-size: .8rem;
+}
+/* line 9, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_secondsection.scss */
+.second_section .container .sublinks {
+  transition-property: all;
+  transition-duration: 1s;
+}
+/* line 14, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_secondsection.scss */
 .second_section .container .modal-body img {
   width: 100%;
 }
-/* line 11, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_secondsection.scss */
+/* line 21, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_secondsection.scss */
 .second_section .container .decouvrir_row {
   font-size: 0.9rem;
 }
-/* line 15, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_secondsection.scss */
+/* line 25, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_secondsection.scss */
 .second_section .container .breadcrumb li {
   display: inline;
   font-size: 0.7em;
 }
-/* line 18, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_secondsection.scss */
+/* line 28, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_secondsection.scss */
 .second_section .container .breadcrumb li a, .second_section .container .breadcrumb li i {
   color: gray;
 }
-/* line 23, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_secondsection.scss */
+/* line 33, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_secondsection.scss */
 .second_section .container .second_section_column_article {
   background-color: #fff;
   height: 40vh;
@@ -383,51 +416,51 @@ body .container-fluid {
   position: relative;
   text-align: center;
 }
-/* line 30, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_secondsection.scss */
+/* line 40, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_secondsection.scss */
 .second_section .container .second_section_column_article *:not(i) {
   font-size: 12px;
   line-height: 22px;
   color: #5d585e;
   font-family: "Montserrat", Arial, Helvetica, sans-serif;
 }
-/* line 36, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_secondsection.scss */
+/* line 46, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_secondsection.scss */
 .second_section .container .second_section_column_article img {
   width: 100%;
 }
-/* line 39, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_secondsection.scss */
+/* line 49, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_secondsection.scss */
 .second_section .container .second_section_column_article i {
   position: absolute;
   bottom: 15px;
   right: 15px;
 }
-/* line 44, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_secondsection.scss */
+/* line 54, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_secondsection.scss */
 .second_section .container .second_section_column_article .description_box {
   height: 50%;
   padding: 3vh;
 }
-/* line 48, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_secondsection.scss */
+/* line 58, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_secondsection.scss */
 .second_section .container .second_section_column_article iframe {
   height: 100%;
   width: 100%;
 }
-/* line 52, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_secondsection.scss */
+/* line 62, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_secondsection.scss */
 .second_section .container .second_section_column_article .overlay {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgba(128, 128, 128, 0);
+  background-color: rgba(128, 128, 128, 0.8);
   overflow: hidden;
   width: 100%;
   height: 0;
   transition: .5s ease;
 }
-/* line 62, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_secondsection.scss */
+/* line 72, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_secondsection.scss */
 .second_section .container .second_section_column_article .overlay .text {
   color: white;
   padding: 1rem;
 }
-/* line 68, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_secondsection.scss */
+/* line 78, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_secondsection.scss */
 .second_section .container .second_section_column {
   background-color: #fff;
   height: 50vh;
@@ -436,44 +469,44 @@ body .container-fluid {
   position: relative;
   text-align: center;
 }
-/* line 75, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_secondsection.scss */
+/* line 85, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_secondsection.scss */
 .second_section .container .second_section_column *:not(i) {
   font-size: 12px;
   line-height: 22px;
   color: #5d585e;
   font-family: "Montserrat", Arial, Helvetica, sans-serif;
 }
-/* line 81, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_secondsection.scss */
+/* line 91, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_secondsection.scss */
 .second_section .container .second_section_column img {
   width: 100%;
 }
-/* line 84, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_secondsection.scss */
+/* line 94, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_secondsection.scss */
 .second_section .container .second_section_column i {
   position: absolute;
   bottom: 15px;
   right: 15px;
 }
-/* line 89, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_secondsection.scss */
+/* line 99, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_secondsection.scss */
 .second_section .container .second_section_column .description_box {
   height: 50%;
   padding: 3vh;
 }
-/* line 93, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_secondsection.scss */
+/* line 103, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_secondsection.scss */
 .second_section .container .second_section_column iframe {
   height: 100%;
   width: 100%;
 }
 
-/* line 102, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_secondsection.scss */
+/* line 112, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_secondsection.scss */
 .pagination li {
   padding: 0.5rem;
 }
 
-/* line 108, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_secondsection.scss */
+/* line 118, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_secondsection.scss */
 .list-group-item p {
   font-size: 0.6rem;
 }
-/* line 111, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_secondsection.scss */
+/* line 121, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_secondsection.scss */
 .list-group-item hr {
   width: 100%;
   color: black;
@@ -569,7 +602,7 @@ body .container-fluid {
 /* line 25, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_footer.scss */
 .footer .container #top_footer {
   padding-bottom: 0.5em;
-  border-bottom: 0.1em solid rgba(225, 220, 226, 0);
+  border-bottom: 0.1em solid rgba(225, 220, 226, 0.2);
 }
 /* line 28, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_footer.scss */
 .footer .container #top_footer #contact_info {
@@ -633,9 +666,9 @@ body .container-fluid {
 }
 /* line 77, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_footer.scss */
 .footer .container #bottom_footer {
-  border-top: 0.1em solid rgba(225, 220, 226, 0);
+  border-top: 0.1em solid rgba(225, 220, 226, 0.2);
   color: white;
-  background-color: rgba(255, 255, 255, 0);
+  background-color: rgba(255, 255, 255, 0.5);
 }
 /* line 81, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_footer.scss */
 .footer .container #bottom_footer .navbar {
@@ -644,13 +677,13 @@ body .container-fluid {
 }
 /* line 85, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_footer.scss */
 .footer .container #bottom_footer i {
-  font-size: 1.2em;
+  font-size: 1em;
   color: white;
-  margin: 0.5em auto;
+  margin: 0.6em auto;
 }
 /* line 90, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_footer.scss */
 .footer .container #bottom_footer #follow_us_label span {
-  font-size: 0.8em;
+  font-size: 0.6em;
   color: white;
 }
 /* line 94, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_footer.scss */
@@ -659,9 +692,9 @@ body .container-fluid {
 }
 /* line 97, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_footer.scss */
 .footer .container #bottom_footer span {
-  font-size: 0.8em;
+  font-size: 0.6em;
   float: right;
-  margin: 0.8em auto;
+  margin: 1.2em auto;
 }
 /* line 103, C:/Users/Zakariae/Carre_Project/carre_website/carre_app/static/carre_app/sass/_footer.scss */
 .footer .container .input {
@@ -818,7 +851,7 @@ body .container-fluid {
   transform: translate3d(0, 4.1em, 0) scale3d(0.65, 0.65, 1);
 }
 
-/* line 28, ../sass/main.scss */
+/* line 44, ../sass/main.scss */
 [type=reset], [type=submit], button, html [type=button] {
   -webkit-appearance: none;
 }

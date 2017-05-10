@@ -5,6 +5,7 @@ from django.http import HttpResponse, HttpResponseNotFound
 from reportlab.pdfgen import canvas
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 import os
+from collections import Counter
 
 # Create your views here.
 def index_home(request):
@@ -186,77 +187,395 @@ def index_collectionsalledebains(request):
 
 def index_sanitaire(request):
 	articles = [
-		{'prefix': 'Vasque', 'url': 'a_1-1', 'name': 'name_a_1-1', 'ref': 'ref_a_1-1'},
-		{'prefix': 'Vasque', 'url': 'a_1-2', 'name': 'name_a_1-2', 'ref': 'ref_a_1-2'},
-		{'prefix': 'Vasque', 'url': 'a_1-3', 'name': 'name_a_1-3', 'ref': 'ref_a_1-3'},
-		{'prefix': 'Vasque', 'url': 'a_1-4', 'name': 'name_a_1-4', 'ref': 'ref_a_1-4'},
-		{'prefix': 'Vasque', 'url': 'a_1-5', 'name': 'name_a_1-5', 'ref': 'ref_a_1-5'},
-		{'prefix': 'Vasque', 'url': 'a_1-6', 'name': 'name_a_1-6', 'ref': 'ref_a_1-6'},
-		{'prefix': 'Vasque', 'url': 'a_1-7', 'name': 'name_a_1-7', 'ref': 'ref_a_1-7'},
-		{'prefix': 'Vasque', 'url': 'a_1-8', 'name': 'name_a_1-8', 'ref': 'ref_a_1-8'},
-		{'prefix': 'Vasque', 'url': 'a_1-9', 'name': 'name_a_1-9', 'ref': 'ref_a_1-9'},
-		{'prefix': 'Bidet', 'url': 'a_1-10', 'name': 'name_a_1-10', 'ref': 'ref_a_1-10'},
-		{'prefix': 'Bidet', 'url': 'a_1-11', 'name': 'name_a_1-11', 'ref': 'ref_a_1-11'},
-		{'prefix': 'Bidet', 'url': 'a_1-12', 'name': 'name_a_1-12', 'ref': 'ref_a_1-12'},
-		{'prefix': 'Bidet', 'url': 'a_1-13', 'name': 'name_a_1-13', 'ref': 'ref_a_1-13'},
-		{'prefix': 'Bidet', 'url': 'a_1-14', 'name': 'name_a_1-14', 'ref': 'ref_a_1-14'},
-		{'prefix': 'Bidet', 'url': 'a_1-15', 'name': 'name_a_1-15', 'ref': 'ref_a_1-15'},
-		{'prefix': 'Bidet', 'url': 'a_1-16', 'name': 'name_a_1-16', 'ref': 'ref_a_1-16'},
-		{'prefix': 'Bidet', 'url': 'a_1-17', 'name': 'name_a_1-17', 'ref': 'ref_a_1-17'},
-		{'prefix': 'Bidet', 'url': 'a_1-18', 'name': 'name_a_1-18', 'ref': 'ref_a_1-18'},
-		{'prefix': 'Bidet', 'url': 'a_1-19', 'name': 'name_a_1-19', 'ref': 'ref_a_1-19'},
-		{'prefix': 'Bidet', 'url': 'a_1-20', 'name': 'name_a_1-20', 'ref': 'ref_a_1-20'},
-		{'prefix': 'Bloc WC', 'url': 'a_1-21', 'name': 'name_a_1-21', 'ref': 'ref_a_1-21'},
-		{'prefix': 'Bloc WC', 'url': 'a_1-22', 'name': 'name_a_1-22', 'ref': 'ref_a_1-22'},
-		{'prefix': 'Bloc WC', 'url': 'a_1-23', 'name': 'name_a_1-23', 'ref': 'ref_a_1-23'},
-		{'prefix': 'Bloc WC', 'url': 'a_1-24', 'name': 'name_a_1-24', 'ref': 'ref_a_1-24'},
-		{'prefix': 'Bloc WC', 'url': 'a_1-25', 'name': 'name_a_1-25', 'ref': 'ref_a_1-25'},
-		{'prefix': 'Bloc WC', 'url': 'a_1-26', 'name': 'name_a_1-26', 'ref': 'ref_a_1-26'},
-		{'prefix': 'Bloc WC', 'url': 'a_1-27', 'name': 'name_a_1-27', 'ref': 'ref_a_1-27'},
-		{'prefix': 'Bloc WC', 'url': 'a_1-28', 'name': 'name_a_1-28', 'ref': 'ref_a_1-28'},
-		{'prefix': 'Bloc WC', 'url': 'a_1-29', 'name': 'name_a_1-29', 'ref': 'ref_a_1-29'},
-		{'prefix': 'Bloc WC', 'url': 'a_1-30', 'name': 'name_a_1-30', 'ref': 'ref_a_1-30'},
-		{'prefix': 'Vasque', 'url': 'a_1-31', 'name': 'name_a_1-31', 'ref': 'ref_a_1-31'},
-		{'prefix': 'Vasque', 'url': 'a_1-32', 'name': 'name_a_1-32', 'ref': 'ref_a_1-32'},
-		{'prefix': 'Vasque', 'url': 'a_1-33', 'name': 'name_a_1-33', 'ref': 'ref_a_1-33'},
-		{'prefix': 'Vasque', 'url': 'a_1-34', 'name': 'name_a_1-34', 'ref': 'ref_a_1-34'},
-		{'prefix': 'Vasque', 'url': 'a_1-35', 'name': 'name_a_1-35', 'ref': 'ref_a_1-35'},
+		{'parent': 'Vasque', 'prefix': 'Metal-Line', 			'url': 'a_2-1-1-1', 	'name': 'name_a_2-1-1-1', 	'ref': 'ref_a_2-1-1-1'},
+		{'parent': 'Vasque', 'prefix': 'Metal-Line', 			'url': 'a_2-1-1-2', 	'name': 'name_a_2-1-1-2', 	'ref': 'ref_a_2-1-1-2'},
+		{'parent': 'Vasque', 'prefix': 'A Encastrer', 			'url': 'a_2-1-2-3', 	'name': 'name_a_2-1-2-3', 	'ref': 'ref_a_2-1-2-3'},
+		{'parent': 'Vasque', 'prefix': 'A Encastrer', 			'url': 'a_2-1-2-4', 	'name': 'name_a_2-1-2-4', 	'ref': 'ref_a_2-1-2-4'},
+		{'parent': 'Vasque', 'prefix': 'Sous-Plan', 			'url': 'a_2-1-3-5', 	'name': 'name_a_2-1-3-5', 	'ref': 'ref_a_2-1-3-5'},
+		{'parent': 'Vasque', 'prefix': 'Sous-Plan', 			'url': 'a_2-1-3-6', 	'name': 'name_a_2-1-3-6', 	'ref': 'ref_a_2-1-3-6'},
+		{'parent': 'Vasque', 'prefix': 'Semi-Encastrées', 		'url': 'a_2-1-4-7', 	'name': 'name_a_2-1-4-7', 	'ref': 'ref_a_2-1-4-7'},
+		{'parent': 'Vasque', 'prefix': 'Semi-Encastrées', 		'url': 'a_2-1-4-8', 	'name': 'name_a_2-1-4-8', 	'ref': 'ref_a_2-1-4-8'},
+		{'parent': 'Vasque', 'prefix': 'A Poser', 				'url': 'a_2-1-5-9', 	'name': 'name_a_2-1-5-9', 	'ref': 'ref_a_2-1-5-9'},
+		{'parent': 'Vasque', 'prefix': 'A Poser', 				'url': 'a_2-1-5-10',	'name': 'name_a_2-1-5-10',	'ref': 'ref_a_2-1-5-10'},
+		{'parent': 'Vasque', 'prefix': 'A Poser sur Meuble', 	'url': 'a_2-1-6-11',	'name': 'name_a_2-1-6-11', 	'ref': 'ref_a_2-1-6-11'},
+		{'parent': 'Vasque', 'prefix': 'A Poser sur Meuble', 	'url': 'a_2-1-6-12',	'name': 'name_a_2-1-6-12', 	'ref': 'ref_a_2-1-6-12'},
+		{'parent': 'Vasque', 'prefix': 'Lave-Mains', 			'url': 'a_2-1-7-13', 	'name': 'name_a_2-1-7-13', 	'ref': 'ref_a_2-1-7-13'},
+		{'parent': 'Vasque', 'prefix': 'Lave-Mains', 			'url': 'a_2-1-7-14', 	'name': 'name_a_2-1-7-14', 	'ref': 'ref_a_2-1-7-14'},
+		{'parent': 'Vasque', 'prefix': 'Muraux', 				'url': 'a_2-1-8-15', 	'name': 'name_a_2-1-8-15', 	'ref': 'ref_a_2-1-8-15'},
+		{'parent': 'Vasque', 'prefix': 'Muraux', 				'url': 'a_2-1-8-16', 	'name': 'name_a_2-1-8-16', 	'ref': 'ref_a_2-1-8-16'},
+
+		{'parent': 'Bidet', 'prefix': 'b-Arq', 					'url': 'a_2-2-1-17', 	'name': 'name_a_2-2-1-17', 	'ref': 'ref_a_2-2-1-17'},
+		{'parent': 'Bidet', 'prefix': 'b-Arq', 					'url': 'a_2-2-1-18', 	'name': 'name_a_2-2-1-18', 	'ref': 'ref_a_2-2-1-18'},
+		{'parent': 'Bidet', 'prefix': 'b-Noble', 					'url': 'a_2-2-2-19', 	'name': 'name_a_2-2-2-19', 	'ref': 'ref_a_2-2-2-19'},
+		{'parent': 'Bidet', 'prefix': 'b-Noble', 					'url': 'a_2-2-2-20', 	'name': 'name_a_2-2-2-20', 	'ref': 'ref_a_2-2-2-20'},
+		{'parent': 'Bidet', 'prefix': 'b-Eos', 					'url': 'a_2-2-3-21', 	'name': 'name_a_2-2-3-21', 	'ref': 'ref_a_2-2-3-21'},
+		{'parent': 'Bidet', 'prefix': 'b-Eos', 					'url': 'a_2-2-3-22', 	'name': 'name_a_2-2-3-22', 	'ref': 'ref_a_2-2-3-22'},
+		{'parent': 'Bidet', 'prefix': 'b-Universal', 				'url': 'a_2-2-4-23', 	'name': 'name_a_2-2-4-23', 	'ref': 'ref_a_2-2-4-23'},
+		{'parent': 'Bidet', 'prefix': 'b-Universal', 				'url': 'a_2-2-4-24', 	'name': 'name_a_2-2-4-24', 	'ref': 'ref_a_2-2-4-24'},
+		{'parent': 'Bidet', 'prefix': 'b-Klea', 					'url': 'a_2-2-5-25', 	'name': 'name_a_2-2-5-25', 	'ref': 'ref_a_2-2-5-25'},
+		{'parent': 'Bidet', 'prefix': 'b-Klea', 					'url': 'a_2-2-5-26', 	'name': 'name_a_2-2-5-26', 	'ref': 'ref_a_2-2-5-26'},
+		{'parent': 'Bidet', 'prefix': 'b-Emma Square', 			'url': 'a_2-2-6-27', 	'name': 'name_a_2-2-6-27', 	'ref': 'ref_a_2-2-6-27'},
+		{'parent': 'Bidet', 'prefix': 'b-Emma Square', 			'url': 'a_2-2-6-28', 	'name': 'name_a_2-2-6-28', 	'ref': 'ref_a_2-2-6-28'},
+		{'parent': 'Bidet', 'prefix': 'b-Emma', 					'url': 'a_2-2-7-29', 	'name': 'name_a_2-2-7-29', 	'ref': 'ref_a_2-2-7-29'},
+		{'parent': 'Bidet', 'prefix': 'b-Emma', 					'url': 'a_2-2-7-30', 	'name': 'name_a_2-2-7-30', 	'ref': 'ref_a_2-2-7-30'},
+		{'parent': 'Bidet', 'prefix': 'b-Mid', 					'url': 'a_2-2-8-31', 	'name': 'name_a_2-2-8-31', 	'ref': 'ref_a_2-2-8-31'},
+		{'parent': 'Bidet', 'prefix': 'b-Mid', 					'url': 'a_2-2-8-32', 	'name': 'name_a_2-2-8-32', 	'ref': 'ref_a_2-2-8-32'},
+		{'parent': 'Bidet', 'prefix': 'b-Smart', 					'url': 'a_2-2-9-33', 	'name': 'name_a_2-2-9-33', 	'ref': 'ref_a_2-2-9-33'},
+		{'parent': 'Bidet', 'prefix': 'b-Smart', 					'url': 'a_2-2-9-34', 	'name': 'name_a_2-2-9-34', 	'ref': 'ref_a_2-2-9-34'},
+		{'parent': 'Bidet', 'prefix': 'b-Jazz', 					'url': 'a_2-2-10-35', 	'name': 'name_a_2-2-10-35', 'ref': 'ref_a_2-2-10-35'},
+		{'parent': 'Bidet', 'prefix': 'b-Jazz', 					'url': 'a_2-2-10-36', 	'name': 'name_a_2-2-10-36', 'ref': 'ref_a_2-2-10-36'},
+		{'parent': 'Bidet', 'prefix': 'b-Street Square', 			'url': 'a_2-2-11-37', 	'name': 'name_a_2-2-11-37', 'ref': 'ref_a_2-2-11-37'},
+		{'parent': 'Bidet', 'prefix': 'b-Street Square', 			'url': 'a_2-2-11-38', 	'name': 'name_a_2-2-11-38', 'ref': 'ref_a_2-2-11-38'},
+		{'parent': 'Bidet', 'prefix': 'b-Street', 				'url': 'a_2-2-12-39', 	'name': 'name_a_2-2-12-39', 'ref': 'ref_a_2-2-12-39'},
+		{'parent': 'Bidet', 'prefix': 'b-Street', 				'url': 'a_2-2-12-40', 	'name': 'name_a_2-2-12-40', 'ref': 'ref_a_2-2-12-40'},
+		{'parent': 'Bidet', 'prefix': 'b-Elia', 					'url': 'a_2-2-13-41', 	'name': 'name_a_2-2-13-41', 'ref': 'ref_a_2-2-13-41'},
+		{'parent': 'Bidet', 'prefix': 'b-Elia', 					'url': 'a_2-2-13-42', 	'name': 'name_a_2-2-13-42', 'ref': 'ref_a_2-2-13-42'},
+
+		{'parent': 'Bloc WC', 'prefix': 'Arq', 					'url': 'a-2-3-1-17', 	'name': 'name_a-2-3-1-17', 	'ref': 'ref_a-2-3-1-17'},
+		{'parent': 'Bloc WC', 'prefix': 'Arq', 					'url': 'a-2-3-1-18', 	'name': 'name_a-2-3-1-18', 	'ref': 'ref_a-2-3-1-18'},
+		{'parent': 'Bloc WC', 'prefix': 'Noble', 				'url': 'a-2-3-2-19', 	'name': 'name_a-2-3-2-19', 	'ref': 'ref_a-2-3-2-19'},
+		{'parent': 'Bloc WC', 'prefix': 'Noble', 				'url': 'a-2-3-2-20', 	'name': 'name_a-2-3-2-20', 	'ref': 'ref_a-2-3-2-20'},
+		{'parent': 'Bloc WC', 'prefix': 'Eos', 					'url': 'a-2-3-3-21', 	'name': 'name_a-2-3-3-21', 	'ref': 'ref_a-2-3-3-21'},
+		{'parent': 'Bloc WC', 'prefix': 'Eos', 					'url': 'a-2-3-3-22', 	'name': 'name_a-2-3-3-22', 	'ref': 'ref_a-2-3-3-22'},
+		{'parent': 'Bloc WC', 'prefix': 'Universal', 			'url': 'a-2-3-4-23', 	'name': 'name_a-2-3-4-23', 	'ref': 'ref_a-2-3-4-23'},
+		{'parent': 'Bloc WC', 'prefix': 'Universal', 			'url': 'a-2-3-4-24', 	'name': 'name_a-2-3-4-24', 	'ref': 'ref_a-2-3-4-24'},
+		{'parent': 'Bloc WC', 'prefix': 'Klea', 				'url': 'a-2-3-5-25', 	'name': 'name_a-2-3-5-25', 	'ref': 'ref_a-2-3-5-25'},
+		{'parent': 'Bloc WC', 'prefix': 'Klea', 				'url': 'a-2-3-5-26', 	'name': 'name_a-2-3-5-26', 	'ref': 'ref_a-2-3-5-26'},
+		{'parent': 'Bloc WC', 'prefix': 'Emma Square', 			'url': 'a-2-3-6-27', 	'name': 'name_a-2-3-6-27', 	'ref': 'ref_a-2-3-6-27'},
+		{'parent': 'Bloc WC', 'prefix': 'Emma Square', 			'url': 'a-2-3-6-28', 	'name': 'name_a-2-3-6-28', 	'ref': 'ref_a-2-3-6-28'},
+		{'parent': 'Bloc WC', 'prefix': 'Emma', 				'url': 'a-2-3-7-29', 	'name': 'name_a-2-3-7-29', 	'ref': 'ref_a-2-3-7-29'},
+		{'parent': 'Bloc WC', 'prefix': 'Emma', 				'url': 'a-2-3-7-30', 	'name': 'name_a-2-3-7-30', 	'ref': 'ref_a-2-3-7-30'},
+		{'parent': 'Bloc WC', 'prefix': 'Mid', 					'url': 'a-2-3-8-31', 	'name': 'name_a-2-3-8-31', 	'ref': 'ref_a-2-3-8-31'},
+		{'parent': 'Bloc WC', 'prefix': 'Mid', 					'url': 'a-2-3-8-32', 	'name': 'name_a-2-3-8-32', 	'ref': 'ref_a-2-3-8-32'},
+		{'parent': 'Bloc WC', 'prefix': 'Smart', 				'url': 'a-2-3-9-33', 	'name': 'name_a-2-3-9-33', 	'ref': 'ref_a-2-3-9-33'},
+		{'parent': 'Bloc WC', 'prefix': 'Smart', 				'url': 'a-2-3-9-34', 	'name': 'name_a-2-3-9-34', 	'ref': 'ref_a-2-3-9-34'},
+		{'parent': 'Bloc WC', 'prefix': 'Jazz', 				'url': 'a-2-3-10-35', 	'name': 'name_a-2-3-10-35', 'ref': 'ref_a-2-3-10-35'},
+		{'parent': 'Bloc WC', 'prefix': 'Jazz', 				'url': 'a-2-3-10-36', 	'name': 'name_a-2-3-10-36', 'ref': 'ref_a-2-3-10-36'},
+		{'parent': 'Bloc WC', 'prefix': 'Street Square', 		'url': 'a-2-3-11-37', 	'name': 'name_a-2-3-11-37', 'ref': 'ref_a-2-3-11-37'},
+		{'parent': 'Bloc WC', 'prefix': 'Street Square', 		'url': 'a-2-3-11-38', 	'name': 'name_a-2-3-11-38', 'ref': 'ref_a-2-3-11-38'},
+		{'parent': 'Bloc WC', 'prefix': 'Street', 				'url': 'a-2-3-12-39', 	'name': 'name_a-2-3-12-39', 'ref': 'ref_a-2-3-12-39'},
+		{'parent': 'Bloc WC', 'prefix': 'Street', 				'url': 'a-2-3-12-40', 	'name': 'name_a-2-3-12-40', 'ref': 'ref_a-2-3-12-40'},
+		{'parent': 'Bloc WC', 'prefix': 'Elia', 				'url': 'a-2-3-13-41', 	'name': 'name_a-2-3-13-41', 'ref': 'ref_a-2-3-13-41'},
+		{'parent': 'Bloc WC', 'prefix': 'Elia', 				'url': 'a-2-3-13-42', 	'name': 'name_a-2-3-13-42', 'ref': 'ref_a_2-3-13-42'},
 	]
 
-	Vasque = []
-	Bloc_WC = []
-	Bidet = []
+	Vasque_Metal_Line = []
+	Vasque_A_Encastrer = []
+	Vasque_Sous_Plan = []
+	Vasque_Semi_Encastrées = []
+	Vasque_A_Poser = []
+	Vasque_A_Poser_sur_Meuble = []
+	Vasque_Lave_Mains = []
+	Vasque_Muraux = []
+
+	Bidet_Arq = []
+	Bidet_Noble = []
+	Bidet_Eos = []
+	Bidet_Universal = []
+	Bidet_Klea = []
+	Bidet_Emma_Square = []
+	Bidet_Emma = []
+	Bidet_Mid = []
+	Bidet_Smart = []
+	Bidet_Jazz = []
+	Bidet_Street_Square = []
+	Bidet_Street = []
+	Bidet_Elia = []
+
+	Bloc_WC_Arq = []
+	Bloc_WC_Noble = []
+	Bloc_WC_Eos = []
+	Bloc_WC_Universal = []
+	Bloc_WC_Klea = []
+	Bloc_WC_Emma_Square = []
+	Bloc_WC_Emma = []
+	Bloc_WC_Mid = []
+	Bloc_WC_Smart = []
+	Bloc_WC_Jazz = []
+	Bloc_WC_Street_Square = []
+	Bloc_WC_Street = []
+	Bloc_WC_Elia = []
 
 	for x in articles:
-		if(x['prefix'] == 'Vasque'):
-			Vasque.append(x)
-		elif(x['prefix'] == 'Bloc WC'):
-			Bloc_WC.append(x)
-		elif(x['prefix'] == 'Bidet'):
-			Bidet.append(x)
+		if(x['parent'] == 'Vasque'):
+			if(x['prefix'] == 'Metal-Line'):
+				Vasque_Metal_Line.append(x)
+			elif(x['prefix'] == 'A Encastrer'):
+				Vasque_A_Encastrer.append(x)
+			elif(x['prefix'] == 'Sous-Plan'):
+				Vasque_Sous_Plan.append(x)
+			elif(x['prefix'] == 'Semi-Encastrées'):
+				Vasque_Semi_Encastrées.append(x)
+			elif(x['prefix'] == 'A Poser'):
+				Vasque_A_Poser.append(x)
+			elif(x['prefix'] == 'A Poser sur Meuble'):
+				Vasque_A_Poser_sur_Meuble.append(x)
+			elif(x['prefix'] == 'Lave-Mains'):
+				Vasque_Lave_Mains.append(x)
+			elif(x['prefix'] == 'Muraux'):
+				Vasque_Muraux.append(x)
+		elif(x['parent'] == 'Bidet'):
+			if(x['prefix'] == 'b-Arq'):
+				Bidet_Arq.append(x)
+			elif(x['prefix'] == 'b-Noble'):
+				Bidet_Noble.append(x)
+			elif(x['prefix'] == 'b-Eos'):
+				Bidet_Eos.append(x)
+			elif(x['prefix'] == 'b-Universal'):
+				Bidet_Universal.append(x)
+			elif(x['prefix'] == 'b-Klea'):
+				Bidet_Klea.append(x)
+			elif(x['prefix'] == 'b-Emma Square'):
+				Bidet_Emma_Square.append(x)
+			elif(x['prefix'] == 'b-Emma'):
+				Bidet_Emma.append(x)
+			elif(x['prefix'] == 'b-Mid'):
+				Bidet_Mid.append(x)
+			elif(x['prefix'] == 'b-Smart'):
+				Bidet_Smart.append(x)
+			elif(x['prefix'] == 'b-Jazz'):
+				Bidet_Jazz.append(x)
+			elif(x['prefix'] == 'b-Street Square'):
+				Bidet_Street_Square.append(x)
+			elif(x['prefix'] == 'b-Street'):
+				Bidet_Street.append(x)
+			elif(x['prefix'] == 'b-Elia'):
+				Bidet_Elia.append(x)
+		elif(x['parent'] == 'Bloc WC'):
+			if(x['prefix'] == 'Arq'):
+				Bloc_WC_Arq.append(x)
+			elif(x['prefix'] == 'Noble'):
+				Bloc_WC_Noble.append(x)
+			elif(x['prefix'] == 'Eos'):
+				Bloc_WC_Eos.append(x)
+			elif(x['prefix'] == 'Universal'):
+				Bloc_WC_Universal.append(x)
+			elif(x['prefix'] == 'Klea'):
+				Bloc_WC_Klea.append(x)
+			elif(x['prefix'] == 'Emma Square'):
+				Bloc_WC_Emma_Square.append(x)
+			elif(x['prefix'] == 'Emma'):
+				Bloc_WC_Emma.append(x)
+			elif(x['prefix'] == 'Mid'):
+				Bloc_WC_Mid.append(x)
+			elif(x['prefix'] == 'Smart'):
+				Bloc_WC_Smart.append(x)
+			elif(x['prefix'] == 'Jazz'):
+				Bloc_WC_Jazz.append(x)
+			elif(x['prefix'] == 'Street Square'):
+				Bloc_WC_Street_Square.append(x)
+			elif(x['prefix'] == 'Street'):
+				Bloc_WC_Street.append(x)
+			elif(x['prefix'] == 'Elia'):
+				Bloc_WC_Elia.append(x)
 
-	paginator_Vasque = Paginator(Vasque, 100)
-	paginator_Bloc_WC = Paginator(Bloc_WC, 100)
-	paginator_Bidet = Paginator(Bidet, 100)
+	paginator_Vasque_Metal_Line = Paginator(Vasque_Metal_Line, 100)
+	paginator_Vasque_A_Encastrer = Paginator(Vasque_A_Encastrer, 100)
+	paginator_Vasque_Sous_Plan = Paginator(Vasque_Sous_Plan, 100)
+	paginator_Vasque_Semi_Encastrées = Paginator(Vasque_Semi_Encastrées, 100)
+	paginator_Vasque_A_Poser = Paginator(Vasque_A_Poser, 100)
+	paginator_Vasque_A_Poser_sur_Meuble = Paginator(Vasque_A_Poser_sur_Meuble, 100)
+	paginator_Vasque_Lave_Mains = Paginator(Vasque_Lave_Mains, 100)
+	paginator_Vasque_Muraux = Paginator(Vasque_Muraux, 100)
+	paginator_Bidet_Arq = Paginator(Bidet_Arq, 100)
+	paginator_Bidet_Noble = Paginator(Bidet_Noble, 100)
+	paginator_Bidet_Eos = Paginator(Bidet_Eos, 100)
+	paginator_Bidet_Universal = Paginator(Bidet_Universal, 100)
+	paginator_Bidet_Klea = Paginator(Bidet_Klea, 100)
+	paginator_Bidet_Emma_Square = Paginator(Bidet_Emma_Square, 100)
+	paginator_Bidet_Emma = Paginator(Bidet_Emma, 100)
+	paginator_Bidet_Mid = Paginator(Bidet_Mid, 100)
+	paginator_Bidet_Smart = Paginator(Bidet_Smart, 100)
+	paginator_Bidet_Jazz = Paginator(Bidet_Jazz, 100)
+	paginator_Bidet_Street_Square = Paginator(Bidet_Street_Square, 100)
+	paginator_Bidet_Street = Paginator(Bidet_Street, 100)
+	paginator_Bidet_Elia = Paginator(Bidet_Elia, 100)
+	paginator_Bloc_WC_Arq = Paginator(Bloc_WC_Arq, 100)
+	paginator_Bloc_WC_Eos = Paginator(Bloc_WC_Eos, 100)
+	paginator_Bloc_WC_Universal = Paginator(Bloc_WC_Universal, 100)
+	paginator_Bloc_WC_Klea = Paginator(Bloc_WC_Klea, 100)
+	paginator_Bloc_WC_Emma_Square = Paginator(Bloc_WC_Emma_Square, 100)
+	paginator_Bloc_WC_Emma = Paginator(Bloc_WC_Emma, 100)
+	paginator_Bloc_WC_Mid = Paginator(Bloc_WC_Mid, 100)
+	paginator_Bloc_WC_Smart = Paginator(Bloc_WC_Smart, 100)
+	paginator_Bloc_WC_Jazz = Paginator(Bloc_WC_Jazz, 100)
+	paginator_Bloc_WC_Street_Square = Paginator(Bloc_WC_Street_Square, 100)
+	paginator_Bloc_WC_Street = Paginator(Bloc_WC_Street, 100)
+	paginator_Bloc_WC_Elia = Paginator(Bloc_WC_Elia, 100)
 
 	page = request.GET.get('page')
 	try:
-		Vasque_list = paginator_Vasque.page(page)
-		Bloc_WC_list = paginator_Bloc_WC.page(page)
-		Bidet_list = paginator_Bidet.page(page)
+		Vasque_Metal_Line_list = paginator_Vasque_Metal_Line.page(page)
+		Vasque_A_Encastrer_list = paginator_Vasque_A_Encastrer.page(page)
+		Vasque_Sous_Plan_list = paginator_Vasque_Sous_Plan.page(page)
+		Vasque_Semi_Encastrées_list = paginator_Vasque_Semi_Encastrées.page(page)
+		Vasque_A_Poser_list = paginator_Vasque_A_Poser.page(page)
+		Vasque_A_Poser_sur_Meuble_list = paginator_Vasque_A_Poser_sur_Meuble.page(page)
+		Vasque_Lave_Mains_list = paginator_Vasque_Lave_Mains.page(page)
+		Vasque_Muraux_list = paginator_Vasque_Muraux.page(page)
+		Bidet_Arq_list = paginator_Bidet_Arq.page(page)
+		Bidet_Noble_list = paginator_Bidet_Noble.page(page)
+		Bidet_Eos_list = paginator_Bidet_Eos.page(page)
+		Bidet_Universal_list = paginator_Bidet_Universal.page(page)
+		Bidet_Klea_list = paginator_Bidet_Klea.page(page)
+		Bidet_Emma_Square_list = paginator_Bidet_Emma_Square.page(page)
+		Bidet_Emma_list = paginator_Bidet_Emma.page(page)
+		Bidet_Mid_list = paginator_Bidet_Mid.page(page)
+		Bidet_Smart_list = paginator_Bidet_Smart.page(page)
+		Bidet_Jazz_list = paginator_Bidet_Jazz.page(page)
+		Bidet_Street_Square_list = paginator_Bidet_Street_Square.page(page)
+		Bidet_Street_list = paginator_Bidet_Street.page(page)
+		Bidet_Elia_list = paginator_Bidet_Elia.page(page)
+		Bloc_WC_Arq_list = paginator_Bloc_WC_Arq.page(page)
+		Bloc_WC_Eos_list = paginator_Bloc_WC_Eos.page(page)
+		Bloc_WC_Universal_list = paginator_Bloc_WC_Universal.page(page)
+		Bloc_WC_Klea_list = paginator_Bloc_WC_Klea.page(page)
+		Bloc_WC_Emma_Square_list = paginator_Bloc_WC_Emma_Square.page(page)
+		Bloc_WC_Emma_list = paginator_Bloc_WC_Emma.page(page)
+		Bloc_WC_Mid_list = paginator_Bloc_WC_Mid.page(page)
+		Bloc_WC_Smart_list = paginator_Bloc_WC_Smart.page(page)
+		Bloc_WC_Jazz_list = paginator_Bloc_WC_Jazz.page(page)
+		Bloc_WC_Street_Square_list = paginator_Bloc_WC_Street_Square.page(page)
+		Bloc_WC_Street_list = paginator_Bloc_WC_Street.page(page)
+		Bloc_WC_Elia_list = paginator_Bloc_WC_Elia.page(page)
 	except PageNotAnInteger:
-		Vasque_list = paginator_Vasque.page(1)
-		Bloc_WC_list = paginator_Bloc_WC.page(1)
-		Bidet_list = paginator_Bidet.page(1)
+		Vasque_Metal_Line_list = paginator_Vasque_Metal_Line.page(1)
+		Vasque_A_Encastrer_list = paginator_Vasque_A_Encastrer.page(1)
+		Vasque_Sous_Plan_list = paginator_Vasque_Sous_Plan.page(1)
+		Vasque_Semi_Encastrées_list = paginator_Vasque_Semi_Encastrées.page(1)
+		Vasque_A_Poser_list = paginator_Vasque_A_Poser.page(1)
+		Vasque_A_Poser_sur_Meuble_list = paginator_Vasque_A_Poser_sur_Meuble.page(1)
+		Vasque_Lave_Mains_list = paginator_Vasque_Lave_Mains.page(1)
+		Vasque_Muraux_list = paginator_Vasque_Muraux.page(1)
+		Bidet_Arq_list = paginator_Bidet_Arq.page(1)
+		Bidet_Noble_list = paginator_Bidet_Noble.page(1)
+		Bidet_Eos_list = paginator_Bidet_Eos.page(1)
+		Bidet_Universal_list = paginator_Bidet_Universal.page(1)
+		Bidet_Klea_list = paginator_Bidet_Klea.page(1)
+		Bidet_Emma_Square_list = paginator_Bidet_Emma_Square.page(1)
+		Bidet_Emma_list = paginator_Bidet_Emma.page(1)
+		Bidet_Mid_list = paginator_Bidet_Mid.page(1)
+		Bidet_Smart_list = paginator_Bidet_Smart.page(1)
+		Bidet_Jazz_list = paginator_Bidet_Jazz.page(1)
+		Bidet_Street_Square_list = paginator_Bidet_Street_Square.page(1)
+		Bidet_Street_list = paginator_Bidet_Street.page(1)
+		Bidet_Elia_list = paginator_Bidet_Elia.page(1)
+		Bloc_WC_Arq_list = paginator_Bloc_WC_Arq.page(1)
+		Bloc_WC_Eos_list = paginator_Bloc_WC_Eos.page(1)
+		Bloc_WC_Universal_list = paginator_Bloc_WC_Universal.page(1)
+		Bloc_WC_Klea_list = paginator_Bloc_WC_Klea.page(1)
+		Bloc_WC_Emma_Square_list = paginator_Bloc_WC_Emma_Square.page(1)
+		Bloc_WC_Emma_list = paginator_Bloc_WC_Emma.page(1)
+		Bloc_WC_Mid_list = paginator_Bloc_WC_Mid.page(1)
+		Bloc_WC_Smart_list = paginator_Bloc_WC_Smart.page(1)
+		Bloc_WC_Jazz_list = paginator_Bloc_WC_Jazz.page(1)
+		Bloc_WC_Street_Square_list = paginator_Bloc_WC_Street_Square.page(1)
+		Bloc_WC_Street_list = paginator_Bloc_WC_Street.page(1)
+		Bloc_WC_Elia_list = paginator_Bloc_WC_Elia.page(1)
 	except EmptyPage:
-		Vasque_list = paginator_Vasque.page(paginator_Vasque.num_pages)
-		Bloc_WC_list = paginator_Bloc_WC.page(paginator_Bloc_WC.num_pages)
-		Bidet_list = paginator_Bidet.page(paginator_Bidet.num_pages)
+		Vasque_Metal_Line_list = paginator_Vasque_Metal_Line.page(paginator_Vasque_Metal_Line.num_pages)
+		Vasque_A_Encastrer_list = paginator_Vasque_A_Encastrer.page(paginator_Vasque_A_Encastrer.num_pages)
+		Vasque_Sous_Plan_list = paginator_Vasque_Sous_Plan.page(paginator_Vasque_Sous_Plan.num_pages)
+		Vasque_Semi_Encastrées_list = paginator_Vasque_Semi_Encastrées.page(paginator_Vasque_Semi_Encastrées.num_pages)
+		Vasque_A_Poser_list = paginator_Vasque_A_Poser.page(paginator_Vasque_A_Poser.num_pages)
+		Vasque_A_Poser_sur_Meuble_list = paginator_Vasque_A_Poser_sur_Meuble.page(paginator_Vasque_A_Poser_sur_Meuble.num_pages)
+		Vasque_Lave_Mains_list = paginator_Vasque_Lave_Mains.page(paginator_Vasque_Lave_Mains.num_pages)
+		Vasque_Muraux_list = paginator_Vasque_Muraux.page(paginator_Vasque_Muraux.num_pages)
+		Bidet_Arq_list = paginator_Bidet_Arq.page(paginator_Bidet_Arq.num_pages)
+		Bidet_Noble_list = paginator_Bidet_Noble.page(paginator_Bidet_Noble.num_pages)
+		Bidet_Eos_list = paginator_Bidet_Eos.page(paginator_Bidet_Eos.num_pages)
+		Bidet_Universal_list = paginator_Bidet_Universal.page(paginator_Bidet_Universal.num_pages)
+		Bidet_Klea_list = paginator_Bidet_Klea.page(paginator_Bidet_Klea.num_pages)
+		Bidet_Emma_Square_list = paginator_Bidet_Emma_Square.page(paginator_Bidet_Emma_Square.num_pages)
+		Bidet_Emma_list = paginator_Bidet_Emma.page(paginator_Bidet_Emma.num_pages)
+		Bidet_Mid_list = paginator_Bidet_Mid.page(paginator_Bidet_Mid.num_pages)
+		Bidet_Smart_list = paginator_Bidet_Smart.page(paginator_Bidet_Smart.num_pages)
+		Bidet_Jazz_list = paginator_Bidet_Jazz.page(paginator_Bidet_Jazz.num_pages)
+		Bidet_Street_Square_list = paginator_Bidet_Street_Square.page(paginator_Bidet_Street_Square.num_pages)
+		Bidet_Street_list = paginator_Bidet_Street.page(paginator_Bidet_Street.num_pages)
+		Bidet_Elia_list = paginator_Bidet_Elia.page(paginator_Bidet_Elia.num_pages)
+		Bloc_WC_Arq_list = paginator_Bloc_WC_Arq.page(paginator_Bloc_WC_Arq.num_pages)
+		Bloc_WC_Eos_list = paginator_Bloc_WC_Eos.page(paginator_Bloc_WC_Eos.num_pages)
+		Bloc_WC_Universal_list = paginator_Bloc_WC_Universal.page(paginator_Bloc_WC_Universal.num_pages)
+		Bloc_WC_Klea_list = paginator_Bloc_WC_Klea.page(paginator_Bloc_WC_Klea.num_pages)
+		Bloc_WC_Emma_Square_list = paginator_Bloc_WC_Emma_Square.page(paginator_Bloc_WC_Emma_Square.num_pages)
+		Bloc_WC_Emma_list = paginator_Bloc_WC_Emma.page(paginator_Bloc_WC_Emma.num_pages)
+		Bloc_WC_Mid_list = paginator_Bloc_WC_Mid.page(paginator_Bloc_WC_Mid.num_pages)
+		Bloc_WC_Smart_list = paginator_Bloc_WC_Smart.page(paginator_Bloc_WC_Smart.num_pages)
+		Bloc_WC_Jazz_list = paginator_Bloc_WC_Jazz.page(paginator_Bloc_WC_Jazz.num_pages)
+		Bloc_WC_Street_Square_list = paginator_Bloc_WC_Street_Square.page(paginator_Bloc_WC_Street_Square.num_pages)
+		Bloc_WC_Street_list = paginator_Bloc_WC_Street.page(paginator_Bloc_WC_Street.num_pages)
+		Bloc_WC_Elia_list = paginator_Bloc_WC_Elia.page(paginator_Bloc_WC_Elia.num_pages)
+
+	final_articles = {
+		'Vasque_Metal_Line_list': Vasque_Metal_Line_list,
+		'Vasque_A_Encastrer_list': Vasque_A_Encastrer_list,
+		'Vasque_Sous_Plan_list': Vasque_Sous_Plan_list,
+		'Vasque_Semi_Encastrées_list': Vasque_Semi_Encastrées_list,
+		'Vasque_A_Poser_list': Vasque_A_Poser_list,
+		'Vasque_A_Poser_sur_Meuble_list': Vasque_A_Poser_sur_Meuble_list,
+		'Vasque_Lave_Mains_list': Vasque_Lave_Mains_list,
+		'Vasque_Muraux_list': Vasque_Muraux_list,
+		'Bidet_Arq_list': Bidet_Arq_list,
+		'Bidet_Noble_list': Bidet_Noble_list,
+		'Bidet_Eos_list': Bidet_Eos_list,
+		'Bidet_Universal_list': Bidet_Universal_list,
+		'Bidet_Klea_list': Bidet_Klea_list,
+		'Bidet_Emma_Square_list': Bidet_Emma_Square_list,
+		'Bidet_Emma_list': Bidet_Emma_list,
+		'Bidet_Mid_list': Bidet_Mid_list,
+		'Bidet_Smart_list': Bidet_Smart_list,
+		'Bidet_Jazz_list': Bidet_Jazz_list,
+		'Bidet_Street_Square_list': Bidet_Street_Square_list,
+		'Bidet_Street_list': Bidet_Street_list,
+		'Bidet_Elia_list': Bidet_Elia_list,
+		'Bloc_WC_Arq_list': Bloc_WC_Arq_list,
+		'Bloc_WC_Eos_list': Bloc_WC_Eos_list,
+		'Bloc_WC_Universal_list': Bloc_WC_Universal_list,
+		'Bloc_WC_Klea_list': Bloc_WC_Klea_list,
+		'Bloc_WC_Emma_Square_list': Bloc_WC_Emma_Square_list,
+		'Bloc_WC_Emma_list': Bloc_WC_Emma_list,
+		'Bloc_WC_Mid_list': Bloc_WC_Mid_list,
+		'Bloc_WC_Smart_list': Bloc_WC_Smart_list,
+		'Bloc_WC_Jazz_list': Bloc_WC_Jazz_list,
+		'Bloc_WC_Street_Square_list': Bloc_WC_Street_Square_list,
+		'Bloc_WC_Street_list': Bloc_WC_Street_list,
+		'Bloc_WC_Elia_list': Bloc_WC_Elia_list,
+	}
+
+	vasqueitems = 0
+	bidetitems = 0
+	blocitems = 0
+
+	for x in articles:
+		if(x['parent'] == 'Vasque'):
+			vasqueitems += 1
+		elif(x['parent'] == 'Bidet'):
+			bidetitems += 1
+		elif(x['parent'] == 'Bloc WC'):
+			blocitems += 1
+
+	result = {}
+	for k in articles:
+		if 'prefix' in k and 'parent' in k:
+			result[k['prefix']] = result.get(k['prefix'], 0) + 1
+
+	indexing_vasque = [str(vasqueitems), 'Metal-Line', 'A Encastrer', 'Sous-Plan', 'Semi-Encastrées', 'A Poser', 'A Poser sur Meuble', 'Lave-Mains', 'Muraux']
+	indexing_bidet = [str(bidetitems), 'Arq', 'Noble', 'Eos', 'Universal', 'Klea', 'Emma Square', 'Emma', 'Mid', 'Smart', 'Jazz', 'Street Square', 'Street', 'Elia']
+	indexing_bloc = [str(blocitems), 'Arq', 'Noble', 'Eos', 'Universal', 'Klea', 'Emma Square', 'Emma', 'Mid', 'Smart', 'Jazz', 'Street Square', 'Street', 'Elia']
+	indexing_all = {
+		'Vasque': indexing_vasque,
+		'Bidet' : indexing_bidet,
+		'Bloc_WC': indexing_bloc,
+	}
+
 	context = {
-		'name': 'index_sanitaire',
-		'Vasque_list': Vasque_list,
-		'Bloc_WC_list': Bloc_WC_list,
-		'Bidet_list': Bidet_list,
+		'final_articles': final_articles,
+		'vasqueitems': vasqueitems,
+		'bidetitems': bidetitems,
+		'blocitems': blocitems,
+		'indexing_all': indexing_all,
+		'result': result,
 	}
 	return render(request, 'carre_app/index_sanitaire.html', context)
 
@@ -283,9 +602,9 @@ def index_baignoiresetreceveurs(request):
 
 	for x in articles:
 		if(x['prefix'] == 'Baignoires'):
-			Vasque.append(x)
+			Baignoires.append(x)
 		elif(x['prefix'] == 'Receveurs'):
-			Bloc_WC.append(x)
+			Receveurs.append(x)
 
 	paginator_Baignoires = Paginator(Baignoires, 100)
 	paginator_Receveurs = Paginator(Receveurs, 100)
@@ -344,7 +663,7 @@ def index_miroirs(request):
 			Avec_LED.append(x)
 		elif(x['prefix'] == 'Ovale'):
 			Ovale.append(x)
-		elif(x['prefix'] == 'Carre'):
+		elif(x['prefix'] == 'Carré'):
 			Carre.append(x)
 
 	paginator_Standard = Paginator(Standard, 100)
@@ -460,7 +779,14 @@ def index_meubles(request):
 		VALS_list = paginator_VALS.page(paginator_VALS.num_pages)
 	context = {
 		'name': 'index_meubles',
-		'articles_list': articles_list,
+		'DINAR_list': DINAR_list,
+		'LUNA_list': LUNA_list,
+		'MARMARA_list': MARMARA_list,
+		'MARS_list': MARS_list,
+		'MILAS_list': MILAS_list,
+		'SAMBA_list': SAMBA_list,
+		'SOMA_list': SOMA_list,
+		'VALS_list': VALS_list,
 	}
 	return render(request, 'carre_app/index_meubles.html', context)
 
@@ -743,10 +1069,11 @@ def index_accessoires(request):
 		'name': 'index_accessoires',
 		'Titanic_list': Titanic_list,
 		'Flora_list': Flora_list,
-		'Poussoir_list': Poussoir_list,
-		'Siphon_list': Siphon_list,
-		'Colonne_list': Colonne_list,
-		'Pomme_list': Pomme_list,
+		'DE_LUXE_list': DE_LUXE_list,
+		'ELEGANCE_list': ELEGANCE_list,
+		'KUMRU_list': KUMRU_list,
+		'TEGRA_list': TEGRA_list,
+		'Autre_list': Autre_list,
 	}
 	return render(request, 'carre_app/index_accessoires.html', context)
 

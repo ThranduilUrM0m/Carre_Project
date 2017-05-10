@@ -210,266 +210,285 @@
 					<div class="row">
 				        <div class="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-9">
 							<h3>Articles Shit</h3>
-							<div class="row">
-                                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                                	<h4 id="Mitigeur">Mitigeur</h4>
-                                	<hr>
-                                    <div class="row">
-                                        {% for article in Mitigeur_list %}
-                                        <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
-                                            <a href="#" data-toggle="modal" data-target="#myModal{{ article.ref }}">
-												<div class="second_section_column_article">
-													<div id="image_one">
-														<img src="{% static 'carre_app/media/' %}{{article.url}}.jpeg">
+							<div id="menu" class="row">
+								<div class="panel list-group container">
+								 	<a href="#" class="list-group-item" data-toggle="collapse" data-target="#one" data-parent="#menu">
+								 		<h4 id="Mitigeur">Mitigeur</h4> 
+								 		<span class="badge ml-auto">{{ Mitigeur_list|length }}</span>
+								 	</a>
+								 	<div id="one" class="sublinks collapse">
+								  		<div class="row">
+	                                        {% for article in Mitigeur_list %}
+	                                        <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+	                                            <a href="#" data-toggle="modal" data-target="#myModal{{ article.ref }}">
+													<div class="second_section_column_article">
+														<div id="image_one">
+															<img src="{% static 'carre_app/media/def' %}.jpg">
+														</div>
+														<div id="description_one" class="description_box">
+															<p>Lorem ipsum dolor sit amet.</p>
+														</div>
+														<div class="overlay">
+															<div class="text">{{ article.name }}</div>
+														</div>
 													</div>
-													<div id="description_one" class="description_box">
-														<p>Lorem ipsum dolor sit amet.</p>
+												</a>
+	                                        </div>
+	                                        <!-- Modal -->
+											<div class="modal fade" id="myModal{{ article.ref }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+											  <div class="modal-dialog" role="document">
+											    <div class="modal-content">
+											      <div class="modal-header">
+											        <h5 class="modal-title" id="exampleModalLabel">{{ article.name }}</h5>
+											        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											          <span aria-hidden="true">&times;</span>
+											        </button>
+											      </div>
+											      <div class="modal-body">
+											      	<img src="{% static 'carre_app/media/def' %}.jpg">
+											        {{ article.ref }}
+											      </div>
+											      <div class="modal-footer">
+											        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+											      </div>
+											    </div>
+											  </div>
+											</div>
+	                                        {% endfor %}
+	                                    </div>
+								 	</div>
+
+								 	<a href="#" class="list-group-item" data-toggle="collapse" data-target="#two" data-parent="#menu">
+								 		<h4 id="Robinet">Robinet</h4>
+								 		<span class="badge ml-auto">{{ Robinet_list|length }}</span>
+								 	</a>
+								 	<div id="two" class="sublinks collapse">
+								  		<div class="row">
+	                                        {% for article in Robinet_list %}
+	                                        <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+	                                            <a href="#" data-toggle="modal" data-target="#myModal{{ article.ref }}">
+													<div class="second_section_column_article">
+														<div id="image_one">
+															<img src="{% static 'carre_app/media/' %}{{article.url}}.jpeg">
+														</div>
+														<div id="description_one" class="description_box">
+															<p>Lorem ipsum dolor sit amet.</p>
+														</div>
+														<div class="overlay">
+															<div class="text">{{ article.name }}</div>
+														</div>
 													</div>
-													<div class="overlay">
-														<div class="text">{{ article.name }}</div>
+												</a>
+	                                        </div>
+	                                        <!-- Modal -->
+											<div class="modal fade" id="myModal{{ article.ref }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+											  <div class="modal-dialog" role="document">
+											    <div class="modal-content">
+											      <div class="modal-header">
+											        <h5 class="modal-title" id="exampleModalLabel">{{ article.name }}</h5>
+											        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											          <span aria-hidden="true">&times;</span>
+											        </button>
+											      </div>
+											      <div class="modal-body">
+											      	<img src="{% static 'carre_app/media/def' %}.jpg">
+											        {{ article.ref }}
+											      </div>
+											      <div class="modal-footer">
+											        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+											      </div>
+											    </div>
+											  </div>
+											</div>
+	                                        {% endfor %}
+	                                    </div>
+								 	</div>
+
+								 	<a href="#" class="list-group-item" data-toggle="collapse" data-target="#three" data-parent="#menu">
+								 		<h4 id="Poussoir">Poussoir</h4> 
+								 		<span class="badge ml-auto">{{ Poussoir_list|length }}</span>
+								 	</a>
+								 	<div id="three" class="sublinks collapse">
+								  		<div class="row">
+	                                        {% for article in Poussoir_list %}
+	                                        <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+	                                            <a href="#" data-toggle="modal" data-target="#myModal{{ article.ref }}">
+													<div class="second_section_column_article">
+														<div id="image_one">
+															<img src="{% static 'carre_app/media/' %}{{article.url}}.jpeg">
+														</div>
+														<div id="description_one" class="description_box">
+															<p>Lorem ipsum dolor sit amet.</p>
+														</div>
+														<div class="overlay">
+															<div class="text">{{ article.name }}</div>
+														</div>
 													</div>
-												</div>
-											</a>
-                                        </div>
-                                        <!-- Modal -->
-										<div class="modal fade" id="myModal{{ article.ref }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-										  <div class="modal-dialog" role="document">
-										    <div class="modal-content">
-										      <div class="modal-header">
-										        <h5 class="modal-title" id="exampleModalLabel">{{ article.name }}</h5>
-										        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										          <span aria-hidden="true">&times;</span>
-										        </button>
-										      </div>
-										      <div class="modal-body">
-										      	<img src="{% static 'carre_app/media/def' %}.jpg">
-										        {{ article.ref }}
-										      </div>
-										      <div class="modal-footer">
-										        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-										      </div>
-										    </div>
-										  </div>
-										</div>
-                                        {% endfor %}
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                                	<h4 id="Robinet">Robinet</h4>
-                                	<hr>
-                                    <div class="row">
-                                        {% for article in Robinet_list %}
-                                        <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
-                                            <a href="#" data-toggle="modal" data-target="#myModal{{ article.ref }}">
-												<div class="second_section_column_article">
-													<div id="image_one">
-														<img src="{% static 'carre_app/media/' %}{{article.url}}.jpeg">
+												</a>
+	                                        </div>
+	                                        <!-- Modal -->
+											<div class="modal fade" id="myModal{{ article.ref }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+											  <div class="modal-dialog" role="document">
+											    <div class="modal-content">
+											      <div class="modal-header">
+											        <h5 class="modal-title" id="exampleModalLabel">{{ article.name }}</h5>
+											        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											          <span aria-hidden="true">&times;</span>
+											        </button>
+											      </div>
+											      <div class="modal-body">
+											      	<img src="{% static 'carre_app/media/def' %}.jpg">
+											        {{ article.ref }}
+											      </div>
+											      <div class="modal-footer">
+											        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+											      </div>
+											    </div>
+											  </div>
+											</div>
+	                                        {% endfor %}
+	                                    </div>
+								 	</div>
+
+								 	<a href="#" class="list-group-item" data-toggle="collapse" data-target="#four" data-parent="#menu">
+								 		<h4 id="Siphon">Siphon</h4> 
+								 		<span class="badge ml-auto">{{ Siphon_list|length }}</span>
+								 	</a>
+								 	<div id="four" class="sublinks collapse">
+								  		<div class="row">
+	                                        {% for article in Siphon_list %}
+	                                        <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+	                                            <a href="#" data-toggle="modal" data-target="#myModal{{ article.ref }}">
+													<div class="second_section_column_article">
+														<div id="image_one">
+															<img src="{% static 'carre_app/media/' %}{{article.url}}.jpeg">
+														</div>
+														<div id="description_one" class="description_box">
+															<p>Lorem ipsum dolor sit amet.</p>
+														</div>
+														<div class="overlay">
+															<div class="text">{{ article.name }}</div>
+														</div>
 													</div>
-													<div id="description_one" class="description_box">
-														<p>Lorem ipsum dolor sit amet.</p>
+												</a>
+	                                        </div>
+	                                        <!-- Modal -->
+											<div class="modal fade" id="myModal{{ article.ref }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+											  <div class="modal-dialog" role="document">
+											    <div class="modal-content">
+											      <div class="modal-header">
+											        <h5 class="modal-title" id="exampleModalLabel">{{ article.name }}</h5>
+											        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											          <span aria-hidden="true">&times;</span>
+											        </button>
+											      </div>
+											      <div class="modal-body">
+											      	<img src="{% static 'carre_app/media/def' %}.jpg">
+											        {{ article.ref }}
+											      </div>
+											      <div class="modal-footer">
+											        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+											      </div>
+											    </div>
+											  </div>
+											</div>
+	                                        {% endfor %}
+	                                    </div>
+								 	</div>
+
+								 	<a href="#" class="list-group-item" data-toggle="collapse" data-target="#five" data-parent="#menu">
+								 		<h4 id="Colonne">Colonne</h4> 
+								 		<span class="badge ml-auto">{{ Colonne_list|length }}</span>
+								 	</a>
+								 	<div id="five" class="sublinks collapse">
+								  		<div class="row">
+	                                        {% for article in Colonne_list %}
+	                                        <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+	                                            <a href="#" data-toggle="modal" data-target="#myModal{{ article.ref }}">
+													<div class="second_section_column_article">
+														<div id="image_one">
+															<img src="{% static 'carre_app/media/' %}{{article.url}}.jpeg">
+														</div>
+														<div id="description_one" class="description_box">
+															<p>Lorem ipsum dolor sit amet.</p>
+														</div>
+														<div class="overlay">
+															<div class="text">{{ article.name }}</div>
+														</div>
 													</div>
-													<div class="overlay">
-														<div class="text">{{ article.name }}</div>
+												</a>
+	                                        </div>
+	                                        <!-- Modal -->
+											<div class="modal fade" id="myModal{{ article.ref }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+											  <div class="modal-dialog" role="document">
+											    <div class="modal-content">
+											      <div class="modal-header">
+											        <h5 class="modal-title" id="exampleModalLabel">{{ article.name }}</h5>
+											        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											          <span aria-hidden="true">&times;</span>
+											        </button>
+											      </div>
+											      <div class="modal-body">
+											      	<img src="{% static 'carre_app/media/def' %}.jpg">
+											        {{ article.ref }}
+											      </div>
+											      <div class="modal-footer">
+											        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+											      </div>
+											    </div>
+											  </div>
+											</div>
+	                                        {% endfor %}
+	                                    </div>
+								 	</div>
+
+								 	<a href="#" class="list-group-item" data-toggle="collapse" data-target="#six" data-parent="#menu">
+								 		<h4 id="Pomme">Pomme</h4> 
+								 		<span class="badge ml-auto">{{ Pomme_list|length }}</span>
+								 	</a>
+								 	<div id="six" class="sublinks collapse">
+								  		<div class="row">
+	                                        {% for article in Pomme_list %}
+	                                        <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+	                                            <a href="#" data-toggle="modal" data-target="#myModal{{ article.ref }}">
+													<div class="second_section_column_article">
+														<div id="image_one">
+															<img src="{% static 'carre_app/media/' %}{{article.url}}.jpeg">
+														</div>
+														<div id="description_one" class="description_box">
+															<p>Lorem ipsum dolor sit amet.</p>
+														</div>
+														<div class="overlay">
+															<div class="text">{{ article.name }}</div>
+														</div>
 													</div>
-												</div>
-											</a>
-                                        </div>
-                                        <!-- Modal -->
-										<div class="modal fade" id="myModal{{ article.ref }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-										  <div class="modal-dialog" role="document">
-										    <div class="modal-content">
-										      <div class="modal-header">
-										        <h5 class="modal-title" id="exampleModalLabel">{{ article.name }}</h5>
-										        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										          <span aria-hidden="true">&times;</span>
-										        </button>
-										      </div>
-										      <div class="modal-body">
-										      	<img src="{% static 'carre_app/media/def' %}.jpg">
-										        {{ article.ref }}
-										      </div>
-										      <div class="modal-footer">
-										        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-										      </div>
-										    </div>
-										  </div>
-										</div>
-                                        {% endfor %}
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                                	<h4 id="Poussoir">Poussoir</h4>
-                                	<hr>
-                                    <div class="row">
-                                        {% for article in Poussoir_list %}
-                                        <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
-                                            <a href="#" data-toggle="modal" data-target="#myModal{{ article.ref }}">
-												<div class="second_section_column_article">
-													<div id="image_one">
-														<img src="{% static 'carre_app/media/' %}{{article.url}}.jpeg">
-													</div>
-													<div id="description_one" class="description_box">
-														<p>Lorem ipsum dolor sit amet.</p>
-													</div>
-													<div class="overlay">
-														<div class="text">{{ article.name }}</div>
-													</div>
-												</div>
-											</a>
-                                        </div>
-                                        <!-- Modal -->
-										<div class="modal fade" id="myModal{{ article.ref }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-										  <div class="modal-dialog" role="document">
-										    <div class="modal-content">
-										      <div class="modal-header">
-										        <h5 class="modal-title" id="exampleModalLabel">{{ article.name }}</h5>
-										        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										          <span aria-hidden="true">&times;</span>
-										        </button>
-										      </div>
-										      <div class="modal-body">
-										      	<img src="{% static 'carre_app/media/def' %}.jpg">
-										        {{ article.ref }}
-										      </div>
-										      <div class="modal-footer">
-										        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-										      </div>
-										    </div>
-										  </div>
-										</div>
-                                        {% endfor %}
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                                	<h4 id="Siphon">Siphon</h4>
-                                	<hr>
-                                    <div class="row">
-                                        {% for article in Siphon_list %}
-                                        <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
-                                            <a href="#" data-toggle="modal" data-target="#myModal{{ article.ref }}">
-												<div class="second_section_column_article">
-													<div id="image_one">
-														<img src="{% static 'carre_app/media/' %}{{article.url}}.jpeg">
-													</div>
-													<div id="description_one" class="description_box">
-														<p>Lorem ipsum dolor sit amet.</p>
-													</div>
-													<div class="overlay">
-														<div class="text">{{ article.name }}</div>
-													</div>
-												</div>
-											</a>
-                                        </div>
-                                        <!-- Modal -->
-										<div class="modal fade" id="myModal{{ article.ref }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-										  <div class="modal-dialog" role="document">
-										    <div class="modal-content">
-										      <div class="modal-header">
-										        <h5 class="modal-title" id="exampleModalLabel">{{ article.name }}</h5>
-										        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										          <span aria-hidden="true">&times;</span>
-										        </button>
-										      </div>
-										      <div class="modal-body">
-										      	<img src="{% static 'carre_app/media/def' %}.jpg">
-										        {{ article.ref }}
-										      </div>
-										      <div class="modal-footer">
-										        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-										      </div>
-										    </div>
-										  </div>
-										</div>
-                                        {% endfor %}
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                                	<h4 id="Colonne">Colonne</h4>
-                                	<hr>
-                                    <div class="row">
-                                        {% for article in Colonne_list %}
-                                        <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
-                                            <a href="#" data-toggle="modal" data-target="#myModal{{ article.ref }}">
-												<div class="second_section_column_article">
-													<div id="image_one">
-														<img src="{% static 'carre_app/media/' %}{{article.url}}.jpeg">
-													</div>
-													<div id="description_one" class="description_box">
-														<p>Lorem ipsum dolor sit amet.</p>
-													</div>
-													<div class="overlay">
-														<div class="text">{{ article.name }}</div>
-													</div>
-												</div>
-											</a>
-                                        </div>
-                                        <!-- Modal -->
-										<div class="modal fade" id="myModal{{ article.ref }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-										  <div class="modal-dialog" role="document">
-										    <div class="modal-content">
-										      <div class="modal-header">
-										        <h5 class="modal-title" id="exampleModalLabel">{{ article.name }}</h5>
-										        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										          <span aria-hidden="true">&times;</span>
-										        </button>
-										      </div>
-										      <div class="modal-body">
-										      	<img src="{% static 'carre_app/media/def' %}.jpg">
-										        {{ article.ref }}
-										      </div>
-										      <div class="modal-footer">
-										        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-										      </div>
-										    </div>
-										  </div>
-										</div>
-                                        {% endfor %}
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                                	<h4 id="Pomme">Pomme</h4>
-                                	<hr>
-                                    <div class="row">
-                                        {% for article in Pomme_list %}
-                                        <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
-                                            <a href="#" data-toggle="modal" data-target="#myModal{{ article.ref }}">
-												<div class="second_section_column_article">
-													<div id="image_one">
-														<img src="{% static 'carre_app/media/' %}{{article.url}}.jpeg">
-													</div>
-													<div id="description_one" class="description_box">
-														<p>Lorem ipsum dolor sit amet.</p>
-													</div>
-													<div class="overlay">
-														<div class="text">{{ article.name }}</div>
-													</div>
-												</div>
-											</a>
-                                        </div>
-                                        <!-- Modal -->
-										<div class="modal fade" id="myModal{{ article.ref }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-										  <div class="modal-dialog" role="document">
-										    <div class="modal-content">
-										      <div class="modal-header">
-										        <h5 class="modal-title" id="exampleModalLabel">{{ article.name }}</h5>
-										        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-										          <span aria-hidden="true">&times;</span>
-										        </button>
-										      </div>
-										      <div class="modal-body">
-										      	<img src="{% static 'carre_app/media/def' %}.jpg">
-										        {{ article.ref }}
-										      </div>
-										      <div class="modal-footer">
-										        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-										      </div>
-										    </div>
-										  </div>
-										</div>
-                                        {% endfor %}
-                                    </div>
-                                </div>
-                            </div>
+												</a>
+	                                        </div>
+	                                        <!-- Modal -->
+											<div class="modal fade" id="myModal{{ article.ref }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+											  <div class="modal-dialog" role="document">
+											    <div class="modal-content">
+											      <div class="modal-header">
+											        <h5 class="modal-title" id="exampleModalLabel">{{ article.name }}</h5>
+											        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											          <span aria-hidden="true">&times;</span>
+											        </button>
+											      </div>
+											      <div class="modal-body">
+											      	<img src="{% static 'carre_app/media/def' %}.jpg">
+											        {{ article.ref }}
+											      </div>
+											      <div class="modal-footer">
+											        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+											      </div>
+											    </div>
+											  </div>
+											</div>
+	                                        {% endfor %}
+	                                    </div>
+								 	</div>
+								</div>
+							</div>
 				        </div>
 				        <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 sidebar-offcanvas" id="sidebar">
 							<h3>Contactez-Nous</h3>
