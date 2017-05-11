@@ -1,6 +1,9 @@
 $text-color: #808080;
 
 .header{
+	social_media .active{
+		background-color: palevioletred;
+	}
 	top: 0;
 	width: 100%;
 	z-index: 1;
