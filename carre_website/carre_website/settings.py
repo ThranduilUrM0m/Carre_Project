@@ -35,6 +35,8 @@ ALLOWED_HOSTS = [
 
 INSTALLED_APPS = [
     'carre_app.apps.CarreAppConfig',
+    'jet.dashboard',
+    'jet',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
