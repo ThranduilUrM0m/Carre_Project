@@ -206,37 +206,45 @@ body .container-fluid {
   /* Kumya */
 }
 /* line 4, ../sass/_firstsection.scss */
+.first_section .container .s_x_hover {
+  font-size: 3rem;
+  color: white;
+  position: absolute;
+  right: 1rem;
+  bottom: 0;
+}
+/* line 11, ../sass/_firstsection.scss */
 .first_section .container #carouselExampleControls {
-  padding: 0rem 1rem;
+  padding: 0rem 1.05rem;
   margin-bottom: 0;
 }
-/* line 7, ../sass/_firstsection.scss */
+/* line 14, ../sass/_firstsection.scss */
 .first_section .container #carouselExampleControls .carousel-item {
   height: 27rem;
 }
-/* line 9, ../sass/_firstsection.scss */
+/* line 16, ../sass/_firstsection.scss */
 .first_section .container #carouselExampleControls .carousel-item img {
   object-fit: cover;
 }
-/* line 13, ../sass/_firstsection.scss */
+/* line 20, ../sass/_firstsection.scss */
 .first_section .container #carouselExampleControls .fa {
   font-size: 2rem;
 }
-/* line 16, ../sass/_firstsection.scss */
+/* line 23, ../sass/_firstsection.scss */
 .first_section .container #carouselExampleControls .carousel-control-prev {
   background: -moz-linear-gradient(left, rgba(0, 0, 0, 0) 0%, black 100%);
   background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0%, black 100%);
   background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, #000000 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00ffffff', endColorstr='#000000',GradientType=1);
 }
-/* line 22, ../sass/_firstsection.scss */
+/* line 29, ../sass/_firstsection.scss */
 .first_section .container #carouselExampleControls .carousel-control-next {
   background: -moz-linear-gradient(right, rgba(0, 0, 0, 0) 0%, black 100%);
   background: -webkit-linear-gradient(right, rgba(0, 0, 0, 0) 0%, black 100%);
   background: linear-gradient(to left, rgba(0, 0, 0, 0) 0%, #000000 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00ffffff', endColorstr='#000000',GradientType=-1);
 }
-/* line 29, ../sass/_firstsection.scss */
+/* line 36, ../sass/_firstsection.scss */
 .first_section .container .overlay {
   position: absolute;
   top: 0;
@@ -247,24 +255,24 @@ body .container-fluid {
   padding: 1rem;
   transition: .5s ease;
 }
-/* line 38, ../sass/_firstsection.scss */
+/* line 45, ../sass/_firstsection.scss */
 .first_section .container .overlay .text {
   font-size: 1.5rem;
   color: white;
 }
-/* line 42, ../sass/_firstsection.scss */
+/* line 49, ../sass/_firstsection.scss */
 .first_section .container .overlay button {
   width: 100%;
   cursor: pointer;
 }
-/* line 46, ../sass/_firstsection.scss */
+/* line 53, ../sass/_firstsection.scss */
 .first_section .container .overlay .s_x {
   color: white;
   position: absolute;
   font-size: 2rem;
   bottom: 1rem;
 }
-/* line 53, ../sass/_firstsection.scss */
+/* line 60, ../sass/_firstsection.scss */
 .first_section .container .overlay_nav {
   background-color: rgba(3, 1, 1, 0.8);
   position: absolute;
@@ -277,31 +285,31 @@ body .container-fluid {
   transition: .5s ease;
   z-index: 10;
 }
-/* line 64, ../sass/_firstsection.scss */
+/* line 71, ../sass/_firstsection.scss */
 .first_section .container .overlay_nav img {
   height: 100%;
 }
-/* line 67, ../sass/_firstsection.scss */
+/* line 74, ../sass/_firstsection.scss */
 .first_section .container .overlay_nav ul {
   list-style-type: none;
   width: 16%;
 }
-/* line 70, ../sass/_firstsection.scss */
+/* line 77, ../sass/_firstsection.scss */
 .first_section .container .overlay_nav ul li {
   font-size: 0.8rem;
   color: white;
   border-bottom: 1px solid white;
 }
-/* line 76, ../sass/_firstsection.scss */
+/* line 83, ../sass/_firstsection.scss */
 .first_section .container .overlay_nav .overlay_nav_element {
   float: left;
 }
-/* line 78, ../sass/_firstsection.scss */
+/* line 85, ../sass/_firstsection.scss */
 .first_section .container .overlay_nav .overlay_nav_element a {
   color: rgba(255, 255, 255, 0.5);
   text-decoration: none;
 }
-/* line 84, ../sass/_firstsection.scss */
+/* line 91, ../sass/_firstsection.scss */
 .first_section .container .overlay_catalogue {
   position: absolute;
   bottom: 0;
@@ -312,24 +320,24 @@ body .container-fluid {
   transition: .5s ease;
   z-index: 10;
 }
-/* line 93, ../sass/_firstsection.scss */
+/* line 100, ../sass/_firstsection.scss */
 .first_section .container .overlay_catalogue * {
   cursor: pointer;
   font-size: 1rem;
   width: 20%;
 }
-/* line 100, ../sass/_firstsection.scss */
+/* line 107, ../sass/_firstsection.scss */
 .first_section .container .link {
   outline: none;
   text-decoration: none;
   position: relative;
 }
-/* line 106, ../sass/_firstsection.scss */
+/* line 113, ../sass/_firstsection.scss */
 .first_section .container .link--kumya {
   overflow: hidden;
   color: #242424;
 }
-/* line 111, ../sass/_firstsection.scss */
+/* line 118, ../sass/_firstsection.scss */
 .first_section .container .link--kumya::after {
   content: '';
   position: absolute;
@@ -346,17 +354,17 @@ body .container-fluid {
   -webkit-transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
   transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
 }
-/* line 128, ../sass/_firstsection.scss */
+/* line 135, ../sass/_firstsection.scss */
 .first_section .container .link--kumya:hover::after {
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
 }
-/* line 133, ../sass/_firstsection.scss */
+/* line 140, ../sass/_firstsection.scss */
 .first_section .container .link--kumya span {
   display: block;
   position: relative;
 }
-/* line 138, ../sass/_firstsection.scss */
+/* line 145, ../sass/_firstsection.scss */
 .first_section .container .link--kumya span::before {
   content: attr(data-letters);
   position: absolute;
@@ -370,7 +378,7 @@ body .container-fluid {
   -webkit-transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
   transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
 }
-/* line 152, ../sass/_firstsection.scss */
+/* line 159, ../sass/_firstsection.scss */
 .first_section .container .link--kumya:hover span::before {
   width: 100%;
 }
@@ -566,7 +574,7 @@ body .container-fluid {
 
 /* line 1, ../sass/_footer.scss */
 .footer {
-  background-color: #030101;
+  background-color: rgba(128, 128, 128, 0.8);
 }
 /* line 3, ../sass/_footer.scss */
 .footer .container {
@@ -671,8 +679,8 @@ body .container-fluid {
 /* line 77, ../sass/_footer.scss */
 .footer .container #bottom_footer {
   border-top: 0.1em solid rgba(225, 220, 226, 0.2);
-  color: white;
-  background-color: rgba(255, 255, 255, 0.5);
+  color: rgba(128, 128, 128, 0.8);
+  background-color: white;
 }
 /* line 81, ../sass/_footer.scss */
 .footer .container #bottom_footer .navbar {
@@ -682,13 +690,13 @@ body .container-fluid {
 /* line 85, ../sass/_footer.scss */
 .footer .container #bottom_footer i {
   font-size: 1em;
-  color: white;
+  color: rgba(128, 128, 128, 0.8);
   margin: 0.6em auto;
 }
 /* line 90, ../sass/_footer.scss */
 .footer .container #bottom_footer #follow_us_label span {
   font-size: 0.6em;
-  color: white;
+  color: rgba(128, 128, 128, 0.8);
 }
 /* line 94, ../sass/_footer.scss */
 .footer .container #bottom_footer img {
@@ -765,7 +773,7 @@ body .container-fluid {
   width: 100%;
   background: transparent;
   padding: 0.5em;
-  margin-bottom: 2em;
+  margin-bottom: 1.3em;
   color: #f9f7f6;
   z-index: 100;
   opacity: 0;

@@ -1,5 +1,5 @@
 .footer{
-	background-color: $bg-color-black;
+	background-color: $gray-color-fade;
 	.container{
 		input, textarea{
 			background-color: transparent;
@@ -76,20 +76,20 @@
 		}
 		#bottom_footer{
 			border-top: 0.1em solid $bg-color-rgba;
-			color: $bg-color;
-			background-color: $white-color-fade;
+			color: $gray-color-fade;
+			background-color: white;
 			.navbar{
 				width: 100%;
 				padding: 0;
 			}
 			i{
 				font-size: 1em;
-				color: $bg-color;
+				color: $gray-color-fade;
 				margin: 0.6em auto;
 			}
 			#follow_us_label span{
 				font-size: 0.6em;
-				color: $bg-color;
+				color: $gray-color-fade;
 			}
 			img{
 				width: 30px;
@@ -163,7 +163,7 @@
 			width: 100%;
 			background: transparent;
 			padding: 0.5em;
-			margin-bottom: 2em;
+			margin-bottom: 1.3em;
 			color: #f9f7f6;
 			z-index: 100;
 			opacity: 0;

@@ -1,8 +1,15 @@
 .first_section{
 	.container{
 		height: 100%;
+		.s_x_hover{
+			font-size: 3rem;
+		    color: white;
+		    position: absolute;
+		    right: 1rem;
+		    bottom: 0;
+		}
 		#carouselExampleControls{
-			padding: 0rem 1rem;
+			padding: 0rem 1.05rem;
 			margin-bottom: 0;
 			.carousel-item{
 				height: 27rem;
