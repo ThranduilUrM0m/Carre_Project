@@ -119,46 +119,13 @@
 						</button>
 						<div class="collapse navbar-collapse navbarSupportedContent_class" id="navbarSupportedContent">
 						    <ul id="products_menu" class="navbar-nav mr-auto menu_elements">
-					    		<li class="nav-item link link--kumya">
-									<a type="button" class="btn nav-link active" href="{% url 'carre_app:index_collectionsalledebains' %}">
-										<span>Collection S. Bains</span>
-									</a>
-								</li>
-							    <li class="nav-item link link--kumya">
-									<a type="button" class="btn nav-link active" href="{% url 'carre_app:index_sanitaire' %}">
-										<span>Sanitaire</span>
-									</a>
-								</li>
-								<li class="nav-item link link--kumya">
-									<a type="button" class="btn nav-link" href="{% url 'carre_app:index_baignoiresetreceveurs' %}">
-										<span>Baignoires & Receveurs</span>
-									</a>
-								</li>
-								<li class="nav-item link link--kumya">
-									<a type="button" class="btn nav-link" href="{% url 'carre_app:index_miroirs' %}">
-										<span>Miroirs</span>
-									</a>
-								</li>
-								<li class="nav-item link link--kumya">
-									<a type="button" class="btn nav-link" href="{% url 'carre_app:index_meubles' %}">
-										<span>Meubles S.D.B.</span>
-									</a>
-								</li>
-								<li class="nav-item link link--kumya">
-									<a type="button" class="btn nav-link" href="{% url 'carre_app:index_eviers' %}">
-										<span>Eviers en Inox</span>
-									</a>
-								</li>
-								<li class="nav-item link link--kumya">
-									<a type="button" class="btn nav-link" href="{% url 'carre_app:index_robinetterie' %}">
-										<span>Robinetterie</span>
-									</a>
-								</li>
-								<li class="nav-item link link--kumya">
-									<a type="button" class="btn nav-link" href="{% url 'carre_app:index_accessoires' %}">
-										<span>Accessoires S.D.B.</span>
-									</a>
-								</li>
+						    	{% for categorie in Categorie_list %}
+							    	<li class="nav-item link link--kumya">
+										<a type="button" class="btn nav-link active" href="{% url 'carre_app:index_categorie' categorie.id_categorie %}">
+											<span>{{ categorie.name_categorie }}</span>
+										</a>
+									</li>
+						    	{% endfor %}
 						    </ul>
 					  	</div>
 					</nav>
@@ -174,15 +141,26 @@
 						    <div class="carousel-item active">
 						      <img class="d-block" src="{% static 'carre_app/media/marque.jpg' %}" alt="Carré">
 						    </div>
-							<div class="overlay_nav">
-								<img class="overlay_nav_element" src="{% static 'carre_app/media/s_1.png' %}">
-								<ul class="overlay_nav_element list_categories">
-
-								</ul>
-								<ul class="overlay_nav_element list_subcategories">
-									
-								</ul>
-							</div>
+							{% for categorie in Categorie_list %}
+								<div class="overlay_nav" id="nav{{ forloop.counter }}">
+									<img class="overlay_nav_element" src="{% static 'carre_app/media/' %}{{categorie.name_categorie|cut:' '}}.png">
+									<ul class="overlay_nav_element list_categories" id="{{ categorie.name_categorie|cut:' ' }}">
+										{% for item in Subcategorie_list %}
+											{% if item.id_categorie.id_categorie == categorie.id_categorie %}
+												<li class="{{item.name_categorie}} link link--kumya"><a href="#"><span data-letters="{{item.name_subcategorie}}">{{item.name_subcategorie}}</span></a></li>
+											{% endif %}
+										{% endfor %}
+									</ul>
+									<ul class="overlay_nav_element list_subcategories">
+										{% for item in Comporter_list %}
+											{% if item.id_categorie.id_categorie == categorie.id_categorie %}
+												<li class="{{item.name_categorie}} {{item.id_collection}} link link--kumya"><a href="#"><span data-letters="{{item.id_collection}}">{{item.id_collection}}</span></a></li>
+											{% endif %}
+										{% endfor %}
+									</ul>
+									<div class="s_x_hover">{{categorie.name_categorie}}</div>
+								</div>	
+							{% endfor %}
 						</div>
 						<div class="overlay">
 						    <div class="text">Marque Carré</div>
@@ -284,14 +262,9 @@
 									</ul>
 									<ul>
 										<li><u><strong>Produits</strong></u></li>
-										<li><a href="{% url 'carre_app:index_collectionsalledebains' %}">Collection S.D.B.</a></li>
-										<li><a href="{% url 'carre_app:index_sanitaire' %}">Sanitaire</a></li>
-										<li><a href="{% url 'carre_app:index_baignoiresetreceveurs' %}">Baignoires & Receveurs</a></li>
-										<li><a href="{% url 'carre_app:index_miroirs' %}">Miroirs</a></li>
-										<li><a href="{% url 'carre_app:index_meubles' %}">Meubles S.D.B.</a></li>
-										<li><a href="{% url 'carre_app:index_eviers' %}">Eviers en Inox</a></li>
-										<li><a href="{% url 'carre_app:index_robinetterie' %}">Robinetterie</a></li>
-										<li><a href="{% url 'carre_app:index_accessoires' %}">Accessoires S.D.B.</a></li>
+										{% for categorie in Categorie_list %}
+									    	<li><a href="{% url 'carre_app:index_categorie' categorie.id_categorie %}">{{categorie.name_categorie}}</a></li>
+								    	{% endfor %}
 									</ul>
 								</div>
 							</div>

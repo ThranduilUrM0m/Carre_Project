@@ -4,39 +4,109 @@ from django.core.files.storage import FileSystemStorage
 from django.http import HttpResponse, HttpResponseNotFound
 from reportlab.pdfgen import canvas
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from .models import Product, Collection, Comporter, Categorie, Subcategorie, TypeProduct
 import os
 from collections import Counter
 
 # Create your views here.
 def index_home(request):
+	Categorie_list = Categorie.objects.all()
+	Subcategorie_list = Subcategorie.objects.all()
+	Collection_list = Collection.objects.all()
+	Comporter_list = Comporter.objects.all()
+	Categorie_withCollec_list = Categorie.objects.filter(id_categorie__in=Comporter_list)
+	Collection_withCat_list = Collection.objects.filter(id_collection__in=Comporter_list)
 	context = {
-        'name': 'index_home'
+		'Categorie_list': Categorie_list,
+		'Subcategorie_list': Subcategorie_list,
+		'Collection_list': Collection_list,
+		'Comporter_list': Comporter_list,
+		'Categorie_withCollec_list': Categorie_withCollec_list,
+		'Collection_withCat_list': Collection_withCat_list,
     }
 	return render(request, 'carre_app/index_home.html', context)
 
 def index_marque(request):
+	Categorie_list = Categorie.objects.all()
+	Subcategorie_list = Subcategorie.objects.all()
+	Collection_list = Collection.objects.all()
+	Comporter_list = Comporter.objects.all()
+	Categorie_withCollec_list = Categorie.objects.filter(id_categorie__in=Comporter_list)
+	Collection_withCat_list = Collection.objects.filter(id_collection__in=Comporter_list)
 	context = {
-        'name': 'index_marque'
+		'Categorie_list': Categorie_list,
+		'Subcategorie_list': Subcategorie_list,
+		'Collection_list': Collection_list,
+		'Comporter_list': Comporter_list,
+		'Categorie_withCollec_list': Categorie_withCollec_list,
+		'Collection_withCat_list': Collection_withCat_list,
     }
 	return render(request, 'carre_app/index_marque.html', context)
 
-def index_catalogue(request):
+def index_collection(request, collection_id):
+	Categorie_list = Categorie.objects.all()
+	Subcategorie_list = Subcategorie.objects.all()
+	Collection_list = Collection.objects.all()
+	Comporter_list = Comporter.objects.all()
+	Categorie_withCollec_list = Categorie.objects.filter(id_categorie__in=Comporter_list)
+	Collection_withCat_list = Collection.objects.filter(id_collection__in=Comporter_list)
 	context = {
-        'name': 'index_catalogue'
+		'Categorie_list': Categorie_list,
+		'Subcategorie_list': Subcategorie_list,
+		'Collection_list': Collection_list,
+		'Comporter_list': Comporter_list,
+		'Categorie_withCollec_list': Categorie_withCollec_list,
+		'Collection_withCat_list': Collection_withCat_list,
     }
-	return render(request, 'carre_app/index_catalogue.html', context)
+	return render(request, 'carre_app/index_collection.html', context)
 
 def index_adressendtel(request):
+	Categorie_list = Categorie.objects.all()
+	Subcategorie_list = Subcategorie.objects.all()
+	Collection_list = Collection.objects.all()
+	Comporter_list = Comporter.objects.all()
+	Categorie_withCollec_list = Categorie.objects.filter(id_categorie__in=Comporter_list)
+	Collection_withCat_list = Collection.objects.filter(id_collection__in=Comporter_list)
 	context = {
-		'name': 'index_adressendtel'
-	}
+		'Categorie_list': Categorie_list,
+		'Subcategorie_list': Subcategorie_list,
+		'Collection_list': Collection_list,
+		'Comporter_list': Comporter_list,
+		'Categorie_withCollec_list': Categorie_withCollec_list,
+		'Collection_withCat_list': Collection_withCat_list,
+    }
 	return render(request, 'carre_app/index_adressendtel.html', context)
 
-def index_groupe(request):
+def index_categorie(request, categorie_id):
+	the_Categorie = Categorie.objects.get(id_categorie = categorie_id)
+	the_SubCategories = Subcategorie.objects.filter(id_categorie = categorie_id)
+	Categorie_list = Categorie.objects.all()
+	Subcategorie_list = Subcategorie.objects.all()
+	Collection_list = Collection.objects.all()
+	Comporter_list = Comporter.objects.all()
+	Product_list = Product.objects.all()
+	Categorie_withCollec_list = Categorie.objects.filter(id_categorie__in=Comporter_list)
+	Collection_withCat_list = Collection.objects.filter(id_collection__in=Comporter_list)
+	Comporter_list_forCat = Comporter.objects.filter(id_categorie=categorie_id)
+	Collection_list_forCat = Collection.objects.filter(id_collection__in=Comporter_list_forCat)
+	
+	Product_bySub_list = Product.objects.filter(id_subcategorie__in=the_SubCategories)
+	Collection_bySub_list = Collection.objects.filter(id_collection__in=Product_bySub_list)
+
 	context = {
-		'name': 'index_groupe'
-	}
-	return render(request, 'carre_app/index_groupe.html', context)
+		'the_Categorie': the_Categorie,
+		'the_SubCategories': the_SubCategories,
+		'Categorie_list': Categorie_list,
+		'Subcategorie_list': Subcategorie_list,
+		'Collection_list': Collection_list,
+		'Comporter_list': Comporter_list,
+		'Categorie_withCollec_list': Categorie_withCollec_list,
+		'Collection_withCat_list': Collection_withCat_list,
+		'Collection_list_forCat': Collection_list_forCat,
+		'Product_bySub_list': Product_bySub_list,
+		'Collection_bySub_list': Collection_bySub_list,
+    }
+	return render(request, 'carre_app/index_categorie.html', context)
 
 def index_collectionsalledebains(request):
 	articles = [

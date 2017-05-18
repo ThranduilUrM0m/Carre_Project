@@ -186,7 +186,7 @@ class Subcategorie(models.Model):
         db_table = 'subcategorie'
 
     def __str__(self):
-        return self.name_SubCategorie
+        return self.name_subcategorie
 
 
 class TypeProduct(models.Model):
