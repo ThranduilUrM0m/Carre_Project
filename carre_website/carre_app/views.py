@@ -99,6 +99,7 @@ def index_categorie(request, categorie_id):
 	Product_bySub_list = Product.objects.filter(id_subcategorie__in=the_SubCategories)
 	Collection_bySub_list = Collection.objects.filter(id_collection__in=Product_bySub_list)
 
+	temporaire = "False"
 
 	context = {
 		'the_Categorie': the_Categorie,
@@ -113,6 +114,7 @@ def index_categorie(request, categorie_id):
 		'Collection_list_forCat': Collection_list_forCat,
 		'Product_bySub_list': Product_bySub_list,
 		'Collection_bySub_list': Collection_bySub_list,
+		'temporaire': temporaire,
     }
 	return render(request, 'carre_app/index_categorie.html', context)
 
