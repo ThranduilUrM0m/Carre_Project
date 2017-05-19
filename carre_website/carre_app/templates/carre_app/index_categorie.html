@@ -198,27 +198,51 @@
 									 	</a>
 									 	<div id="{{forloop.counter}}" class="sublinks collapse">
 									  		<div class="row">
-		                                        {% for y in Product_bySub_list %}
-													{% if y.id_subcategorie.id_subcategorie == x.id_subcategorie %}
-														{% if y.collection_id_collection %}
-														<div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
-					                                        <a href="#">
-																<div class="second_section_column_article">
-																	<div id="image_one">
-																		<img src="{% static 'carre_app/media/def' %}.jpg">
+									  			{% with empty="01" %}
+			                                        {% for y in Product_bySub_list %}
+														{% if y.id_subcategorie.id_subcategorie == x.id_subcategorie %}
+															{% if y.collection_id_collection %}
+															<div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+						                                        <a href="#">
+																	<div class="second_section_column_article">
+																		<div id="image_one">
+																			<img src="{% static 'carre_app/media/def' %}.jpg">
+																		</div>
+																		<div id="description_one" class="description_box">
+																			<p>{{ y.collection_id_collection }}</p>
+																		</div>
+																		<div class="overlay">
+																			<div class="text">{{ y.collection_id_collection.id_collection }}</div>
+																		</div>
 																	</div>
-																	<div id="description_one" class="description_box">
-																		<p>{{ y.collection_id_collection }}</p>
-																	</div>
-																	<div class="overlay">
-																		<div class="text">{{ y.collection_id_collection.id_collection }}</div>
-																	</div>
-																</div>
-															</a>
-					                                    </div>
+																</a>
+						                                    </div>
+						                                    {{ empty|update_variable:"1" }}
+															{% endif %}
 														{% endif %}
-													{% endif %}
-											 	{% endfor %}
+												 	{% endfor %}
+											 		{% if empty = "0" %}
+											 			{% for y in Product_bySub_list %}
+															{% if y.id_subcategorie.id_subcategorie == x.id_subcategorie %}
+																<div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+							                                        <a href="#">
+																		<div class="second_section_column_article">
+																			<div id="image_one">
+																				<img src="{% static 'carre_app/media/def' %}.jpg">
+																			</div>
+																			<div id="description_one" class="description_box">
+																				<p>{{ y.name_product }}</p>
+																			</div>
+																			<div class="overlay">
+																				<div class="text">{{ y.id_product }}</div>
+																			</div>
+																		</div>
+																	</a>
+							                                    </div>
+															{% endif %}
+													 	{% endfor %}
+											 		{% endif %}
+											 	{% endwith %}
 		                                    </div>
 									 	</div>
 								 	{% endfor %}

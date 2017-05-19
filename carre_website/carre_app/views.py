@@ -79,23 +79,31 @@ def index_adressendtel(request):
 
 def index_categorie(request, categorie_id):
 	the_Categorie = Categorie.objects.get(id_categorie = categorie_id)
+
 	the_SubCategories = Subcategorie.objects.filter(id_categorie = categorie_id)
+	the_Products = Product.objects.filter(id_subcategorie__in=the_SubCategories)
+	the_Collections = Collection.objects.filter(id_collection__in=the_Products)
+
 	Categorie_list = Categorie.objects.all()
 	Subcategorie_list = Subcategorie.objects.all()
 	Collection_list = Collection.objects.all()
 	Comporter_list = Comporter.objects.all()
 	Product_list = Product.objects.all()
+
 	Categorie_withCollec_list = Categorie.objects.filter(id_categorie__in=Comporter_list)
 	Collection_withCat_list = Collection.objects.filter(id_collection__in=Comporter_list)
+
 	Comporter_list_forCat = Comporter.objects.filter(id_categorie=categorie_id)
 	Collection_list_forCat = Collection.objects.filter(id_collection__in=Comporter_list_forCat)
 	
 	Product_bySub_list = Product.objects.filter(id_subcategorie__in=the_SubCategories)
 	Collection_bySub_list = Collection.objects.filter(id_collection__in=Product_bySub_list)
 
+
 	context = {
 		'the_Categorie': the_Categorie,
 		'the_SubCategories': the_SubCategories,
+		'the_Collections': the_Collections,
 		'Categorie_list': Categorie_list,
 		'Subcategorie_list': Subcategorie_list,
 		'Collection_list': Collection_list,
