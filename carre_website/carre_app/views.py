@@ -43,20 +43,56 @@ def index_marque(request):
     }
 	return render(request, 'carre_app/index_marque.html', context)
 
-def index_collection(request, collection_id):
+def index_collection(request, categorie_id, subcategorie_id, collection_id):	
 	Categorie_list = Categorie.objects.all()
 	Subcategorie_list = Subcategorie.objects.all()
-	Collection_list = Collection.objects.all()
 	Comporter_list = Comporter.objects.all()
-	Categorie_withCollec_list = Categorie.objects.filter(id_categorie__in=Comporter_list)
-	Collection_withCat_list = Collection.objects.filter(id_collection__in=Comporter_list)
+
+	if(categorie_id!="0" and subcategorie_id=="0" and collection_id!="0"):
+		Product_list = Product.objects.filter(collection_id_collection=collection_id, id_subcategorie__in=(Subcategorie.objects.filter(id_categorie=categorie_id)))
+		temporaire_str = "From Menu"
+		the_categorie_one = Categorie.objects.get(id_categorie=categorie_id)
+		the_subCategorie_one = None
+		the_collection_one = Collection.objects.get(id_collection=collection_id)
+	elif(categorie_id=="0" and subcategorie_id!="0" and collection_id=="0"):
+		Product_list = Product.objects.filter(id_subcategorie=subcategorie_id)
+		temporaire_str = "From Accordion Full"
+		the_subCategorie_one = Subcategorie.objects.get(id_subcategorie=subcategorie_id)
+		the_categorie_one = Categorie.objects.get(id_categorie=(the_subCategorie_one.id_categorie.id_categorie))
+		the_collection_one = None
+	elif(categorie_id=="0" and subcategorie_id!="0" and collection_id!="0"):
+		Product_list = Product.objects.filter(id_subcategorie=subcategorie_id, collection_id_collection=collection_id)
+		temporaire_str = "From Accordion Collection"
+		the_subCategorie_one = Subcategorie.objects.get(id_subcategorie=subcategorie_id)
+		the_categorie_one = Categorie.objects.get(id_categorie=(the_subCategorie_one.id_categorie.id_categorie))
+		the_collection_one = Collection.objects.get(id_collection=collection_id)
+	else:
+		Product_list = Product.objects.all()
+		temporaire_str = "God knows From where"
+		the_subCategorie_one = None
+		the_categorie_one = None
+		the_collection_one = None
+
+	paginator = Paginator(Product_list, 12)
+	page = request.GET.get('page')
+	try:
+		Products = paginator.page(page)
+	except Categorie.DoesNotExist:
+		raise Http404("No Products")
+	except PageNotAnInteger:
+		Products = paginator.page(1)
+	except EmptyPage:
+		Products = paginator.page(paginator.num_pages)
+
 	context = {
 		'Categorie_list': Categorie_list,
 		'Subcategorie_list': Subcategorie_list,
-		'Collection_list': Collection_list,
 		'Comporter_list': Comporter_list,
-		'Categorie_withCollec_list': Categorie_withCollec_list,
-		'Collection_withCat_list': Collection_withCat_list,
+		'the_categorie_one': the_categorie_one,
+		'the_subCategorie_one': the_subCategorie_one,
+		'the_collection_one': the_collection_one,
+		'Products': Products,
+		'temporaire_str': temporaire_str,
     }
 	return render(request, 'carre_app/index_collection.html', context)
 

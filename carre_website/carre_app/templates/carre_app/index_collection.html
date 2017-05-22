@@ -1,0 +1,453 @@
+{% load static %}
+{% load carre_extras %}
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	
+		<title>Carre Distribution</title>
+
+		<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+
+        <!-- theme color in phones -->
+        <meta name="theme-color" content="#c9f5fe"/>
+
+		<!-- Fonts and icons -->
+		<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Herr+Von+Muellerhoff" rel="stylesheet">  
+		<link href="https://db.onlinewebfonts.com/c/e761de0b3250484530798040d6a05352?family=ZemestroW01-Bk" rel="stylesheet" type="text/css"/>
+
+		<!-- CSS Files -->
+    	<link href="{% static 'carre_app/css/bootstrap.css' %}" rel="stylesheet" />
+    	<link href="{% static 'carre_app/css/bootstrap.min.css' %}" rel="stylesheet" />
+    	<link href="{% static 'carre_app/css/bootstrap-grid.css' %}" rel="stylesheet" />
+    	<link href="{% static 'carre_app/css/bootstrap-grid.min.css' %}" rel="stylesheet" />
+    	<link href="{% static 'carre_app/css/bootstrap-reboot.css' %}" rel="stylesheet" />
+    	<link href="{% static 'carre_app/css/bootstrap-reboot.min.css' %}" rel="stylesheet" />
+    	<link href="{% static 'carre_app/css/carousel.css' %}" rel="stylesheet" />
+
+    	<!-- SCSS Files -->
+    	<link href="{% static 'carre_app/css/main.css' %}" rel="stylesheet" />
+    </head>
+
+	<body style="background-image: url('{% static "carre_app/media/bg.jpg"%}')";>
+		<div class="container-fluid">
+			<!-- header beginning -->
+			<header class="header">
+				<div class="container">
+					<nav class="navbar navbar-toggleable-md navbar-light">
+						<div class="navbar-collapse">
+						    <ul class="navbar-nav mr-auto menu_elements_top">
+							    <li class="nav-item link link--kumya dropdown">
+									<a type="button" class="btn nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">
+										<span data-toggle="dropdown-toggle">Entreprise</span>
+									</a>
+									<div class="dropdown-menu">
+										<a class="dropdown-item" href="{% url 'carre_app:index_marque' %}"><span>Marque Carré</span></a>
+										<a class="dropdown-item" href="https://youtu.be/3KMWNufrPM4" target="_blank"><span>Vidéo Corporative</span></a>
+									</div>
+								</li>
+								<li class="nav-item link link--kumya">
+									<a type="button" class="btn nav-link" role="button" aria-haspopup="true" aria-expanded="false" href="http://zenith.net.ma/" target="_blank">
+										<span>Groupe</span>
+									</a>
+								</li>
+								<li class="nav-item link link--kumya dropdown">
+									<a type="button" class="btn nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">
+										<span data-toggle="dropdown-toggle">Téléchargement</span>
+									</a>
+									<div class="dropdown-menu">
+										<a class="dropdown-item" href="{% url 'carre_app:Catalogue' %}" target="_blank"><span>Catalogue</span></a>
+										<a class="dropdown-item" href="#"><span>Chaîne Youtube</span></a>
+									</div>
+								</li>
+								<li class="nav-item link link--kumya dropdown">
+									<a type="button" class="btn nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">
+										<span data-toggle="dropdown-toggle">Contact</span>
+									</a>
+									<div class="dropdown-menu">
+										<a class="dropdown-item" href="{% url 'carre_app:index_adressendtel' %}"><span>Adresses Et Télephones</span></a>
+										<a class="dropdown-item" href="#"><span>Carré GPS</span></a>
+									</div>
+								</li>
+						    </ul>
+						    <ul class="navbar-nav social_media menu_elements_top">
+								<li class="nav-item link link--kumya active">
+									<a href="#" class="nav-link align-middle">
+										FR
+									</a>
+								</li>
+								<li class="nav-item link link--kumya">
+									<a href="#" class="nav-link align-middle">
+										EN
+									</a>
+								</li>
+						    </ul>
+					  	</div>
+					</nav>
+					<hr>
+					<nav class="navbar navbar-toggleable-md navbar-light">
+						<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						    <span class="navbar-toggler-icon"></span>
+						</button>
+						<a class="navbar-brand" href="{% url 'carre_app:index_home' %}">
+						    <img src="{% static 'carre_app/media/logo.png' %}" width="80" height="100">
+					  	</a>
+						<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					  		<ul class="navbar-nav ml-auto social_media">
+								<li class="nav-item">
+									<a href="#" class="nav-link align-middle">
+										<i class="fa fa-twitter-square align-middle" aria-hidden="true"></i>
+									</a>
+								</li>
+								<li class="nav-item">
+									<a href="#" class="nav-link align-middle">
+										<i class="fa fa-facebook-official align-middle" aria-hidden="true"></i>
+									</a>
+								</li>
+								<li class="nav-item">
+									<a href="#" class="nav-link align-middle">
+										<i class="fa fa-instagram align-middle" aria-hidden="true"></i>
+									</a>
+								</li>
+						    </ul>
+						</div>
+					</nav>
+					<nav class="navbar navbar-toggleable-md navbar-light">
+						<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						    <span class="navbar-toggler-icon"></span>
+						</button>
+						<div class="collapse navbar-collapse navbarSupportedContent_class" id="navbarSupportedContent">
+						    <ul id="products_menu" class="navbar-nav mr-auto menu_elements">
+						    	{% for categorie in Categorie_list %}
+							    	<li class="nav-item link link--kumya">
+										<a type="button" class="btn nav-link active" href="{% url 'carre_app:index_categorie' categorie.id_categorie %}">
+											<span>{{ categorie.name_categorie }}</span>
+										</a>
+									</li>
+						    	{% endfor %}
+						    </ul>
+					  	</div>
+					</nav>
+				</div>
+			</header>
+			<!-- header ending -->
+
+			<!-- first section beginning -->
+			<section class="first_section">
+				<div class="container">
+					<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+						<div class="carousel-inner" role="listbox">
+						    <div class="carousel-item active">
+						      <img class="d-block" src="{% static 'carre_app/media/' %}{{the_categorie_one|cut:' '}}.png" alt="Accessoires S.D.B.">
+						    </div>
+							{% for categorie in Categorie_list %}
+								<div class="overlay_nav" id="nav{{ forloop.counter }}">
+									<img class="overlay_nav_element" src="{% static 'carre_app/media/' %}{{categorie.name_categorie|cut:' '}}.png">
+									<ul class="overlay_nav_element list_categories" id="{{ categorie.name_categorie|cut:' ' }}">
+										{% for item in Subcategorie_list %}
+											{% if item.id_categorie.id_categorie == categorie.id_categorie %}
+												<li class="{{categorie.name_categorie|cut:' '}} link link--kumya"><a href="{% url 'carre_app:index_categorie' categorie.id_categorie %}#{{item.name_subcategorie|cut:' '}}"><span data-letters="{{item.name_subcategorie}}">{{item.name_subcategorie}}</span></a></li>
+											{% endif %}
+										{% endfor %}
+									</ul>
+									<ul class="overlay_nav_element list_subcategories">
+										{% for item in Comporter_list %}
+											{% if item.id_categorie.id_categorie == categorie.id_categorie %}
+												<li class="{{categorie.name_categorie|cut:' '}} {{item.id_collection}} link link--kumya"><a href="{% url 'carre_app:index_collection' categorie.id_categorie 0 item.id_collection.id_collection %}"><span data-letters="{{item.id_collection}}">{{item.id_collection}}</span></a></li>
+											{% endif %}
+										{% endfor %}
+									</ul>
+									<div class="s_x_hover">{{categorie.name_categorie}}</div>
+								</div>	
+							{% endfor %}
+						</div>
+						<div class="overlay">
+						    <div class="text">{{ the_categorie_one }}</div>
+						    <div>{{ the_subCategorie_one }}</div>
+						    <button type="button" class="btn btn-outline-danger" onclick="window.open('{% url 'carre_app:Catalogue' %}')">Catalogue</button>
+						    <div class="s_x_marque">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- first section ending -->
+
+			<!-- second section beginning -->
+			<section class="second_section">
+				<div class="container">
+					<div class="row">
+						<div class="nav_bread col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+	                        <ol class="breadcrumb">
+	                            <li><a href="{% url 'carre_app:index_home' %}">Accueil</a></li>
+	                            {% if the_categorie_one %}
+	                            <li><i class="fa fa-chevron-right" aria-hidden="true"></i></li>
+	                            <li><a href="{% url 'carre_app:index_categorie' the_categorie_one.id_categorie %}">{{ the_categorie_one }}</a></li>
+	                            {% endif %}
+	                            {% if the_subCategorie_one %}
+	                            <li><i class="fa fa-chevron-right" aria-hidden="true"></i></li>
+	                            <li><a href="{% url 'carre_app:index_collection' 0 the_subCategorie_one.id_subcategorie 0 }}">{{ the_subCategorie_one }}</a></li>
+	                            {% endif %}
+	                            {% if the_collection_one %}
+	                            <li><i class="fa fa-chevron-right" aria-hidden="true"></i></li>
+	                            <li><a href="#">{{ the_collection_one }}</a></li>
+	                            {% endif %}
+	                        </ol>
+	                    </div>
+                    </div>
+					<div class="row">
+				        <div class="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-9">
+							<h3>Articles</h3>
+							<div id="menu">
+								<div class="row">
+                                	{% if Products.has_other_pages %}
+                                      <ul style="margin: 0 !important; margin-top: -5% !important;" class="pagination pull-right">
+                                        {% if Products.has_previous %}
+                                          <li><a href="?page={{ Products.previous_page_number }}">&laquo;</a></li>
+                                        {% else %}
+                                          <li class="disabled"><span>&laquo;</span></li>
+                                        {% endif %}
+                                        {% for i in Products.paginator.page_range %}
+                                          {% if Products.number == i %}
+                                            <li class="active"><span style="color: white !important;">{{ i }} <span class="sr-only">(current)</span></span></li>
+                                          {% else %}
+                                            <li><a href="?page={{ i }}">{{ i }}</a></li>
+                                          {% endif %}
+                                        {% endfor %}
+                                        {% if Products.has_next %}
+                                          <li><a href="?page={{ Products.next_page_number }}">&raquo;</a></li>
+                                        {% else %}
+                                          <li class="disabled"><span>&raquo;</span></li>
+                                        {% endif %}
+                                      </ul>
+                                    {% endif %}
+                                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                        <div class="row">
+                                            {% for product in Products %}
+                                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+	                                            <a href="#" data-toggle="modal" data-target="#myModal{{ product.reference_product }}">
+													<div class="second_section_column_article">
+														<div id="image_one">
+															<img src="{% static 'carre_app/media/products/' %}{{ product.url_product }}.jpg">
+														</div>
+														<div id="description_one" class="description_box">
+															<p>{{ product.name_product }}</p>
+														</div>
+														<div class="overlay">
+															<div class="text">{{ product.reference_product }}</div>
+														</div>
+													</div>
+												</a>
+	                                        </div>
+	                                        <!-- Modal -->
+											<div class="modal fade" id="myModal{{ product.reference_product }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+											  <div class="modal-dialog" role="document">
+											    <div class="modal-content">
+											      <div class="modal-header">
+											        <h5 class="modal-title" id="exampleModalLabel">{{ product.name_product }}</h5>
+											        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											          <span aria-hidden="true">&times;</span>
+											        </button>
+											      </div>
+											      <div class="modal-body">
+											      	<img src="{% static 'carre_app/media/products/' %}{{ product.url_product }}.jpg">
+											        {{ product.reference_product }}
+											      </div>
+											      <div class="modal-footer">
+											        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+											      </div>
+											    </div>
+											  </div>
+											</div>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                            	</div>
+							</div>
+				        </div>
+				        <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 sidebar-offcanvas" id="sidebar">
+							<h3>Contactez-Nous</h3>
+							<a href="#exampleInputMessage">
+								<div class="second_section_column">
+									<div id="image_one">
+										<img src="{% static 'carre_app/media/def.jpg' %}">
+									</div>
+									<div id="description_one" class="description_box">
+										<p>Lorem ipsum dolor sit amet.</p>
+									</div>
+								</div>
+							</a>
+				        </div>
+					</div>
+				</div>
+			</section>
+			<!-- second section ending -->
+
+			<!-- footer beginning -->
+			<footer class="footer">
+				<div class="container">
+					<img src="">
+					<div id="top_footer" class="row">
+						<div id="contact_info" class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+							<h4>Contact Info</h4>
+							<hr>
+							<div class="row">
+								<div class="columns col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+									<p>1, Boulevard Bir Anzarane</p>
+									<p>Meknès - Maroc</p>
+								</div>
+								<div id="second_column" class="columns col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+									<p><strong>Phone</strong> : +212 (0) 535 528 881</p>
+									<p><strong>FAX</strong> : +212 (0) 535 528 882</p>
+									<p><strong>Email</strong> : contact@zenith.net.ma</p>
+								</div>
+							</div>
+						</div>
+						<div id="navigation" class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+							<h4>Navigation</h4>
+							<hr>
+							<div class="row">
+								<div id="first_navigation_column" class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+									<ul>
+										<li><u><strong>Entreprise</strong></u></li>
+										<li><a href="{% url 'carre_app:index_marque' %}">Marque Carré</a></li>
+										<li><a href="https://youtu.be/3KMWNufrPM4">Vidéo Corporative</a></li>
+									</ul>
+									<ul>
+										<li><u><strong>Contact</strong></u></li>
+										<li><a href="{% url 'carre_app:index_adressendtel' %}">Addresse & Télephones</a></li>
+										<li><a href="#">Carré GPS</a></li>
+									</ul>
+								</div>
+								<div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+									<ul>
+										<li><u><strong>Télechargement</strong></u></li>
+										<li><a href="{% url 'carre_app:Catalogue' %}" target="_blank">Catalogue</a></li>
+										<li><a href="#">Chaine Youtube</a></li>
+									</ul>
+									<ul>
+										<li><u><strong>Produits</strong></u></li>
+										{% for categorie in Categorie_list %}
+									    	<li><a href="{% url 'carre_app:index_categorie' categorie.id_categorie %}">{{categorie.name_categorie}}</a></li>
+								    	{% endfor %}
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div id="nous_contactez" class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5">
+							<h4>Nous Contactez</h4>
+							<hr>
+							<!-- content goes here -->
+				            <form accept-charset="UTF-8"  id="contactSubmit" action="https://formspree.io/zakariaeboutaleb@gmail.com" method="POST">{% csrf_token %}
+				              	<div class="row">
+				              		<div class="input input--manami form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+					                	<input type="email" class="input__field input__field--manami form-control" name="_replyto" id="exampleInputEmail1">
+					                	<label class="input__label input__label--manami" for="exampleInputEmail1">
+											<span class="input__label-content input__label-content--manami">Adresse Email</span>
+										</label>
+					            	</div>
+				              	</div>
+					            <div class="row">
+					            	<div id="last_name" class="input input--manami form-group col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+					                	<input type="name" class="input__field input__field--manami form-control" name="first_name" id="exampleInputName1">
+					                	<label class="input__label input__label--manami" for="exampleInputName1">
+											<span class="input__label-content input__label-content--manami">Nom</span>
+										</label>
+					              	</div>
+					              	<div id="first_name" class="input input--manami form-group col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+					                	<input type="name" class="input__field input__field--manami form-control" name="last_name" id="exampleInputName2">
+					                	<label class="input__label input__label--manami" for="exampleInputName2">
+											<span class="input__label-content input__label-content--manami">Prénom</span>
+										</label>
+					              	</div>
+					            </div>
+					            <div class="row">
+					            	<div class="input input--manami form-group col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+					                	<input type="name" class="input__field input__field--manami form-control" name="subject" id="exampleInputSujet">
+					                	<label class="input__label input__label--manami" for="exampleInputSujet">
+											<span class="input__label-content input__label-content--manami">Sujet</span>
+										</label>
+					              	</div>
+					            </div>
+				              	<div class="row">
+				              		<div id="message_content" class="input input--manami form-group col-9 col-sm-9 col-md-9 col-lg-9 col-xl-9">
+					                	<textarea class="input__field input__field--manami form-control" name="message" id="exampleInputMessage"></textarea>
+					                	<label class="textaria_label input__label input__label--manami" for="exampleInputMessage">
+											<span class="input__label-content input__label-content--manami">Message ...</span>
+										</label>
+					              	</div>
+					              	<div id="message_submit" class="form-group col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+					              		<button type="submit" class="btn btn-danger">Envoyer</button>
+					              	</div>
+				              	</div>
+				            </form>
+
+						</div>
+					</div>
+					<div id="bottom_footer" class="row">
+						<nav class="navbar navbar-toggleable-md navbar-light">
+							<div class="collapse navbar-collapse" id="navbarSupportedContent">
+							    <ul class="navbar-nav menu_elements">
+								    <li class="nav-item" id="follow_us_label">
+										<a class="nav-link">
+											<span class="align-middle">Follow Us On </span>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a href="#" class="nav-link">
+											<i class="fa fa-twitter-square align-middle" aria-hidden="true"></i>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a href="#" class="nav-link">
+											<i class="fa fa-facebook-official align-middle" aria-hidden="true"></i>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a href="#" class="nav-link">
+											<i class="fa fa-instagram align-middle" aria-hidden="true"></i>
+										</a>
+									</li>
+							    </ul>
+							    <ul class="navbar-nav ml-auto social_media">
+									<li class="nav-item">
+										<a class="nav-link">
+											<span class="align-middle">Copyright &copy; 2017, Tous les droits sont réservés</span>
+										</a>
+									</li>
+									<li class="nav-item">
+										<a href="#" class="nav-link">
+											<img class="align-middle" src="{% static 'carre_app/media/logo.png' %}">
+										</a>
+									</li>
+							    </ul>
+						  	</div>
+						</nav>
+					</div>
+
+				</div>
+			</footer>
+			<!-- footer ending -->
+		</div>
+	</body>
+	<!--   Core JS Files   -->
+	<script src="{% static 'carre_app/js/jquery-3.2.1.js' %}" type="text/javascript"></script>
+	<script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+	<script src="{% static 'carre_app/js/bootstrap.min.js' %}" type="text/javascript"></script>
+	<script src="{% static 'carre_app/js/bootstrap.js' %}" type="text/javascript"></script>
+	<script src="https://use.fontawesome.com/f61b4ca99d.js"></script>
+	<script type="text/javascript" src="{% static 'carre_app/js/app.js' %}"></script>
+	<script type="text/javascript">
+	$(document).ready(function() {
+	    $('.dropdown-toggle').dropdown();
+	});
+	</script>
+	<script>
+	$(document).ready(function(){
+	   	$('meta[name="viewport"]').prop('content', 'width=1366');
+	});
+	</script>
+</html>

@@ -115,56 +115,6 @@ $('.header #products_menu .nav-item').hover(
   }
 );
 
-/*$('.list_subcategories').hide();*/
-
-/*$(document).on("mouseenter", ".sanitaire_item", function() {
-    var sub_categorie_name = $(this).find('span').html();
-	if(sub_categorie_name == "Vasque"){
-		$('.list_subcategories').empty();
-		$('.list_subcategories').append('<li class="sanitaire link link--kumya"><a href="#"><span data-letters="Metal-Line">Metal-Line</span></a></li>');
-		$('.list_subcategories').append('<li class="sanitaire link link--kumya"><a href="#"><span data-letters="A Encastrer">A Encastrer</span></a></li>');
-		$('.list_subcategories').append('<li class="sanitaire link link--kumya"><a href="#"><span data-letters="Sous-Plan">Sous-Plan</span></a></li>');
-		$('.list_subcategories').append('<li class="sanitaire link link--kumya"><a href="#"><span data-letters="Semi-Encastrées">Semi-Encastrées</span></a></li>');
-		$('.list_subcategories').append('<li class="sanitaire link link--kumya"><a href="#"><span data-letters="A Poser">A Poser</span></a></li>');
-		$('.list_subcategories').append('<li class="sanitaire link link--kumya"><a href="#"><span data-letters="A Poser sur Meuble">A Poser sur Meuble</span></a></li>');
-		$('.list_subcategories').append('<li class="sanitaire link link--kumya"><a href="#"><span data-letters="Lave-Mains">Lave-Mains</span></a></li>');
-		$('.list_subcategories').append('<li class="sanitaire link link--kumya"><a href="#"><span data-letters="Muraux">Muraux</span></a></li>');
-	}
-	else if(sub_categorie_name == "Bloc WC"){
-		$('.list_subcategories').empty();
-		$('.list_subcategories').append('<li class="sanitaire link link--kumya"><a href="#"><span data-letters="Arq">Arq</span></a></li>');
-		$('.list_subcategories').append('<li class="sanitaire link link--kumya"><a href="#"><span data-letters="Noble">Noble</span></a></li>');
-		$('.list_subcategories').append('<li class="sanitaire link link--kumya"><a href="#"><span data-letters="Eos">Eos</span></a></li>');
-		$('.list_subcategories').append('<li class="sanitaire link link--kumya"><a href="#"><span data-letters="Universal">Universal</span></a></li>');
-		$('.list_subcategories').append('<li class="sanitaire link link--kumya"><a href="#"><span data-letters="Klea">Klea</span></a></li>');
-		$('.list_subcategories').append('<li class="sanitaire link link--kumya"><a href="#"><span data-letters="Emma Square">Emma Square</span></a></li>');
-		$('.list_subcategories').append('<li class="sanitaire link link--kumya"><a href="#"><span data-letters="Emma">Emma</span></a></li>');
-		$('.list_subcategories').append('<li class="sanitaire link link--kumya"><a href="#"><span data-letters="Mid">Mid</span></a></li>');
-		$('.list_subcategories').append('<li class="sanitaire link link--kumya"><a href="#"><span data-letters="Smart">Smart</span></a></li>');
-		$('.list_subcategories').append('<li class="sanitaire link link--kumya"><a href="#"><span data-letters="Jazz">Jazz</span></a></li>');
-		$('.list_subcategories').append('<li class="sanitaire link link--kumya"><a href="#"><span data-letters="Street Square">Street Square</span></a></li>');
-		$('.list_subcategories').append('<li class="sanitaire link link--kumya"><a href="#"><span data-letters="Street">Street</span></a></li>');
-		$('.list_subcategories').append('<li class="sanitaire link link--kumya"><a href="#"><span data-letters="Elia">Elia</span></a></li>');
-	}
-	else if(sub_categorie_name == "Bidet"){
-		$('.list_subcategories').empty();
-		$('.list_subcategories').append('<li class="sanitaire link link--kumya"><a href="#"><span data-letters="Arq">Arq</span></a></li>');
-		$('.list_subcategories').append('<li class="sanitaire link link--kumya"><a href="#"><span data-letters="Noble">Noble</span></a></li>');
-		$('.list_subcategories').append('<li class="sanitaire link link--kumya"><a href="#"><span data-letters="Eos">Eos</span></a></li>');
-		$('.list_subcategories').append('<li class="sanitaire link link--kumya"><a href="#"><span data-letters="Universal">Universal</span></a></li>');
-		$('.list_subcategories').append('<li class="sanitaire link link--kumya"><a href="#"><span data-letters="Klea">Klea</span></a></li>');
-		$('.list_subcategories').append('<li class="sanitaire link link--kumya"><a href="#"><span data-letters="Emma Square">Emma Square</span></a></li>');
-		$('.list_subcategories').append('<li class="sanitaire link link--kumya"><a href="#"><span data-letters="Emma">Emma</span></a></li>');
-		$('.list_subcategories').append('<li class="sanitaire link link--kumya"><a href="#"><span data-letters="Mid">Mid</span></a></li>');
-		$('.list_subcategories').append('<li class="sanitaire link link--kumya"><a href="#"><span data-letters="Smart">Smart</span></a></li>');
-		$('.list_subcategories').append('<li class="sanitaire link link--kumya"><a href="#"><span data-letters="Jazz">Jazz</span></a></li>');
-		$('.list_subcategories').append('<li class="sanitaire link link--kumya"><a href="#"><span data-letters="Street Square">Street Square</span></a></li>');
-		$('.list_subcategories').append('<li class="sanitaire link link--kumya"><a href="#"><span data-letters="Street">Street</span></a></li>');
-		$('.list_subcategories').append('<li class="sanitaire link link--kumya"><a href="#"><span data-letters="Elia">Elia</span></a></li>');
-	}
-	$('.list_subcategories').show();
-});*/
-
 
 $('.overlay_nav').hover(
   function() {
@@ -189,18 +139,14 @@ $('.overlay').css('right', one);
 
 //<![CDATA[
 $(window).on('load', function() { // makes sure the whole site is loaded
-    $('.demo-1').delay(2000).fadeOut('slow'); // will fade out the white DIV that covers the website.
     if(window.location.href.search('#') != -1){
     	var anchor = window.location.href.split('#').pop();
     	var element_anchor = $('#'+anchor);
-    	if(element_anchor.parent().parent().attr('class').search('sublinks') !=-1){
-    		$('html, body').animate({
-		        scrollTop: element_anchor.parent().parent().prev().find('h4').offset().top
-		    }, 100);
-    		element_anchor.parent().parent().addClass('show');
-    		element_anchor.parent().next().addClass('show');
+    	if(element_anchor.next().attr('class').search('sublinks') !=-1){
+    		element_anchor.next().addClass('show');
     	}
     }
+    $('.demo-1').delay(2000).fadeOut('slow'); // will fade out the white DIV that covers the website.
 })
 //]]>
 

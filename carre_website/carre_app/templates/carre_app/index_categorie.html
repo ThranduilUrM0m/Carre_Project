@@ -140,7 +140,7 @@
 					<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 						<div class="carousel-inner" role="listbox">
 						    <div class="carousel-item active">
-						      <img class="d-block" src="{% static 'carre_app/media/s_7.png' %}" alt="Accessoires S.D.B.">
+						      <img class="d-block" src="{% static 'carre_app/media/' %}{{the_Categorie|cut:' '}}.png" alt="Accessoires S.D.B.">
 						    </div>
 							{% for categorie in Categorie_list %}
 								<div class="overlay_nav" id="nav{{ forloop.counter }}">
@@ -148,14 +148,14 @@
 									<ul class="overlay_nav_element list_categories" id="{{ categorie.name_categorie|cut:' ' }}">
 										{% for item in Subcategorie_list %}
 											{% if item.id_categorie.id_categorie == categorie.id_categorie %}
-												<li class="{{item.name_categorie}} link link--kumya"><a href="#"><span data-letters="{{item.name_subcategorie}}">{{item.name_subcategorie}}</span></a></li>
+												<li class="{{categorie.name_categorie|cut:' '}} link link--kumya"><a href="{% url 'carre_app:index_categorie' categorie.id_categorie %}#{{item.name_subcategorie|cut:' '}}"><span data-letters="{{item.name_subcategorie}}">{{item.name_subcategorie}}</span></a></li>
 											{% endif %}
 										{% endfor %}
 									</ul>
 									<ul class="overlay_nav_element list_subcategories">
 										{% for item in Comporter_list %}
 											{% if item.id_categorie.id_categorie == categorie.id_categorie %}
-												<li class="{{item.name_categorie}} {{item.id_collection}} link link--kumya"><a href="#"><span data-letters="{{item.id_collection}}">{{item.id_collection}}</span></a></li>
+												<li class="{{categorie.name_categorie|cut:' '}} {{item.id_collection}} link link--kumya"><a href="{% url 'carre_app:index_collection' categorie.id_categorie 0 item.id_collection.id_collection %}"><span data-letters="{{item.id_collection}}">{{item.id_collection}}</span></a></li>
 											{% endif %}
 										{% endfor %}
 									</ul>
@@ -194,22 +194,22 @@
 								{% if the_SubCategories|length > 1 %}
 								<div class="panel list-group container">
 									{% for x in the_SubCategories %}
-										<a href="#" class="list-group-item" data-toggle="collapse" data-target="#{{forloop.counter}}" data-parent="#menu">
-									 		<h4 id="{{x}}">{{x}}</h4>
+										<a href="#" class="list-group-item" data-toggle="collapse" data-target="#{{forloop.counter}}" data-parent="#menu" id="{{x}}">
+									 		<h4>{{x}}</h4>
 									 	</a>
 									 	<div id="{{forloop.counter}}" class="sublinks collapse">
 									  		<div class="row">
 									  			<div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
-			                                        <a href="#">
+			                                        <a href="{% url 'carre_app:index_collection' 0 x.id_subcategorie 0 %}">
 														<div class="second_section_column_article">
 															<div id="image_one">
-																<img src="{% static 'carre_app/media/def' %}.jpg">
+																<img src="{% static 'carre_app/media/' %}{{ the_Categorie|cut:' ' }}.png">
 															</div>
 															<div id="description_one" class="description_box">
-																<p>{{ x }}</p>
+																<p>{{ x }} (Full)</p>
 															</div>
 															<div class="overlay">
-																<div class="text">{{ y.id_subcategorie }}</div>
+																<div class="text">{{ x }}</div>
 															</div>
 														</div>
 													</a>
@@ -218,10 +218,10 @@
 													{% if y.id_subcategorie.id_subcategorie == x.id_subcategorie %}
 														{% if y.collection_id_collection %}
 															<div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
-						                                        <a href="#">
+						                                        <a href="{% url 'carre_app:index_collection' 0 x.id_subcategorie y.collection_id_collection.id_collection %}">
 																	<div class="second_section_column_article">
 																		<div id="image_one">
-																			<img src="{% static 'carre_app/media/def' %}.jpg">
+																			<img src="{% static 'carre_app/media/' %}{{ y.collection_id_collection }}.jpg">
 																		</div>
 																		<div id="description_one" class="description_box">
 																			<p>{{ y.collection_id_collection }}</p>
@@ -245,7 +245,7 @@
 	                                        <a href="#">
 												<div class="second_section_column_article">
 													<div id="image_one">
-														<img src="{% static 'carre_app/media/def' %}.jpg">
+														<img src="{% static 'carre_app/media/' %}{{x|cut:' '}}.jpg">
 													</div>
 													<div id="description_one" class="description_box">
 														<p>{{x}}</p>
@@ -440,41 +440,6 @@
 	<script>
 	$(document).ready(function(){
 	   	$('meta[name="viewport"]').prop('content', 'width=1366');
-	   	
-	   	$(document).on("mouseenter", ".overlay_nav ul li", function() {
-	   		if($(this).attr('class').match("^collectionsdb")){
-	   			var url = ("{% url 'carre_app:index_collectionsalledebains' %}");
-	   			$(this).find('a').attr('href', url.replace('bains/', 'bains#'+$(this).find('span').html()));
-	   		}
-	   		else if($(this).attr('class').match("^sanitaire")){
-	   			var url = ("{% url 'carre_app:index_sanitaire' %}");
-	   			$(this).find('a').attr('href', url.replace('taire/', 'taire#'+$(this).find('span').html()));
-	   		}
-	   		else if($(this).attr('class').match("^accessoires")){
-	   			var url = ("{% url 'carre_app:index_accessoires' %}");
-	   			$(this).find('a').attr('href', url.replace('oires/', 'oires#'+$(this).find('span').html()));
-	   		}
-	   		else if($(this).attr('class').match("^baignoiresetreceveurs")){
-	   			var url = ("{% url 'carre_app:index_baignoiresetreceveurs' %}");
-	   			$(this).find('a').attr('href', url.replace('eveurs/', 'eveurs#'+$(this).find('span').html()));
-	   		}
-	   		else if($(this).attr('class').match("^eviers")){
-	   			var url = ("{% url 'carre_app:index_eviers' %}");
-	   			$(this).find('a').attr('href', url.replace('eviers/', 'eviers#'+$(this).find('span').html()));
-	   		}
-	   		else if($(this).attr('class').match("^meubles")){
-	   			var url = ("{% url 'carre_app:index_meubles' %}");
-	   			$(this).find('a').attr('href', url.replace('meubles/', 'meubles#'+$(this).find('span').html()));
-	   		}
-	   		else if($(this).attr('class').match("^miroirs")){
-	   			var url = ("{% url 'carre_app:index_miroirs' %}");
-	   			$(this).find('a').attr('href', url.replace('miroirs/', 'miroirs#'+$(this).find('span').html()));
-	   		}
-	   		else if($(this).attr('class').match("^robinetterie")){
-	   			var url = ("{% url 'carre_app:index_robinetterie' %}");
-	   			$(this).find('a').attr('href', url.replace('miroirs/', 'miroirs#'+$(this).find('span').html()));
-	   		}
-	   	});
 	});
 	</script>
 </html>

@@ -184,14 +184,14 @@
 									<ul class="overlay_nav_element list_categories" id="{{ categorie.name_categorie|cut:' ' }}">
 										{% for item in Subcategorie_list %}
 											{% if item.id_categorie.id_categorie == categorie.id_categorie %}
-												<li class="{{item.name_categorie}} link link--kumya"><a href="#"><span data-letters="{{item.name_subcategorie}}">{{item.name_subcategorie}}</span></a></li>
+												<li class="{{categorie.name_categorie|cut:' '}} link link--kumya"><a href="{% url 'carre_app:index_categorie' categorie.id_categorie %}#{{item.name_subcategorie|cut:' '}}"><span data-letters="{{item.name_subcategorie}}">{{item.name_subcategorie}}</span></a></li>
 											{% endif %}
 										{% endfor %}
 									</ul>
 									<ul class="overlay_nav_element list_subcategories">
 										{% for item in Comporter_list %}
 											{% if item.id_categorie.id_categorie == categorie.id_categorie %}
-												<li class="{{item.name_categorie}} {{item.id_collection}} link link--kumya"><a href="#"><span data-letters="{{item.id_collection}}">{{item.id_collection}}</span></a></li>
+												<li class="{{categorie.name_categorie|cut:' '}} {{item.id_collection}} link link--kumya"><a href="{% url 'carre_app:index_collection' categorie.id_categorie 0 item.id_collection.id_collection %}"><span data-letters="{{item.id_collection}}">{{item.id_collection}}</span></a></li>
 											{% endif %}
 										{% endfor %}
 									</ul>
@@ -473,41 +473,6 @@
 	<script>
 	$(document).ready(function(){
 	   	$('meta[name="viewport"]').prop('content', 'width=1366');
-	   	
-	   	$(document).on("mouseenter", ".overlay_nav ul li", function() {
-	   		if($(this).attr('class').match("^collectionsdb")){
-	   			var url = ("{% url 'carre_app:index_collectionsalledebains' %}");
-	   			$(this).find('a').attr('href', url.replace('bains/', 'bains#'+$(this).find('span').html()));
-	   		}
-	   		else if($(this).attr('class').match("^sanitaire")){
-	   			var url = ("{% url 'carre_app:index_sanitaire' %}");
-	   			$(this).find('a').attr('href', url.replace('taire/', 'taire#'+$(this).find('span').html()));
-	   		}
-	   		else if($(this).attr('class').match("^accessoires")){
-	   			var url = ("{% url 'carre_app:index_accessoires' %}");
-	   			$(this).find('a').attr('href', url.replace('oires/', 'oires#'+$(this).find('span').html()));
-	   		}
-	   		else if($(this).attr('class').match("^baignoiresetreceveurs")){
-	   			var url = ("{% url 'carre_app:index_baignoiresetreceveurs' %}");
-	   			$(this).find('a').attr('href', url.replace('eveurs/', 'eveurs#'+$(this).find('span').html()));
-	   		}
-	   		else if($(this).attr('class').match("^eviers")){
-	   			var url = ("{% url 'carre_app:index_eviers' %}");
-	   			$(this).find('a').attr('href', url.replace('eviers/', 'eviers#'+$(this).find('span').html()));
-	   		}
-	   		else if($(this).attr('class').match("^meubles")){
-	   			var url = ("{% url 'carre_app:index_meubles' %}");
-	   			$(this).find('a').attr('href', url.replace('meubles/', 'meubles#'+$(this).find('span').html()));
-	   		}
-	   		else if($(this).attr('class').match("^miroirs")){
-	   			var url = ("{% url 'carre_app:index_miroirs' %}");
-	   			$(this).find('a').attr('href', url.replace('miroirs/', 'miroirs#'+$(this).find('span').html()));
-	   		}
-	   		else if($(this).attr('class').match("^robinetterie")){
-	   			var url = ("{% url 'carre_app:index_robinetterie' %}");
-	   			$(this).find('a').attr('href', url.replace('miroirs/', 'miroirs#'+$(this).find('span').html()));
-	   		}
-	   	});
 	});
 	</script>
 </html>
