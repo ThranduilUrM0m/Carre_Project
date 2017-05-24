@@ -74,7 +74,7 @@
 						    </ul>
 						    <ul class="navbar-nav social_media menu_elements_top">
 								<li class="nav-item link link--kumya active">
-									<a href="#" class="nav-link align-middle">
+									<a id="active_language" href="#" class="nav-link align-middle">
 										FR
 									</a>
 								</li>
@@ -140,7 +140,7 @@
 					<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 						<div class="carousel-inner" role="listbox">
 						    <div class="carousel-item active">
-						      <img class="d-block" src="{% static 'carre_app/media/' %}{{the_categorie_one|cut:' '}}.png" alt="Accessoires S.D.B.">
+						      <img class="d-block" src="{% static 'carre_app/media/' %}{{the_categorie_one|cut:' '}}.png" alt="{{ the_categorie_one }}">
 						    </div>
 							{% for categorie in Categorie_list %}
 								<div class="overlay_nav" id="nav{{ forloop.counter }}">
@@ -164,8 +164,8 @@
 							{% endfor %}
 						</div>
 						<div class="overlay">
-						    <div class="text">{{ the_categorie_one }}</div>
-						    <div>{{ the_subCategorie_one }}</div>
+						    <div class="text">{{ the_categorie_one|default_if_none:"&nbsp;" }}</div>
+						    <div>{{ the_subCategorie_one|default_if_none:"&nbsp;" }}</div>
 						    <button type="button" class="btn btn-outline-danger" onclick="window.open('{% url 'carre_app:Catalogue' %}')">Catalogue</button>
 						    <div class="s_x_marque">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 						    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
