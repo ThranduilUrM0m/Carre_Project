@@ -16,6 +16,9 @@ def index_home(request):
 	Comporter_list = Comporter.objects.all()
 	Categorie_withCollec_list = Categorie.objects.filter(id_categorie__in=Comporter_list)
 	Collection_withCat_list = Collection.objects.filter(id_collection__in=Comporter_list)
+
+	Products_byNew_list = Product.objects.order_by('reference_product')[:9]
+	Products_byRef_list = Product.objects.order_by('-id_product')[:4]
 	context = {
 		'Categorie_list': Categorie_list,
 		'Subcategorie_list': Subcategorie_list,
@@ -23,6 +26,8 @@ def index_home(request):
 		'Comporter_list': Comporter_list,
 		'Categorie_withCollec_list': Categorie_withCollec_list,
 		'Collection_withCat_list': Collection_withCat_list,
+		'Products_byNew_list': Products_byNew_list,
+		'Products_byRef_list': Products_byRef_list,
     }
 	return render(request, 'carre_app/index_home.html', context)
 
