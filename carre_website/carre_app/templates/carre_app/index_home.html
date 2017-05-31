@@ -230,11 +230,15 @@
 					          	{% for x in Products_byNew_list %}
 					          		<div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-4">
 					              		<h4>{{x}}</h4>
-					              		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					              		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					              		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					              		consequat.</p>
+					              		<img src="{% static 'carre_app/media/products/' %}{{ x.url_product }}.jpg">
 					              		<p><a class="btn btn-secondary" href="{% url 'carre_app:index_collection' 0 x.id_subcategorie.id_subcategorie x.collection_id_collection.id_collection %}" role="button">View details »</a></p>
+					            	</div>
+					          	{% endfor %}
+					          	{% for x in "xxx" %}
+					          		<div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+					              		<h4>Showroom {{ forloop.counter }}</h4>
+					              		<img src="{% static 'carre_app/media/showroom' %}{{ forloop.counter }}.jpg">
+					              		<p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
 					            	</div>
 					          	{% endfor %}
 					          </div>
@@ -243,12 +247,12 @@
 					        <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 sidebar-offcanvas" id="sidebar">
 					          	<h3>Nouvelles</h3>
 					          	<hr>
-					          	<div class="list-group">
+					          	<div class="list-group news_row">
 					          		{% for x in Products_byRef_list %}
 					          			<a href="{% url 'carre_app:index_collection' 0 x.id_subcategorie.id_subcategorie x.collection_id_collection.id_collection %}" class="list-group-item">
 							            	<span><h5>{{x}}</h5></span>
 							            	<hr>
-							            	<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+							            	<img src="{% static 'carre_app/media/products/' %}{{ x.url_product }}.jpg">
 							            </a>
 					          		{% endfor %}
 						        </div>

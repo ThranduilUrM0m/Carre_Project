@@ -394,37 +394,46 @@ body .container-fluid {
   padding-bottom: 15px;
   height: 100%;
 }
-/* line 3, ../sass/_secondsection.scss */
+/* line 4, ../sass/_secondsection.scss */
+.second_section .container .news_row img {
+  width: 100%;
+}
+/* line 8, ../sass/_secondsection.scss */
 .second_section .container .badge {
   background-color: #030101;
 }
-/* line 6, ../sass/_secondsection.scss */
+/* line 11, ../sass/_secondsection.scss */
 .second_section .container .subcats {
   font-size: .8rem;
 }
-/* line 9, ../sass/_secondsection.scss */
+/* line 14, ../sass/_secondsection.scss */
 .second_section .container .sublinks {
   transition-property: all;
   transition-duration: 1s;
 }
-/* line 14, ../sass/_secondsection.scss */
+/* line 19, ../sass/_secondsection.scss */
 .second_section .container .modal-body img {
   width: 100%;
 }
-/* line 21, ../sass/_secondsection.scss */
+/* line 26, ../sass/_secondsection.scss */
 .second_section .container .decouvrir_row {
   font-size: 0.9rem;
 }
-/* line 25, ../sass/_secondsection.scss */
+/* line 28, ../sass/_secondsection.scss */
+.second_section .container .decouvrir_row img {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+/* line 34, ../sass/_secondsection.scss */
 .second_section .container .breadcrumb li {
   display: inline;
   font-size: 0.7em;
 }
-/* line 28, ../sass/_secondsection.scss */
+/* line 37, ../sass/_secondsection.scss */
 .second_section .container .breadcrumb li a, .second_section .container .breadcrumb li i {
   color: gray;
 }
-/* line 33, ../sass/_secondsection.scss */
+/* line 42, ../sass/_secondsection.scss */
 .second_section .container .second_section_column_article {
   background-color: #fff;
   margin: .5rem;
@@ -432,34 +441,34 @@ body .container-fluid {
   position: relative;
   text-align: center;
 }
-/* line 39, ../sass/_secondsection.scss */
+/* line 48, ../sass/_secondsection.scss */
 .second_section .container .second_section_column_article *:not(i) {
   font-size: 12px;
   line-height: 22px;
   color: #5d585e;
   font-family: "Montserrat", Arial, Helvetica, sans-serif;
 }
-/* line 45, ../sass/_secondsection.scss */
+/* line 54, ../sass/_secondsection.scss */
 .second_section .container .second_section_column_article img {
   width: 100%;
 }
-/* line 48, ../sass/_secondsection.scss */
+/* line 57, ../sass/_secondsection.scss */
 .second_section .container .second_section_column_article i {
   position: absolute;
   bottom: 15px;
   right: 15px;
 }
-/* line 53, ../sass/_secondsection.scss */
+/* line 62, ../sass/_secondsection.scss */
 .second_section .container .second_section_column_article .description_box {
   height: 50%;
   padding: 3vh;
 }
-/* line 57, ../sass/_secondsection.scss */
+/* line 66, ../sass/_secondsection.scss */
 .second_section .container .second_section_column_article iframe {
   height: 100%;
   width: 100%;
 }
-/* line 61, ../sass/_secondsection.scss */
+/* line 70, ../sass/_secondsection.scss */
 .second_section .container .second_section_column_article .overlay {
   position: absolute;
   bottom: 0;
@@ -471,12 +480,12 @@ body .container-fluid {
   height: 0;
   transition: .5s ease;
 }
-/* line 71, ../sass/_secondsection.scss */
+/* line 80, ../sass/_secondsection.scss */
 .second_section .container .second_section_column_article .overlay .text {
   color: white;
   padding: 1rem;
 }
-/* line 77, ../sass/_secondsection.scss */
+/* line 86, ../sass/_secondsection.scss */
 .second_section .container .second_section_column {
   background-color: #fff;
   height: 50vh;
@@ -485,44 +494,44 @@ body .container-fluid {
   position: relative;
   text-align: center;
 }
-/* line 84, ../sass/_secondsection.scss */
+/* line 93, ../sass/_secondsection.scss */
 .second_section .container .second_section_column *:not(i) {
   font-size: 12px;
   line-height: 22px;
   color: #5d585e;
   font-family: "Montserrat", Arial, Helvetica, sans-serif;
 }
-/* line 90, ../sass/_secondsection.scss */
+/* line 99, ../sass/_secondsection.scss */
 .second_section .container .second_section_column img {
   width: 100%;
 }
-/* line 93, ../sass/_secondsection.scss */
+/* line 102, ../sass/_secondsection.scss */
 .second_section .container .second_section_column i {
   position: absolute;
   bottom: 15px;
   right: 15px;
 }
-/* line 98, ../sass/_secondsection.scss */
+/* line 107, ../sass/_secondsection.scss */
 .second_section .container .second_section_column .description_box {
   height: 50%;
   padding: 3vh;
 }
-/* line 102, ../sass/_secondsection.scss */
+/* line 111, ../sass/_secondsection.scss */
 .second_section .container .second_section_column iframe {
   height: 100%;
   width: 100%;
 }
 
-/* line 111, ../sass/_secondsection.scss */
+/* line 120, ../sass/_secondsection.scss */
 .pagination li {
   padding: 0.5rem;
 }
 
-/* line 117, ../sass/_secondsection.scss */
+/* line 126, ../sass/_secondsection.scss */
 .list-group-item p {
   font-size: 0.6rem;
 }
-/* line 120, ../sass/_secondsection.scss */
+/* line 129, ../sass/_secondsection.scss */
 .list-group-item hr {
   width: 100%;
   color: black;

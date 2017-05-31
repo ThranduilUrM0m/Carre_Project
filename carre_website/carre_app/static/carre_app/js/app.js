@@ -204,7 +204,7 @@ if (event.ctrlKey==true && (event.which == '61' || event.which == '107' || event
 });
 
 $(window).bind('mousewheel DOMMouseScroll', function (event) {
-       if (event.ctrlKey == true) {
-       event.preventDefault();
-       }
+   if (event.ctrlKey == true) {
+   	event.preventDefault();
+   }
 });

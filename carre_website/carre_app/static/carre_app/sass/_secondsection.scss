@@ -1,5 +1,10 @@
 .second_section{
 	.container{
+		.news_row{
+			img{
+				width: 100%;
+			}
+		}
 		.badge{
 			background-color: $bg-color-black;
 		}
@@ -20,6 +25,10 @@
 		height: 100%;
 		.decouvrir_row{
 			font-size: 0.9rem;
+			img{
+				width: 100%;
+				margin-bottom: 1rem;
+			}
 		}
 		.breadcrumb{
 			li{

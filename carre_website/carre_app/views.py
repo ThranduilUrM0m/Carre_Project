@@ -17,7 +17,7 @@ def index_home(request):
 	Categorie_withCollec_list = Categorie.objects.filter(id_categorie__in=Comporter_list)
 	Collection_withCat_list = Collection.objects.filter(id_collection__in=Comporter_list)
 
-	Products_byNew_list = Product.objects.order_by('reference_product')[:9]
+	Products_byNew_list = Product.objects.order_by('reference_product')[:6]
 	Products_byRef_list = Product.objects.order_by('-id_product')[:4]
 	context = {
 		'Categorie_list': Categorie_list,
