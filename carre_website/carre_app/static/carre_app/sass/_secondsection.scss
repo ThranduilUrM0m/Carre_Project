@@ -1,5 +1,11 @@
 .second_section{
 	.container{
+		.carousel-item {
+    		height: 12rem;
+    		img{
+    			height: auto;
+    		}
+    	}
 		.news_row{
 			img{
 				width: 100%;

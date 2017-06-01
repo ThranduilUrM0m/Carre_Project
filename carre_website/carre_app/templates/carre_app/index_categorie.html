@@ -151,6 +151,13 @@
 												<li class="{{categorie.name_categorie|cut:' '}} link link--kumya"><a href="{% url 'carre_app:index_categorie' categorie.id_categorie %}#{{item.name_subcategorie|cut:' '}}"><span data-letters="{{item.name_subcategorie}}">{{item.name_subcategorie}}</span></a></li>
 											{% endif %}
 										{% endfor %}
+										{% if categorie.name_categorie == "Collection S. Bains" %}
+											{% for element in Comporter_list %}
+												{% if element.id_categorie.id_categorie == 8 %}
+													<li class="{{categorie.name_categorie|cut:' '}} {{element.id_collection}} link link--kumya"><a href="{% url 'carre_app:index_collection' 8 0 element.id_collection.id_collection %}"><span data-letters="{{element.id_collection}}">{{element.id_collection}}</span></a></li>
+												{% endif %}
+											{% endfor %}
+										{% endif %}
 									</ul>
 									<ul class="overlay_nav_element list_subcategories">
 										{% for item in Comporter_list %}
@@ -160,7 +167,7 @@
 										{% endfor %}
 									</ul>
 									<div class="s_x_hover">{{categorie.name_categorie}}</div>
-								</div>	
+								</div>
 							{% endfor %}
 						</div>
 						<div class="overlay">
@@ -221,7 +228,11 @@
 						                                        <a href="{% url 'carre_app:index_collection' 0 x.id_subcategorie y.collection_id_collection.id_collection %}">
 																	<div class="second_section_column_article">
 																		<div id="image_one">
-																			<img src="{% static 'carre_app/media/' %}{{ y.collection_id_collection }}.jpg">
+																			{% if y.collection_id_collection|cut:' ' == "Mars" %}
+																				<img src="{% static 'carre_app/media/' %}{{ y.collection_id_collection|cut:' ' }}0.jpg">
+																			{% else %}
+																				<img src="{% static 'carre_app/media/' %}{{ y.collection_id_collection|cut:' ' }}.jpg">
+																			{% endif %}
 																		</div>
 																		<div id="description_one" class="description_box">
 																			<p>{{ y.collection_id_collection }}</p>
