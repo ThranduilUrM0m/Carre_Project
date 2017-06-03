@@ -234,13 +234,45 @@
 					          	<h3>A Découvrir</h3>
 					          	<hr>
 					          	<div class="row decouvrir_row">
-					          	{% for x in Products_byNew_list %}
-					          		<div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-4">
-					              		<h4>{{x}}</h4>
-					              		<img src="{% static 'carre_app/media/products/' %}{{ x.url_product }}.jpg">
-					              		<p><a class="btn btn-secondary" href="{% url 'carre_app:index_collection' 0 x.id_subcategorie.id_subcategorie x.collection_id_collection.id_collection %}" role="button">View details »</a></p>
-					            	</div>
-					          	{% endfor %}
+
+				          		<div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+				              		<h4>NOUVEAUTES CARRELAGE</h4>
+				              		<img src="{% static 'carre_app/media/' %}NOUVEAUTESCARRELAGE.jpg">
+				              		<p><strong>Tout est possible, tout est combinable.</strong><br>Conçues pour combiner leurs formats, textures et tonalités et créer de nombreuses compositions.</p>
+				              		<p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
+				            	</div>
+				            	<div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+				              		<h4>ESPACES D'INSPIRATION</h4>
+				              		<img src="{% static 'carre_app/media/' %}ESPACESDINSPIRATION.jpg">
+				              		<p><strong>La majesté de la nature et les éléments qui la composent sont les muses inspirants de la nouvelle collection Gala 2017.</strong><br>Chaque élément naturel inspirateur est le rôle principal dans une des sept séries qui composent cette collection et naissent de milieux artistiques, que nous connaissons comme ESPACES D'INSPIRATION.</p>
+				              		<p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
+				            	</div>
+				            	<div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+				              		<h4>NOUVEAUTES SALLES DE BAIN</h4>
+				              		<img src="{% static 'carre_app/media/' %}NOUVEAUTESSALLESDEBAIN.jpg">
+				              		<p><strong>Les nouveautés 2017 viennent chargées de solutions, pensées pour votre salle de bains moderne et jeune.</strong><br>La nouvelle collection de salle de bains Mid, avec technologie Clean Rim, meubles, receveurs de douche ... et trois nouvelles séries de Robinetterie, parmi tant d’autres nouveautés..</p>
+				              		<p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
+				            	</div>
+
+				            	<div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+				              		<h4>CONCEVEZ VOTRE SALLE DE BAINS AVEC 3Dgala</h4>
+				              		<img src="{% static 'carre_app/media/' %}3Dgala.jpg">
+				              		<p><strong>3Dgala décorez, créez et concevez votre salle de bains.</strong><br>Si vous voulez créer le project complet de votre salle de bains avec Gala, maintenant vous pouvez le faire. Un outil de design, facile à utiliser et avec de grands résultats, qui offre toutes les possibilités pour créer une salle de bains à votre style. Et si vous êtes de ceux qui sont plus avancés, restez avec nous dans la communauté du 3Dgala. </p>
+				              		<p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
+				            	</div>
+				            	<div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+				              		<h4>ECOLOGIE</h4>
+				              		<img src="{% static 'carre_app/media/' %}ECOLOGIE.png">
+				              		<p><strong>Durabilité apliquée aux processus productifs.</strong><br>Pour les méthodes employées dans son processus de production et la systématique application de mesures de caractère durable dans ses produits, Cerámicas Gala a été élue par l'ANAS, l'Association Nationale pour l'Architecture Durable, comme l'une des entreprises durables dans le secteur de la construction.</p>
+				              		<p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
+				            	</div>
+				            	<div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-4">
+				              		<h4>SALLES DE BAINS ET WELLNESS</h4>
+				              		<img src="{% static 'carre_app/media/' %}SALLESDEBAINSETWELLNESS.jpg">
+				              		<p><strong>La nouvelle salle de bains, un plaisir pour les sens, un espace de régénération. </strong><br>Santé et équilibre physique et émotionnel face au stress quotidien, sont les bases de l'equilibre de la nouvelle salle de bains qui comprend hydromassage, chromothérapie, aromathérapie... et de grandes doses de bien-être.</p>
+				              		<p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
+				            	</div>
+
 				          		<div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
 				              		<h4>A propos</h4>
 					          		<hr>
@@ -331,7 +363,7 @@
 									<ul>
 										<li><u><strong>Contact</strong></u></li>
 										<li><a href="{% url 'carre_app:index_adressendtel' %}">Addresse & Télephones</a></li>
-										<li><a href="#">Carré GPS</a></li>
+										<li><a href="https://goo.gl/maps/zqRR4VPbZVs">Carré GPS</a></li>
 									</ul>
 								</div>
 								<div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
