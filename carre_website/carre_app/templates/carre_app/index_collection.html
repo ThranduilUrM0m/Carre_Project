@@ -32,7 +32,27 @@
     </head>
 
 	<body style="background-image: url('{% static "carre_app/media/bg.jpg"%}')";>
+		<div id="fb-root"></div>
+			<script>(function(d, s, id) {
+			  var js, fjs = d.getElementsByTagName(s)[0];
+			  if (d.getElementById(id)) return;
+			  js = d.createElement(s); js.id = id;
+			  js.src = "//connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v2.9";
+			  fjs.parentNode.insertBefore(js, fjs);
+			  }(document, 'script', 'facebook-jssdk'));
+			</script>
+		<!-- Preloader -->
+		<div id="preloader" class="demo-1">
+			<div class="content">
+				<div id="large-header" class="large-header">
+					<img src="{% static 'carre_app/media/logo.png' %}">
+					<canvas id="demo-canvas"></canvas>
+				</div>
+			</div>
+		</div>
 		<div class="container-fluid">
+			<div style="position: fixed; top: 10%; left: -6%;"><img src="{% static 'carre_app/media/galalogo.png' %}" width="200"></div>
+			<div style="position: fixed; top: 10%; left: 95%;"><img src="{% static 'carre_app/media/galalogo.png' %}" width="200"></div>
 			<!-- header beginning -->
 			<header class="header">
 				<div class="container">
@@ -44,44 +64,36 @@
 										<span data-toggle="dropdown-toggle">Entreprise</span>
 									</a>
 									<div class="dropdown-menu">
+										<a class="dropdown-item" href="{% url 'carre_app:index_marque' %}"><span>A Propos</span></a>
 										<a class="dropdown-item" href="{% url 'carre_app:index_marque' %}"><span>Marque Carré</span></a>
-										<a class="dropdown-item" href="https://youtu.be/3KMWNufrPM4" target="_blank"><span>Vidéo Corporative</span></a>
+										<a class="dropdown-item" href="https://youtu.be/3KMWNufrPM4"><span>Vidéo Corporative</span></a>
 									</div>
 								</li>
 								<li class="nav-item link link--kumya">
-									<a type="button" class="btn nav-link" role="button" aria-haspopup="true" aria-expanded="false" href="http://zenith.net.ma/" target="_blank">
+									<a type="button" class="btn nav-link" role="button" aria-haspopup="true" aria-expanded="false" href="http://zenith.net.ma/">
 										<span>Groupe</span>
 									</a>
 								</li>
+
 								<li class="nav-item link link--kumya dropdown">
 									<a type="button" class="btn nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">
 										<span data-toggle="dropdown-toggle">Téléchargement</span>
 									</a>
 									<div class="dropdown-menu">
 										<a class="dropdown-item" href="{% url 'carre_app:Catalogue' %}" target="_blank"><span>Catalogue</span></a>
-										<a class="dropdown-item" href="#"><span>Chaîne Youtube</span></a>
+										<a class="dropdown-item" href="#"><span>Graphic</span></a>
 									</div>
 								</li>
+
 								<li class="nav-item link link--kumya dropdown">
-									<a type="button" class="btn nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">
-										<span data-toggle="dropdown-toggle">Contact</span>
+									<a type="button" class="btn nav-link" role="button" aria-haspopup="true" aria-expanded="false" href="{% url 'carre_app:index_adressendtel' %}">
+										<span>Contact</span>
 									</a>
-									<div class="dropdown-menu">
-										<a class="dropdown-item" href="{% url 'carre_app:index_adressendtel' %}"><span>Adresses Et Télephones</span></a>
-										<a class="dropdown-item" href="#"><span>Carré GPS</span></a>
-									</div>
 								</li>
 						    </ul>
 						    <ul class="navbar-nav social_media menu_elements_top">
-								<li class="nav-item link link--kumya active">
-									<a id="active_language" href="#" class="nav-link align-middle">
-										FR
-									</a>
-								</li>
-								<li class="nav-item link link--kumya">
-									<a href="#" class="nav-link align-middle">
-										EN
-									</a>
+								<li class="nav-item">
+									<div class="fb-like" data-href="https://www.facebook.com/Carredistribution/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="false"></div>
 								</li>
 						    </ul>
 					  	</div>
@@ -94,22 +106,10 @@
 						<a class="navbar-brand" href="{% url 'carre_app:index_home' %}">
 						    <img src="{% static 'carre_app/media/logo.png' %}" width="80" height="100">
 					  	</a>
-						<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					  	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					  		<ul class="navbar-nav ml-auto social_media">
 								<li class="nav-item">
-									<a href="#" class="nav-link align-middle">
-										<i class="fa fa-twitter-square align-middle" aria-hidden="true"></i>
-									</a>
-								</li>
-								<li class="nav-item">
-									<a href="#" class="nav-link align-middle">
-										<i class="fa fa-facebook-official align-middle" aria-hidden="true"></i>
-									</a>
-								</li>
-								<li class="nav-item">
-									<a href="#" class="nav-link align-middle">
-										<i class="fa fa-instagram align-middle" aria-hidden="true"></i>
-									</a>
+									<img src="{% static 'carre_app/media/galalogo.png' %}" width="100">
 								</li>
 						    </ul>
 						</div>
@@ -196,11 +196,11 @@
 	                            {% endif %}
 	                            {% if the_subCategorie_one %}
 	                            <li><i class="fa fa-chevron-right" aria-hidden="true"></i></li>
-	                            <li><a href="{% url 'carre_app:index_collection' 0 the_subCategorie_one.id_subcategorie 0 }}">{{ the_subCategorie_one }}</a></li>
+	                            <li><a href="{% url 'carre_app:index_collection' 0 the_subCategorie_one.id_subcategorie 0 %}#{{the_subCategorie_one.name_subcategorie|cut:' '}}">{{ the_subCategorie_one }}</a></li>
 	                            {% endif %}
 	                            {% if the_collection_one %}
 	                            <li><i class="fa fa-chevron-right" aria-hidden="true"></i></li>
-	                            <li><a href="#">{{ the_collection_one }}</a></li>
+	                            <li><a>{{ the_collection_one }}</a></li>
 	                            {% endif %}
 	                        </ol>
 	                    </div>
@@ -211,7 +211,7 @@
 							<div id="menu">
 								<div class="row">
                                 	{% if Products.has_other_pages %}
-                                      <ul style="margin: 0 !important; margin-top: -5% !important;" class="pagination pull-right">
+                                      <ul style="margin-top: -5% !important;" class="pagination ml-auto">
                                         {% if Products.has_previous %}
                                           <li><a href="?page={{ Products.previous_page_number }}">&laquo;</a></li>
                                         {% else %}
@@ -219,7 +219,7 @@
                                         {% endif %}
                                         {% for i in Products.paginator.page_range %}
                                           {% if Products.number == i %}
-                                            <li class="active"><span style="color: white !important;">{{ i }} <span class="sr-only">(current)</span></span></li>
+                                            <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
                                           {% else %}
                                             <li><a href="?page={{ i }}">{{ i }}</a></li>
                                           {% endif %}
@@ -233,43 +233,98 @@
                                     {% endif %}
                                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                                         <div class="row">
-                                            {% for product in Products %}
-                                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
-	                                            <a href="#" data-toggle="modal" data-target="#myModal{{ product.reference_product }}">
-													<div class="second_section_column_article">
-														<div id="image_one">
-															<img src="{% static 'carre_app/media/products/' %}{{ product.url_product }}.jpg">
+                                        	{% if the_subCategorie_one %}
+	                                            {% for product in Products %}
+	                                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+		                                            <a href="#" data-toggle="modal" data-target="#myModal{{ product.reference_product }}">
+														<div class="second_section_column_article">
+															<div id="image_one">
+																<img src="{% static 'carre_app/media/products/' %}{{ product.url_product }}.jpg">
+															</div>
+															<div id="description_one" class="description_box">
+																<p>{{ product.name_product }}</p>
+															</div>
+															<div class="overlay">
+																<div class="text">{{ product.reference_product }}</div>
+															</div>
 														</div>
-														<div id="description_one" class="description_box">
-															<p>{{ product.name_product }}</p>
-														</div>
-														<div class="overlay">
-															<div class="text">{{ product.reference_product }}</div>
-														</div>
-													</div>
-												</a>
-	                                        </div>
-	                                        <!-- Modal -->
-											<div class="modal fade" id="myModal{{ product.reference_product }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-											  <div class="modal-dialog" role="document">
-											    <div class="modal-content">
-											      <div class="modal-header">
-											        <h5 class="modal-title" id="exampleModalLabel">{{ product.name_product }}</h5>
-											        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-											          <span aria-hidden="true">&times;</span>
-											        </button>
-											      </div>
-											      <div class="modal-body">
-											      	<img src="{% static 'carre_app/media/products/' %}{{ product.url_product }}.jpg">
-											        {{ product.reference_product }}
-											      </div>
-											      <div class="modal-footer">
-											        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-											      </div>
-											    </div>
-											  </div>
-											</div>
-                                            {% endfor %}
+													</a>
+		                                        </div>
+		                                        <!-- Modal -->
+												<div class="modal fade" id="myModal{{ product.reference_product }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+												  <div class="modal-dialog" role="document">
+												    <div class="modal-content">
+												      <div class="modal-header">
+												        <h5 class="modal-title" id="exampleModalLabel">{{ product.name_product }}</h5>
+												        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												          <span aria-hidden="true">&times;</span>
+												        </button>
+												      </div>
+												      <div class="modal-body">
+												      	<img src="{% static 'carre_app/media/products/' %}{{ product.url_product }}.jpg">
+												        {{ product.reference_product }}
+												      </div>
+												      <div class="modal-footer">
+												        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+												      </div>
+												    </div>
+												  </div>
+												</div>
+	                                            {% endfor %}
+                                            {% else %}
+	                                            <div class="panel list-group container">
+	                                            	{% for x in Subcategorie_list %}
+	                                            		{% if x.id_categorie == the_categorie_one %}
+	                                            			<a href="#" class="list-group-item" data-toggle="collapse" data-target="#{{forloop.counter}}" data-parent="#menu" id="{{x}}">
+														 		<h4>{{x}}</h4>
+														 	</a>
+														 	<div id="{{forloop.counter}}" class="sublinks collapse show">
+														  		<div class="row">
+														  			{% for product in Products %}
+														  				{% if product.id_subcategorie == x %}
+							                                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+								                                            <a href="#" data-toggle="modal" data-target="#myModal{{ product.reference_product }}">
+																				<div class="second_section_column_article">
+																					<div id="image_one">
+																						<img src="{% static 'carre_app/media/products/' %}{{ product.url_product }}.jpg">
+																					</div>
+																					<div id="description_one" class="description_box">
+																						<p>{{ product.name_product }}</p>
+																					</div>
+																					<div class="overlay">
+																						<div class="text">{{ product.reference_product }}</div>
+																					</div>
+																				</div>
+																			</a>
+								                                        </div>
+								                                        <!-- Modal -->
+																		<div class="modal fade" id="myModal{{ product.reference_product }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+																		  <div class="modal-dialog" role="document">
+																		    <div class="modal-content">
+																		      <div class="modal-header">
+																		        <h5 class="modal-title" id="exampleModalLabel">{{ product.name_product }}</h5>
+																		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+																		          <span aria-hidden="true">&times;</span>
+																		        </button>
+																		      </div>
+																		      <div class="modal-body">
+																		      	<img src="{% static 'carre_app/media/products/' %}{{ product.url_product }}.jpg">
+																		        {{ product.reference_product }}
+																		      </div>
+																		      <div class="modal-footer">
+																		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+																		      </div>
+																		    </div>
+																		  </div>
+																		</div>
+																		{% endif %}
+							                                        {% endfor %}
+							                                    </div>
+														 	</div>
+	                                            		{% endif %}
+	                                            	{% endfor %}
+                                            	</div>
+                                            {% endif %}
                                         </div>
                                     </div>
                             	</div>
@@ -303,11 +358,11 @@
 							<hr>
 							<div class="row">
 								<div class="columns col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-									<p>1, Boulevard Bir Anzarane</p>
+									<p>Magasin n°5, Résidence ABRAJ AL MADINA, Av. des FAR</p>
 									<p>Meknès - Maroc</p>
 								</div>
 								<div id="second_column" class="columns col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-									<p><strong>Phone</strong> : +212 (0) 535 528 881</p>
+									<p><strong>Phone</strong> : +212 (0) 535 522 062</p>
 									<p><strong>FAX</strong> : +212 (0) 535 528 882</p>
 									<p><strong>Email</strong> : contact@zenith.net.ma</p>
 								</div>
@@ -398,25 +453,8 @@
 						<nav class="navbar navbar-toggleable-md navbar-light">
 							<div class="collapse navbar-collapse" id="navbarSupportedContent">
 							    <ul class="navbar-nav menu_elements">
-								    <li class="nav-item" id="follow_us_label">
-										<a class="nav-link">
-											<span class="align-middle">Follow Us On </span>
-										</a>
-									</li>
 									<li class="nav-item">
-										<a href="#" class="nav-link">
-											<i class="fa fa-twitter-square align-middle" aria-hidden="true"></i>
-										</a>
-									</li>
-									<li class="nav-item">
-										<a href="#" class="nav-link">
-											<i class="fa fa-facebook-official align-middle" aria-hidden="true"></i>
-										</a>
-									</li>
-									<li class="nav-item">
-										<a href="#" class="nav-link">
-											<i class="fa fa-instagram align-middle" aria-hidden="true"></i>
-										</a>
+										<div class="fb-like" data-href="https://www.facebook.com/Carredistribution/" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div>
 									</li>
 							    </ul>
 							    <ul class="navbar-nav ml-auto social_media">
@@ -457,15 +495,9 @@
 	   	$('meta[name="viewport"]').prop('content', 'width=1366');
 	});
 	</script>
-	<script src="https://cdn.jsdelivr.net/jquery.loadingoverlay/latest/loadingoverlay.min.js" type="text/javascript"></script>
-	<script src="https://cdn.jsdelivr.net/jquery.loadingoverlay/latest/loadingoverlay_progress.min.js" type="text/javascript"></script>
-	<script type="text/javascript">
-		// Show full page LoadingOverlay
-		$.LoadingOverlay("show");
-
-		// Hide it after 3 seconds
-		setTimeout(function(){
-		    $.LoadingOverlay("hide");
-		}, 3000);
+	<script>
+	$(window).on("load", function(){
+	   	$('html,body').delay(500).animate({scrollTop: $('.nav_bread').offset().top}, 'slow');
+	});
 	</script>
 </html>

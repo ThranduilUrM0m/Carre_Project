@@ -1,6 +1,9 @@
 $text-color: #808080;
-#active_language{
-	border-bottom: 1em solid red;
+.fb_iframe_widget {
+	height: 100%;
+	span{
+		margin: 0.4em auto !important;
+	}
 } 
 .header{
 	social_media .active{

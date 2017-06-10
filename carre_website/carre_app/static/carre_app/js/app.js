@@ -146,7 +146,7 @@ $(window).on('load', function() { // makes sure the whole site is loaded
     		element_anchor.next().addClass('show');
     	}
     }
-    $('.demo-1').delay(2000).fadeOut('slow'); // will fade out the white DIV that covers the website.
+    $('.demo-1').fadeOut('slow'); // will fade out the white DIV that covers the website.
 })
 //]]>
 

@@ -1,5 +1,16 @@
 .second_section{
 	.container{
+		.pagination{
+			li *{
+				color: $bg-color-black;
+			}
+			.disabled *{
+				color: $gray-color-fade;
+			}
+			.active *{
+				color: $gray-color-fade;
+			}
+		}
 		.carousel-item {
     		height: 12rem;
     		img{
