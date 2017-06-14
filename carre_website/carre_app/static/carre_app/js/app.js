@@ -142,8 +142,12 @@ $(window).on('load', function() { // makes sure the whole site is loaded
     if(window.location.href.search('#') != -1){
     	var anchor = window.location.href.split('#').pop();
     	var element_anchor = $('#'+anchor);
-    	if(element_anchor.next().attr('class').search('sublinks') !=-1){
-    		element_anchor.next().addClass('show');
+    	try{
+    		if(element_anchor.next().attr('class').search('sublinks') !=-1){
+	    		element_anchor.next().addClass('show');
+	    	}
+    	}catch(err){
+    		console.log(err.message);
     	}
     }
     $('.demo-1').fadeOut('slow'); // will fade out the white DIV that covers the website.

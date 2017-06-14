@@ -161,7 +161,7 @@
 									</ul>
 									<ul class="overlay_nav_element list_subcategories">
 										{% for item in Comporter_list %}
-											{% if item.id_categorie.id_categorie == categorie.id_categorie %}
+											{% if item.id_categorie.id_categorie == categorie.id_categorie and item.id_categorie.id_categorie != 2 and item.id_categorie.id_categorie != 6 and item.id_categorie.id_categorie != 7 %}
 												<li class="{{categorie.name_categorie|cut:' '}} {{item.id_collection}} link link--kumya"><a href="{% url 'carre_app:index_collection' categorie.id_categorie 0 item.id_collection.id_collection %}"><span data-letters="{{item.id_collection}}">{{item.id_collection}}</span></a></li>
 											{% endif %}
 										{% endfor %}
@@ -196,7 +196,7 @@
                     </div>
 					<div class="row">
 				        <div class="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-9">
-							<h3>Articles</h3>
+							<h3>{{ the_Categorie }}</h3>
 							<div id="menu" class="row">
 								{% if the_SubCategories|length > 1 %}
 								<div class="panel list-group container">
