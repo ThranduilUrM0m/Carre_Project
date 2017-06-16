@@ -167,7 +167,7 @@ class Product(models.Model):
     id_subcategorie = models.ForeignKey('Subcategorie', models.DO_NOTHING, db_column='id_SubCategorie', blank=True, null=True)  # Field name made lowercase.
     collection_id_collection = models.ForeignKey(Collection, models.DO_NOTHING, db_column='collection_id_collection', blank=True, null=True)
     type_id_type = models.ForeignKey('TypeProduct', models.DO_NOTHING, db_column='type_id_type', blank=True, null=True)
-
+    
     class Meta:
         managed = False
         db_table = 'product'

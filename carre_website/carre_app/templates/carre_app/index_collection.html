@@ -1,5 +1,4 @@
 {% load static %}
-{% load carre_extras %}
 <!doctype html>
 <html lang="en">
 	<head>
@@ -245,7 +244,7 @@
 																<p>{{ product.name_product }}</p>
 															</div>
 															<div class="overlay">
-																<div class="text">{{ product.reference_product }}</div>
+																<div class="text">{{product.reference_product|default_if_none:""}}<br>{{ product.name_product }}<br>{{ product.type_id_type|default_if_none:"" }}<br>{{product.dimensions_product|default_if_none:""}}</div>
 															</div>
 														</div>
 													</a>
@@ -262,7 +261,15 @@
 												      </div>
 												      <div class="modal-body">
 												      	<img src="{% static 'carre_app/media/products/' %}{{ product.url_product }}.jpg">
-												        {{ product.reference_product }}
+												        {% if product.reference_product %}
+												        Réf : {{ product.reference_product }}
+												        {%endif %}
+												        {% if product.couleur_product %}
+												        Coleurs : {{ product.couleur_product }}
+												        {%endif %}
+												        {% if product.dimensions_product %}
+												        Dimensions : {{ product.dimensions_product }}
+												        {%endif %}
 												      </div>
 												      <div class="modal-footer">
 												        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -272,67 +279,66 @@
 												</div>
 	                                            {% endfor %}
                                             {% else %}
-	                                            <div class="panel list-group container">
-	                                            	{% for x in Subcategorie_list %}
+	                                            <div id="screwdapanel" class="panel list-group container">
+	                                            	
+													{% for x in Subcategorie_list %}
 	                                            		{% if x.id_categorie == the_categorie_one %}
-	                                            			{% for product in Products %}
-														  		{% if product.id_subcategorie == x %}
-														  			
-														  			{% for x in Subcategorie_list %}
-					                                            		{% if x.id_categorie == the_categorie_one %}
-					                                            			<a href="#" class="list-group-item" data-toggle="collapse" data-target="#{{forloop.counter}}" data-parent="#menu" id="{{x}}">
-																		 		<h4>{{x}}</h4>
-																		 	</a>
-																		 	<div id="{{forloop.counter}}" class="sublinks collapse show">
-																		  		<div class="row">
-																		  			{% for product in Products %}
-																		  				{% if product.id_subcategorie == x %}
-											                                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
-												                                            <a href="#" data-toggle="modal" data-target="#myModal{{ product.reference_product }}">
-																								<div class="second_section_column_article">
-																									<div id="image_one">
-																										<img src="{% static 'carre_app/media/products/' %}{{ product.url_product }}.jpg">
-																									</div>
-																									<div id="description_one" class="description_box">
-																										<p>{{ product.name_product }}</p>
-																									</div>
-																									<div class="overlay">
-																										<div class="text">{{ product.reference_product }}</div>
-																									</div>
-																								</div>
-																							</a>
-												                                        </div>
-												                                        <!-- Modal -->
-																						<div class="modal fade" id="myModal{{ product.reference_product }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-																						  <div class="modal-dialog" role="document">
-																						    <div class="modal-content">
-																						      <div class="modal-header">
-																						        <h5 class="modal-title" id="exampleModalLabel">{{ product.name_product }}</h5>
-																						        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-																						          <span aria-hidden="true">&times;</span>
-																						        </button>
-																						      </div>
-																						      <div class="modal-body">
-																						      	<img src="{% static 'carre_app/media/products/' %}{{ product.url_product }}.jpg">
-																						        {{ product.reference_product }}
-																						      </div>
-																						      <div class="modal-footer">
-																						        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-																						      </div>
-																						    </div>
-																						  </div>
-																						</div>
-																						{% endif %}
-											                                        {% endfor %}
-											                                    </div>
-																		 	</div>
-					                                            		{% endif %}
-					                                            	{% endfor %}
-					                                            	es
-														  		{% endif %}
-														  	{% endfor %}
-														{% endif %}
-													{% endfor %}
+	                                            			<a href="#" class="list-group-item" data-toggle="collapse" data-target="#{{forloop.counter}}" data-parent="#menu" id="{{x}}">
+														 		<h4>{{x}}</h4>
+														 	</a>
+														 	<div id="{{forloop.counter}}" class="sublinks collapse show">
+														  		<div class="row">
+														  			{% for product in Products %}
+														  				{% if product.id_subcategorie == x %}
+							                                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+								                                            <a href="#" data-toggle="modal" data-target="#myModal{{ product.reference_product }}">
+																				<div class="second_section_column_article">
+																					<div id="image_one">
+																						<img src="{% static 'carre_app/media/products/' %}{{ product.url_product }}.jpg">
+																					</div>
+																					<div id="description_one" class="description_box">
+																						<p>{{ product.name_product }}</p>
+																					</div>
+																					<div class="overlay">
+																						<div class="text">{{product.reference_product|default_if_none:""}}<br>{{ product.name_product }}<br>{{ product.type_id_type|default_if_none:"" }}<br>{{product.dimensions_product|default_if_none:""}}</div>
+																					</div>
+																				</div>
+																			</a>
+								                                        </div>
+								                                        <!-- Modal -->
+																		<div class="modal fade" id="myModal{{ product.reference_product }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+																		  <div class="modal-dialog" role="document">
+																		    <div class="modal-content">
+																		      <div class="modal-header">
+																		        <h5 class="modal-title" id="exampleModalLabel">{{ product.name_product }}</h5>
+																		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+																		          <span aria-hidden="true">&times;</span>
+																		        </button>
+																		      </div>
+																		      <div class="modal-body">
+																		      	<img src="{% static 'carre_app/media/products/' %}{{ product.url_product }}.jpg">
+																		        {% if product.reference_product %}
+																		        Réf : {{ product.reference_product }}
+																		        {%endif %}
+																		        {% if product.couleur_product %}
+																		        Coleurs : {{ product.couleur_product }}
+																		        {%endif %}
+																		        {% if product.dimensions_product %}
+																		        Dimensions : {{ product.dimensions_product }}
+																		        {%endif %}
+																		      </div>
+																		      <div class="modal-footer">
+																		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+																		      </div>
+																		    </div>
+																		  </div>
+																		</div>
+																		{% endif %}
+							                                        {% endfor %}
+							                                    </div>
+														 	</div>
+	                                            		{% endif %}
+	                                            	{% endfor %}
                                             	</div>
                                             {% endif %}
                                         </div>
@@ -345,10 +351,10 @@
 							<a href="#exampleInputMessage">
 								<div class="second_section_column">
 									<div id="image_one">
-										<img src="{% static 'carre_app/media/def.jpg' %}">
+										<img src="{% static 'carre_app/media/contactus.png' %}">
 									</div>
 									<div id="description_one" class="description_box">
-										<p>Lorem ipsum dolor sit amet.</p>
+										<p>Parlons-en !</p>
 									</div>
 								</div>
 							</a>

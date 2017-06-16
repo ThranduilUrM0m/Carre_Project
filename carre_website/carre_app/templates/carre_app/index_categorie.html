@@ -1,5 +1,4 @@
 {% load static %}
-{% load carre_extras %}
 <!doctype html>
 <html lang="en">
 	<head>
@@ -206,6 +205,8 @@
 									 	</a>
 									 	<div id="{{forloop.counter}}" class="sublinks collapse">
 									  		<div class="row">
+
+									  			<!-- if there are more than one collection and at least one collection has multiple products -->
 									  			<div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
 			                                        <a href="{% url 'carre_app:index_collection' 0 x.id_subcategorie 0 %}">
 														<div class="second_section_column_article">
@@ -221,29 +222,80 @@
 														</div>
 													</a>
 			                                    </div>
+
 		                                        {% for y in Product_bySub_list %}
 													{% if y.id_subcategorie.id_subcategorie == x.id_subcategorie %}
-														{% if y.collection_id_collection %}
-															<div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
-						                                        <a href="{% url 'carre_app:index_collection' 0 x.id_subcategorie y.collection_id_collection.id_collection %}">
+															<!-- if collection has more than one product -->
+															{% if the_Categorie|cut:' ' == "Sanitaire" or the_Categorie|cut:' ' == "MeublesS.D.B." %}
+
+															{% if y.collection_id_collection %}
+																<div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+							                                        <a href="{% url 'carre_app:index_collection' 0 x.id_subcategorie y.collection_id_collection.id_collection %}">
+																		<div class="second_section_column_article">
+																			<div id="image_one">
+																				{% if y.collection_id_collection|cut:' ' == "Mars" %}
+																					<img src="{% static 'carre_app/media/' %}{{ y.collection_id_collection|cut:' ' }}0.jpg">
+																				{% else %}
+																					<img src="{% static 'carre_app/media/' %}{{ y.collection_id_collection|cut:' ' }}.jpg">
+																				{% endif %}
+																			</div>
+																			<div id="description_one" class="description_box">
+																				<p>Collection {{ y.collection_id_collection }}</p>
+																			</div>
+																			<div class="overlay">
+																				<div class="text">Nos Produits {{ y.id_subcategorie }} du Collection {{ y.collection_id_collection }}</div>
+																			</div>
+																		</div>
+																	</a>
+							                                    </div>
+							                                {% endif %}
+						                                    <!-- else show the product -->
+						                                    {% else %}
+						                                    <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+					                                            <a href="#" data-toggle="modal" data-target="#myModal{{ y.reference_product }}">
 																	<div class="second_section_column_article">
 																		<div id="image_one">
-																			{% if y.collection_id_collection|cut:' ' == "Mars" %}
-																				<img src="{% static 'carre_app/media/' %}{{ y.collection_id_collection|cut:' ' }}0.jpg">
-																			{% else %}
-																				<img src="{% static 'carre_app/media/' %}{{ y.collection_id_collection|cut:' ' }}.jpg">
-																			{% endif %}
+																			<img src="{% static 'carre_app/media/products/' %}{{ y.url_product }}.jpg">
 																		</div>
 																		<div id="description_one" class="description_box">
-																			<p>{{ y.collection_id_collection }}</p>
+																			<p>{{ y.name_product }}</p>
 																		</div>
 																		<div class="overlay">
-																			<div class="text">{{ y.collection_id_collection.id_collection }}</div>
+																			<div class="text">
+																			{{y.reference_product|default_if_none:""}}<br>{{ y.name_product }} {{x}}<br>{{ y.type_id_type|default_if_none:"" }}<br>{{y.dimensions_product|default_if_none:""}}</div>
 																		</div>
 																	</div>
 																</a>
-						                                    </div>
-														{% endif %}
+					                                        </div>
+					                                        <!-- Modal -->
+															<div class="modal fade" id="myModal{{ y.reference_product }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+															  <div class="modal-dialog" role="document">
+															    <div class="modal-content">
+															      <div class="modal-header">
+															        <h5 class="modal-title" id="exampleModalLabel">{{ y.name_product }}</h5>
+															        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+															          <span aria-hidden="true">&times;</span>
+															        </button>
+															      </div>
+															      <div class="modal-body">
+															      	<img src="{% static 'carre_app/media/products/' %}{{ y.url_product }}.jpg">
+															      	{% if y.reference_product %}
+															        Réf : {{ y.reference_product }}
+															        {%endif %}
+															        {% if y.couleur_product %}
+															        Coleurs : {{ y.couleur_product }}
+															        {%endif %}
+															        {% if y.dimensions_product %}
+															        Dimensions : {{ y.dimensions_product }}
+															        {%endif %}
+															      </div>
+															      <div class="modal-footer">
+															        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+															      </div>
+															    </div>
+															  </div>
+															</div>
+						                                    {% endif %}
 													{% endif %}
 											 	{% endfor %}
 		                                    </div>
@@ -262,7 +314,7 @@
 														<p>{{x}}</p>
 													</div>
 													<div class="overlay">
-														<div class="text">Lorem ipsum dolor sit amet.</div>
+														<div class="text">Nos Produits {{ the_Categorie }} du collection {{x}}</div>
 													</div>
 												</div>
 											</a>
@@ -281,7 +333,7 @@
 																<p>{{element.id_collection}}</p>
 															</div>
 															<div class="overlay">
-																<div class="text">Lorem ipsum dolor sit amet.</div>
+																<div class="text">Collection {{element.id_collection}}</div>
 															</div>
 														</div>
 													</a>
@@ -297,10 +349,10 @@
 							<a href="#exampleInputMessage">
 								<div class="second_section_column">
 									<div id="image_one">
-										<img src="{% static 'carre_app/media/def.jpg' %}">
+										<img src="{% static 'carre_app/media/contactus.png' %}">
 									</div>
 									<div id="description_one" class="description_box">
-										<p>Lorem ipsum dolor sit amet.</p>
+										<p>Parlons-en !</p>
 									</div>
 								</div>
 							</a>

@@ -212,3 +212,14 @@ $(window).bind('mousewheel DOMMouseScroll', function (event) {
    	event.preventDefault();
    }
 });
+
+heads = $('#screwdapanel').find("> .list-group-item");
+if (heads.length == 1) {
+	heads.hide();
+}
+
+$('#screwdapanel').find('> .list-group-item').each(function() {
+    if($(this).next().find('.row').find('> .col-12').length == 0){
+    	$(this).hide();
+    }
+});
