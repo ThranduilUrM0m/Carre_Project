@@ -50,8 +50,8 @@
 			</div>
 		</div>
 		<div class="container-fluid">
-			<div style="position: fixed; top: 10%; left: -6%;"><img src="{% static 'carre_app/media/galalogo.png' %}" width="200"></div>
-			<div style="position: fixed; top: 10%; left: 95%;"><img src="{% static 'carre_app/media/galalogo.png' %}" width="200"></div>
+			<div style="position: fixed; top: 45%; left: -3%; -ms-transform: rotate(90deg); -webkit-transform: rotate(90deg); transform: rotate(90deg);"><img src="{% static 'carre_app/media/galalogo.png' %}" width="200"></div>
+			<div style="position: fixed; top: 45%; left: 88%; -ms-transform: rotate(-90deg); -webkit-transform: rotate(-90deg); transform: rotate(-90deg);"><img src="{% static 'carre_app/media/marque.png' %}" width="200"></div>
 			<!-- header beginning -->
 			<header class="header">
 				<div class="container">
@@ -179,9 +179,6 @@
 						    <div class="text">{{ the_categorie_one|default_if_none:"&nbsp;" }}</div>
 						    <div>{{ the_subCategorie_one|default_if_none:the_collection_one }}</div>
 						    <button type="button" class="btn btn-outline-danger" onclick="window.open('{% url 'carre_app:Catalogue' %}')">Catalogue</button>
-						    <div class="s_x_marque">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-						    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</div>
 						</div>
 					</div>
 				</div>
