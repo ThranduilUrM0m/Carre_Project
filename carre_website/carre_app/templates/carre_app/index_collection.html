@@ -50,8 +50,8 @@
 			</div>
 		</div>
 		<div class="container-fluid">
-			<div style="position: fixed; top: 45%; left: -3%; -ms-transform: rotate(90deg); -webkit-transform: rotate(90deg); transform: rotate(90deg);"><img src="{% static 'carre_app/media/galalogo.png' %}" width="200"></div>
-			<div style="position: fixed; top: 45%; left: 88%; -ms-transform: rotate(-90deg); -webkit-transform: rotate(-90deg); transform: rotate(-90deg);"><img src="{% static 'carre_app/media/marque.png' %}" width="200"></div>
+			<div style="position: fixed; top: 45%; left: -10%; -ms-transform: rotate(90deg); -webkit-transform: rotate(90deg); transform: rotate(90deg);"><img src="{% static 'carre_app/media/galalogo.png' %}" width="400"></div>
+			<div style="position: fixed; top: 25%; left: 73%; -ms-transform: rotate(-90deg); -webkit-transform: rotate(-90deg); transform: rotate(-90deg);"><img src="{% static 'carre_app/media/marque.png' %}" width="500"></div>
 			<!-- header beginning -->
 			<header class="header">
 				<div class="container">
@@ -238,7 +238,7 @@
                                         	{% if the_subCategorie_one %}
 	                                            {% for product in Products %}
 	                                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
-		                                            <a href="#" data-toggle="modal" data-target="#myModal{{ product.reference_product }}">
+		                                            <a href="#" data-toggle="modal" data-target="#myModal{{ product.reference_product|cut:' ' }}">
 														<div class="second_section_column_article">
 															<div id="image_one">
 																<img src="{% static 'carre_app/media/products/' %}{{ product.url_product }}.jpg">
@@ -253,7 +253,7 @@
 													</a>
 		                                        </div>
 		                                        <!-- Modal -->
-												<div class="modal fade" id="myModal{{ product.reference_product }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+												<div class="modal fade" id="myModal{{ product.reference_product|cut:' ' }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 												  <div class="modal-dialog" role="document">
 												    <div class="modal-content">
 												      <div class="modal-header">
@@ -294,7 +294,7 @@
 														  			{% for product in Products %}
 														  				{% if product.id_subcategorie == x %}
 							                                            <div class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
-								                                            <a href="#" data-toggle="modal" data-target="#myModal{{ product.reference_product }}">
+								                                            <a href="#" data-toggle="modal" data-target="#myModal{{ product.reference_product|cut:' ' }}">
 																				<div class="second_section_column_article">
 																					<div id="image_one">
 																						<img src="{% static 'carre_app/media/products/' %}{{ product.url_product }}.jpg">
@@ -309,7 +309,7 @@
 																			</a>
 								                                        </div>
 								                                        <!-- Modal -->
-																		<div class="modal fade" id="myModal{{ product.reference_product }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+																		<div class="modal fade" id="myModal{{ product.reference_product|cut:' ' }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 																		  <div class="modal-dialog" role="document">
 																		    <div class="modal-content">
 																		      <div class="modal-header">
